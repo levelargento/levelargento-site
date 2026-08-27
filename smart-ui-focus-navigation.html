@@ -1,0 +1,171 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Smart UI Focus & Navigation — LevelArgento</title>
+  <meta name="description" content="Smart UI Focus & Navigation is a Unity uGUI tool by LevelArgento for reliable keyboard and gamepad focus, remembered selection, modal restoration, and smarter directional navigation.">
+  <link rel="canonical" href="https://levelargento.com/smart-ui-focus-navigation.html">
+  <meta property="og:title" content="Smart UI Focus & Navigation — LevelArgento">
+  <meta property="og:description" content="Reliable controller and keyboard focus for Unity uGUI. A LevelArgento development project.">
+  <meta property="og:image" content="https://levelargento.com/assets/og-levelargento.jpg">
+  <meta property="og:url" content="https://levelargento.com/smart-ui-focus-navigation.html">
+  <meta property="og:type" content="website">
+  <link rel="icon" type="image/png" href="assets/favicon.png">
+  <link rel="stylesheet" href="assets/styles.css">
+</head>
+<body>
+<header class="site-header">
+  <div class="container nav">
+    <a class="brand" href="index.html" aria-label="LevelArgento home">
+      <img class="brand-mark" src="assets/favicon.png" alt="">
+      <span class="brand-name"><span>Level</span>Argento</span>
+    </a>
+    <button class="menu-button" aria-expanded="false" aria-label="Open navigation">Menu</button>
+    <nav class="nav-links" aria-label="Main navigation">
+      <a href="index.html">Home</a>
+      <a href="products.html" aria-current="page">Products</a>
+      <a href="about.html">About</a>
+      <a class="nav-cta" href="support.html">Support</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+  <section class="product-hero">
+    <div class="container product-hero-grid">
+      <div>
+        <div class="eyebrow">Unity developer tool · In development</div>
+        <h1>Smart UI Focus<br><span class="accent">& Navigation</span></h1>
+        <p class="lead">Reliable controller and keyboard focus for Unity uGUI, designed to work with the UI structure you already have.</p>
+        <div class="hero-actions">
+          <a class="button button-primary" href="#work-sample">View work sample</a>
+          <a class="button button-secondary" href="mailto:support@levelargento.com?subject=Smart%20UI%20Focus%20%26%20Navigation">Contact LevelArgento</a>
+        </div>
+        <div class="product-meta" aria-label="Product details">
+          <span>Unity uGUI</span>
+          <span>New Input System</span>
+          <span>Keyboard + Gamepad</span>
+        </div>
+      </div>
+
+      <div class="ui-preview" aria-label="Stylized preview of Smart UI Focus and Navigation capabilities">
+        <div class="preview-topbar">
+          <span class="preview-dot"></span>
+          <strong>Focus Management Sample</strong>
+          <span class="preview-status">GAMEPAD</span>
+        </div>
+        <div class="preview-body">
+          <div class="preview-sidebar">
+            <span class="preview-label">MENU</span>
+            <div class="preview-button">Continue</div>
+            <div class="preview-button preview-selected">Options <span>FOCUSED</span></div>
+            <div class="preview-button">Controls</div>
+            <div class="preview-button preview-disabled">Unavailable</div>
+          </div>
+          <div class="preview-content">
+            <div class="preview-card">
+              <span class="preview-label">FOCUS RECOVERY</span>
+              <strong>Selection stays usable.</strong>
+              <p>If the active control becomes invalid, focus can recover to a valid target.</p>
+            </div>
+            <div class="preview-card preview-card-accent">
+              <span class="preview-label">MENU CONTINUITY</span>
+              <strong>Remember exact selection.</strong>
+              <p>Return to a scope or close a modal and restore the control the player was using.</p>
+            </div>
+          </div>
+        </div>
+        <div class="preview-footer"><span>← ↑ ↓ → Navigate</span><span>Enter / South Submit</span><span>Mouse supported</span></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="work-sample">
+    <div class="container">
+      <div class="section-heading">
+        <div class="eyebrow">Work sample</div>
+        <h2>Solving the focus problems that show up in real menus.</h2>
+        <p>Smart UI Focus & Navigation is a current LevelArgento Unity project focused on dependable menu navigation rather than replacing the entire UI framework.</p>
+      </div>
+
+      <div class="feature-grid feature-grid-two">
+        <article class="card feature-card">
+          <div class="card-icon">01</div>
+          <h3>Automatic focus recovery</h3>
+          <p>Recover when the currently selected uGUI control becomes inactive, disabled, or non-interactable.</p>
+        </article>
+        <article class="card feature-card">
+          <div class="card-icon">02</div>
+          <h3>Remembered selection</h3>
+          <p>Restore the exact selection when users leave and return to a menu or focus scope.</p>
+        </article>
+        <article class="card feature-card">
+          <div class="card-icon">03</div>
+          <h3>Modal restoration</h3>
+          <p>Open a modal and return focus to the exact control that launched it when the modal closes.</p>
+        </article>
+        <article class="card feature-card">
+          <div class="card-icon">04</div>
+          <h3>Smarter directional navigation</h3>
+          <p>Handle irregular layouts and ragged grids while still allowing per-direction Auto, None, and Explicit overrides.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="section-tight">
+    <div class="container proof-panel">
+      <div>
+        <div class="eyebrow">Current development status</div>
+        <h2>Built and validated in Unity.</h2>
+        <p>The current development baseline has been validated in Unity 6000.3.19f1 with uGUI and the New Input System. The project includes automated EditMode coverage for focus management, input mode detection, dynamic navigation, layout constraints, navigation overrides, and directional navigation utilities.</p>
+      </div>
+      <div class="proof-metric">
+        <strong>49 / 49</strong>
+        <span>EditMode tests passing</span>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <div class="section-heading">
+        <div class="eyebrow">Development preview</div>
+        <h2>Real project screenshots are coming next.</h2>
+        <p>The sample scene is currently receiving its final visual polish. This page will be updated with actual Unity screenshots before the product is released.</p>
+      </div>
+      <div class="screenshot-placeholder">
+        <div class="screenshot-placeholder-inner">
+          <span class="badge">Screenshot slot</span>
+          <strong>Focus Management Sample · 1920×1080</strong>
+          <p>Reserved for the final LevelArgento-polished sample scene screenshot.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container callout">
+      <div>
+        <h2>Interested in Smart UI Focus & Navigation?</h2>
+        <p>The Unity Asset Store release is in preparation. Product documentation and release links will be added here when available.</p>
+      </div>
+      <a class="button button-primary" href="mailto:support@levelargento.com?subject=Smart%20UI%20Focus%20%26%20Navigation">Contact us</a>
+    </div>
+  </section>
+</main>
+
+<footer class="site-footer">
+  <div class="container footer-grid">
+    <div class="small">© <span data-year></span> LevelArgento. All rights reserved.</div>
+    <div class="footer-links small">
+      <a href="products.html">Products</a>
+      <a href="about.html">About</a>
+      <a href="support.html">Support</a>
+    </div>
+  </div>
+</footer>
+<script src="assets/site.js"></script>
+</body>
+</html>
