@@ -1,0 +1,1156 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Reliable controller and keyboard focus for Unity uGUI.">
+      
+      
+        <meta name="author" content="LevelArgento">
+      
+      
+        <link rel="canonical" href="https://levelargento.com/docs/smart-ui-focus-navigation/api-reference/">
+      
+      
+        <link rel="prev" href="../sample-scene/">
+      
+      
+        <link rel="next" href="../troubleshooting/">
+      
+      
+      <link rel="icon" href="../assets/branding/favicon-48.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.14">
+    
+    
+      
+        <title>API reference - Smart UI Focus & Navigation</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.342714a4.min.css">
+      
+        
+        <link rel="stylesheet" href="../assets/stylesheets/palette.06af60db.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../stylesheets/extra.css">
+    
+    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="custom" data-md-color-accent="custom">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#api-reference" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href=".." title="Smart UI Focus &amp; Navigation" class="md-header__button md-logo" aria-label="Smart UI Focus & Navigation" data-md-component="logo">
+      
+  <img src="../assets/branding/levelargento-mark-512.png" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Smart UI Focus & Navigation
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              API reference
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+    
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href=".." title="Smart UI Focus &amp; Navigation" class="md-nav__button md-logo" aria-label="Smart UI Focus & Navigation" data-md-component="logo">
+      
+  <img src="../assets/branding/levelargento-mark-512.png" alt="logo">
+
+    </a>
+    Smart UI Focus & Navigation
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href=".." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Home
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../installation/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Installation
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../getting-started/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Getting started
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../focus-management/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Focus management
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../modals/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Modals
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../input-modes/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Input modes
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../smart-navigation/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Smart navigation
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../layout-constraints/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Layout constraints
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../navigation-overrides/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Navigation overrides
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../dynamic-ui/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Dynamic UI
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../sample-scene/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Sample scene
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    API reference
+    
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    API reference
+    
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#smartfocusmanager" class="md-nav__link">
+    <span class="md-ellipsis">
+      SmartFocusManager
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#smartfocusscope" class="md-nav__link">
+    <span class="md-ellipsis">
+      SmartFocusScope
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#smartinputmode" class="md-nav__link">
+    <span class="md-ellipsis">
+      SmartInputMode
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#smartinputmodedetector" class="md-nav__link">
+    <span class="md-ellipsis">
+      SmartInputModeDetector
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#smartnavigationgroup" class="md-nav__link">
+    <span class="md-ellipsis">
+      SmartNavigationGroup
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#smartnavigationtopology" class="md-nav__link">
+    <span class="md-ellipsis">
+      SmartNavigationTopology
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#smartnavigationlayoutconstraint" class="md-nav__link">
+    <span class="md-ellipsis">
+      SmartNavigationLayoutConstraint
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#smartnavigationoverridemode" class="md-nav__link">
+    <span class="md-ellipsis">
+      SmartNavigationOverrideMode
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#smartnavigationdirectionoverride" class="md-nav__link">
+    <span class="md-ellipsis">
+      SmartNavigationDirectionOverride
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#smartnavigationoverride" class="md-nav__link">
+    <span class="md-ellipsis">
+      SmartNavigationOverride
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../troubleshooting/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Troubleshooting
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../requirements-and-compatibility/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Requirements & Compatibility
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../changelog/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Changelog
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../support/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Support
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#smartfocusmanager" class="md-nav__link">
+    <span class="md-ellipsis">
+      SmartFocusManager
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#smartfocusscope" class="md-nav__link">
+    <span class="md-ellipsis">
+      SmartFocusScope
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#smartinputmode" class="md-nav__link">
+    <span class="md-ellipsis">
+      SmartInputMode
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#smartinputmodedetector" class="md-nav__link">
+    <span class="md-ellipsis">
+      SmartInputModeDetector
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#smartnavigationgroup" class="md-nav__link">
+    <span class="md-ellipsis">
+      SmartNavigationGroup
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#smartnavigationtopology" class="md-nav__link">
+    <span class="md-ellipsis">
+      SmartNavigationTopology
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#smartnavigationlayoutconstraint" class="md-nav__link">
+    <span class="md-ellipsis">
+      SmartNavigationLayoutConstraint
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#smartnavigationoverridemode" class="md-nav__link">
+    <span class="md-ellipsis">
+      SmartNavigationOverrideMode
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#smartnavigationdirectionoverride" class="md-nav__link">
+    <span class="md-ellipsis">
+      SmartNavigationDirectionOverride
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#smartnavigationoverride" class="md-nav__link">
+    <span class="md-ellipsis">
+      SmartNavigationOverride
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<h1 id="api-reference">API reference<a class="headerlink" href="#api-reference" title="Permanent link">&para;</a></h1>
+<p>All public runtime types use the namespace:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="n">LevelArgento</span><span class="p">.</span><span class="n">SmartUINavigation</span>
+</code></pre></div>
+<h2 id="smartfocusmanager">SmartFocusManager<a class="headerlink" href="#smartfocusmanager" title="Permanent link">&para;</a></h2>
+<p><code>sealed class SmartFocusManager : MonoBehaviour</code></p>
+<table>
+<thead>
+<tr>
+<th>Member</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>SmartFocusScope CurrentScope { get; }</code></td>
+<td>Current monitored scope.</td>
+</tr>
+<tr>
+<td><code>EventSystem EventSystem { get; }</code></td>
+<td>Assigned or resolved EventSystem.</td>
+</tr>
+<tr>
+<td><code>SmartInputModeDetector InputModeDetector { get; }</code></td>
+<td>Configured optional detector.</td>
+</tr>
+<tr>
+<td><code>void SetScope(SmartFocusScope scope)</code></td>
+<td>Changes scope, clears modal history, and resolves focus. <code>null</code> stops monitoring without changing selection.</td>
+</tr>
+<tr>
+<td><code>bool PushModal(SmartFocusScope modalScope)</code></td>
+<td>Pushes an active modal scope and records the current base selection.</td>
+</tr>
+<tr>
+<td><code>bool PopModal()</code></td>
+<td>Pops one modal entry and restores its saved selection or the base scope fallback.</td>
+</tr>
+<tr>
+<td><code>bool RequestFocus(Selectable selectable)</code></td>
+<td>Selects a valid control within the current scope.</td>
+</tr>
+<tr>
+<td><code>bool RecoverFocus()</code></td>
+<td>Resolves remembered, default, then first valid descendant focus.</td>
+</tr>
+</tbody>
+</table>
+<h2 id="smartfocusscope">SmartFocusScope<a class="headerlink" href="#smartfocusscope" title="Permanent link">&para;</a></h2>
+<p><code>sealed class SmartFocusScope : MonoBehaviour</code></p>
+<table>
+<thead>
+<tr>
+<th>Member</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>Selectable DefaultSelection { get; set; }</code></td>
+<td>Preferred target when no valid remembered target exists.</td>
+</tr>
+<tr>
+<td><code>bool RememberLastSelection { get; set; }</code></td>
+<td>Enables scope selection memory. Setting <code>false</code> clears current memory.</td>
+</tr>
+<tr>
+<td><code>void ClearRememberedSelection()</code></td>
+<td>Clears the stored selection.</td>
+</tr>
+</tbody>
+</table>
+<h2 id="smartinputmode">SmartInputMode<a class="headerlink" href="#smartinputmode" title="Permanent link">&para;</a></h2>
+<p><code>enum SmartInputMode</code></p>
+<p>Values: <code>Mouse</code>, <code>Keyboard</code>, <code>Gamepad</code>.</p>
+<h2 id="smartinputmodedetector">SmartInputModeDetector<a class="headerlink" href="#smartinputmodedetector" title="Permanent link">&para;</a></h2>
+<p><code>sealed class SmartInputModeDetector : MonoBehaviour</code></p>
+<table>
+<thead>
+<tr>
+<th>Member</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>SmartInputMode CurrentMode { get; }</code></td>
+<td>Current detected UI input mode.</td>
+</tr>
+<tr>
+<td><code>event Action&lt;SmartInputMode&gt; ModeChanged</code></td>
+<td>Raised after the mode changes.</td>
+</tr>
+</tbody>
+</table>
+<p>Input action references and mouse movement threshold are configured in the Inspector.</p>
+<h2 id="smartnavigationgroup">SmartNavigationGroup<a class="headerlink" href="#smartnavigationgroup" title="Permanent link">&para;</a></h2>
+<p><code>sealed class SmartNavigationGroup : MonoBehaviour, ILayoutController</code></p>
+<table>
+<thead>
+<tr>
+<th>Member</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>bool RebuildAutomatically { get; set; }</code></td>
+<td>Enables deferred rebuilding after relevant changes. Enabling it marks the group dirty.</td>
+</tr>
+<tr>
+<td><code>void RebuildNavigation()</code></td>
+<td>Immediately collects valid participants and writes Explicit directional links from current screen-space layout.</td>
+</tr>
+<tr>
+<td><code>void MarkNavigationDirty()</code></td>
+<td>Marks the group dirty. An automatic rebuild occurs only when <code>RebuildAutomatically</code> is enabled.</td>
+</tr>
+<tr>
+<td><code>void SetLayoutHorizontal()</code></td>
+<td>Unity layout callback that marks the group dirty. Applications normally do not call it directly.</td>
+</tr>
+<tr>
+<td><code>void SetLayoutVertical()</code></td>
+<td>Unity layout callback that marks the group dirty. Applications normally do not call it directly.</td>
+</tr>
+</tbody>
+</table>
+<h2 id="smartnavigationtopology">SmartNavigationTopology<a class="headerlink" href="#smartnavigationtopology" title="Permanent link">&para;</a></h2>
+<p><code>enum SmartNavigationTopology</code></p>
+<table>
+<thead>
+<tr>
+<th>Value</th>
+<th>Behavior</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>Freeform</code></td>
+<td>Allows all directions and spatial scoring.</td>
+</tr>
+<tr>
+<td><code>VerticalList</code></td>
+<td>Allows Up and Down only.</td>
+</tr>
+<tr>
+<td><code>HorizontalList</code></td>
+<td>Allows Left and Right only.</td>
+</tr>
+<tr>
+<td><code>Grid</code></td>
+<td>Preserves visual row and column lanes.</td>
+</tr>
+</tbody>
+</table>
+<h2 id="smartnavigationlayoutconstraint">SmartNavigationLayoutConstraint<a class="headerlink" href="#smartnavigationlayoutconstraint" title="Permanent link">&para;</a></h2>
+<p><code>sealed class SmartNavigationLayoutConstraint : MonoBehaviour</code></p>
+<table>
+<thead>
+<tr>
+<th>Member</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>SmartNavigationTopology Topology { get; set; }</code></td>
+<td>Topology applied on the next navigation rebuild. Setting it marks the owning group dirty.</td>
+</tr>
+</tbody>
+</table>
+<h2 id="smartnavigationoverridemode">SmartNavigationOverrideMode<a class="headerlink" href="#smartnavigationoverridemode" title="Permanent link">&para;</a></h2>
+<p><code>enum SmartNavigationOverrideMode</code></p>
+<p>Values: <code>Auto</code>, <code>None</code>, <code>Explicit</code>.</p>
+<h2 id="smartnavigationdirectionoverride">SmartNavigationDirectionOverride<a class="headerlink" href="#smartnavigationdirectionoverride" title="Permanent link">&para;</a></h2>
+<p><code>struct SmartNavigationDirectionOverride</code></p>
+<table>
+<thead>
+<tr>
+<th>Member</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>SmartNavigationDirectionOverride(SmartNavigationOverrideMode mode, Selectable explicitTarget = null)</code></td>
+<td>Creates one direction setting.</td>
+</tr>
+<tr>
+<td><code>SmartNavigationOverrideMode Mode { get; set; }</code></td>
+<td>Resolution mode.</td>
+</tr>
+<tr>
+<td><code>Selectable ExplicitTarget { get; set; }</code></td>
+<td>Target used by Explicit mode.</td>
+</tr>
+</tbody>
+</table>
+<p>Changing fields on a local struct copy does not update a component property until the struct is assigned back.</p>
+<h2 id="smartnavigationoverride">SmartNavigationOverride<a class="headerlink" href="#smartnavigationoverride" title="Permanent link">&para;</a></h2>
+<p><code>sealed class SmartNavigationOverride : MonoBehaviour</code></p>
+<table>
+<thead>
+<tr>
+<th>Member</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>SmartNavigationDirectionOverride Up { get; set; }</code></td>
+<td>Up override.</td>
+</tr>
+<tr>
+<td><code>SmartNavigationDirectionOverride Down { get; set; }</code></td>
+<td>Down override.</td>
+</tr>
+<tr>
+<td><code>SmartNavigationDirectionOverride Left { get; set; }</code></td>
+<td>Left override.</td>
+</tr>
+<tr>
+<td><code>SmartNavigationDirectionOverride Right { get; set; }</code></td>
+<td>Right override.</td>
+</tr>
+</tbody>
+</table>
+<p>Setting a direction property marks the owning navigation group dirty.</p>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  Back to top
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    
+      
+      <nav class="md-footer__inner md-grid" aria-label="Footer" >
+        
+          
+          <a href="../sample-scene/" class="md-footer__link md-footer__link--prev" aria-label="Previous: Sample scene">
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+            </div>
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Previous
+              </span>
+              <div class="md-ellipsis">
+                Sample scene
+              </div>
+            </div>
+          </a>
+        
+        
+          
+          <a href="../troubleshooting/" class="md-footer__link md-footer__link--next" aria-label="Next: Troubleshooting">
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Next
+              </span>
+              <div class="md-ellipsis">
+                Troubleshooting
+              </div>
+            </div>
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11z"/></svg>
+            </div>
+          </a>
+        
+      </nav>
+    
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      Copyright &copy; LevelArgento
+    </div>
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      <script id="__config" type="application/json">{"base": "..", "features": ["navigation.sections", "navigation.footer", "navigation.top", "search.suggest", "search.highlight", "content.code.copy"], "search": "../assets/javascripts/workers/search.d50fe291.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.13a4f30d.min.js"></script>
+      
+    
+  </body>
+</html>
