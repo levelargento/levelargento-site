@@ -712,7 +712,7 @@
 
 
 <h1 id="dynamic-ui">Dynamic UI<a class="headerlink" href="#dynamic-ui" title="Permanent link">&para;</a></h1>
-<p><code>SmartNavigationGroup</code> supports common runtime changes without rebuilding continuously when nothing has changed.</p>
+<p>The Navigation Group (<code>SmartNavigationGroup</code>) component supports common runtime changes without rebuilding continuously when nothing has changed.</p>
 <p>With <strong>Rebuild Automatically</strong> enabled, it detects or receives dirty signals for:</p>
 <ul>
 <li>added and removed <code>Selectable</code> controls;</li>
@@ -761,7 +761,7 @@
 <p><code>MarkNavigationDirty()</code> records the dirty state but does not rebuild while <code>RebuildAutomatically</code> is <code>false</code>. Call <code>RebuildNavigation()</code> explicitly after layout settles.</p>
 <h2 id="removed-controls">Removed controls<a class="headerlink" href="#removed-controls" title="Permanent link">&para;</a></h2>
 <p>Rebuilding stops removed or invalid controls from being targets of current participants. A removed control may retain the explicit navigation previously written to its own <code>Selectable</code>, because it is no longer part of the group being rebuilt. Clear or replace that control's navigation if it will be reused elsewhere.</p>
-<p>If the selected control becomes invalid during a content change, <code>SmartFocusManager</code> can recover selection within the active focus scope according to its configured input-mode policy.</p>
+<p>If the selected control becomes invalid during a content change, the Focus Manager (<code>SmartFocusManager</code>) component can recover selection within the active focus scope according to its configured input-mode policy.</p>
 
 
 

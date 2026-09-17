@@ -712,7 +712,7 @@
 
 
 <h1 id="smart-navigation">Smart navigation<a class="headerlink" href="#smart-navigation" title="Permanent link">&para;</a></h1>
-<p><code>SmartNavigationGroup</code> generates Up, Down, Left, and Right targets for uGUI <code>Selectable</code> controls beneath it. It uses current screen-space <code>RectTransform</code> bounds to prefer candidates in the requested direction with sensible alignment and proximity.</p>
+<p>The Navigation Group (<code>SmartNavigationGroup</code>) component generates Up, Down, Left, and Right targets for uGUI <code>Selectable</code> controls beneath it. It uses current screen-space <code>RectTransform</code> bounds to prefer candidates in the requested direction with sensible alignment and proximity.</p>
 <p>The result is deterministic for the same hierarchy and layout. It is intended for irregular menus and structured layouts where explicit, reproducible links are preferable to Unity's runtime Automatic mode. Ordinary menus may work equally well with Unity's built-in navigation.</p>
 <figure class="levelargento-media levelargento-media-video">
   <video autoplay muted loop playsinline preload="metadata" aria-label="Irregular smart navigation demonstration">
@@ -729,14 +729,14 @@
 <li>use a <code>RectTransform</code>;</li>
 <li>be active and enabled;</li>
 <li>be interactable; and</li>
-<li>not belong to a nested <code>SmartNavigationGroup</code>.</li>
+<li>not belong to a nested Navigation Group.</li>
 </ul>
 <p>Invalid controls are excluded as navigation targets. Transition settings, colors, animation triggers, and target graphics are not changed.</p>
 <h2 id="generated-links-are-explicit">Generated links are Explicit<a class="headerlink" href="#generated-links-are-explicit" title="Permanent link">&para;</a></h2>
 <p><code>RebuildNavigation()</code> calculates all four directions, applies any active <a href="../navigation-overrides/">manual overrides</a>, and writes the result to each participant's <code>Selectable.navigation</code> property using <code>Navigation.Mode.Explicit</code>.</p>
 <p>This replaces the participant's previous navigation mode and directional targets. It does not permanently modify unrelated controls outside the group. A control removed from the group can retain navigation that was previously written directly onto that control; reset or rebuild it elsewhere if that matters to the application.</p>
 <h2 id="rebuilding">Rebuilding<a class="headerlink" href="#rebuilding" title="Permanent link">&para;</a></h2>
-<p><code>RebuildAutomatically</code> is enabled by default. The group marks itself dirty for relevant hierarchy, layout, validity, and transform changes, then rebuilds before a later canvas render.</p>
+<p><strong>Rebuild Automatically</strong> is enabled by default. The group marks itself dirty for relevant hierarchy, layout, validity, and transform changes, then rebuilds before a later canvas render.</p>
 <p>Use the public methods when coordinating custom UI code:</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="n">navigationGroup</span><span class="p">.</span><span class="n">MarkNavigationDirty</span><span class="p">();</span>
 </code></pre></div>
@@ -746,7 +746,7 @@
 <p>The component also exposes <strong>Rebuild Navigation</strong> in its context menu.</p>
 <p>For runtime-generated layouts, allow Unity's layout system to update positions before rebuilding. See <a href="../dynamic-ui/">dynamic UI</a>.</p>
 <h2 id="structured-content">Structured content<a class="headerlink" href="#structured-content" title="Permanent link">&para;</a></h2>
-<p>Add <code>SmartNavigationLayoutConstraint</code> around list or grid content when its topology should control valid directions. Freeform controls continue to use spatial candidate scoring. See <a href="../layout-constraints/">layout constraints</a>.</p>
+<p>Add the Layout Constraint (<code>SmartNavigationLayoutConstraint</code>) component around list or grid content when its topology should control valid directions. Freeform controls continue to use spatial candidate scoring. See <a href="../layout-constraints/">layout constraints</a>.</p>
 
 
 

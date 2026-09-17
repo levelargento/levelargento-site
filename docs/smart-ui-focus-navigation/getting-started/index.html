@@ -716,12 +716,12 @@
 <h2 id="configure-the-scene">Configure the scene<a class="headerlink" href="#configure-the-scene" title="Permanent link">&para;</a></h2>
 <ol>
 <li>Ensure the scene contains one active <code>EventSystem</code> with <code>InputSystemUIInputModule</code>.</li>
-<li>Add <code>SmartFocusManager</code> to a scene object and assign the EventSystem.</li>
-<li>Add <code>SmartFocusScope</code> to the root of a menu or panel.</li>
+<li>Add the Focus Manager (<code>SmartFocusManager</code>) component to a scene object and assign its <strong>Event System</strong> field.</li>
+<li>Add the Focus Scope (<code>SmartFocusScope</code>) component to the root of a menu or panel.</li>
 <li>Assign a valid child <code>Selectable</code> to <strong>Default Selection</strong>.</li>
 <li>Leave <strong>Remember Last Selection</strong> enabled if returning to the menu should restore its last valid selection.</li>
 <li>Assign the scope to the manager's <strong>Initial Scope</strong>, or call <code>SetScope</code> when the menu opens.</li>
-<li>For mouse-aware focus recovery, add <code>SmartInputModeDetector</code>, assign its UI action references, and assign the detector to the manager.</li>
+<li>For mouse-aware focus recovery, add the Input Mode Detector (<code>SmartInputModeDetector</code>) component. Assign its <strong>Navigation Action</strong>, <strong>Submit Action</strong>, <strong>Cancel Action</strong>, <strong>Point Action</strong>, and <strong>Click Action</strong> fields, then assign the detector to the Focus Manager's <strong>Input Mode Detector</strong> field.</li>
 <li>Enter Play Mode and test with keyboard and gamepad navigation.</li>
 </ol>
 <p>The scope and its default control must be active when focus is requested.</p>
@@ -767,7 +767,7 @@
 </code></pre></div>
 <p><code>RequestFocus</code> returns <code>false</code> if the target is outside the current scope, inactive, disabled, or non-interactable.</p>
 <h2 id="optional-smart-navigation">Optional smart navigation<a class="headerlink" href="#optional-smart-navigation" title="Permanent link">&para;</a></h2>
-<p>For menus that need generated directional links, add <code>SmartNavigationGroup</code> to a common ancestor of the participating controls. It rebuilds after layout and hierarchy changes by default. See <a href="../smart-navigation/">smart navigation</a> before applying it to an existing navigation setup, because rebuilding writes <code>Navigation.Mode.Explicit</code> links.</p>
+<p>For menus that need generated directional links, add the Navigation Group (<code>SmartNavigationGroup</code>) component to a common ancestor of the participating controls. It rebuilds after layout and hierarchy changes by default. See <a href="../smart-navigation/">smart navigation</a> before applying it to an existing navigation setup, because rebuilding writes <code>Navigation.Mode.Explicit</code> links.</p>
 
 
 

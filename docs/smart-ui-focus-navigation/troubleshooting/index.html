@@ -859,7 +859,7 @@
 <h2 id="mouse-and-gamepad-behavior-differs-from-expectation">Mouse and gamepad behavior differs from expectation<a class="headerlink" href="#mouse-and-gamepad-behavior-differs-from-expectation" title="Permanent link">&para;</a></h2>
 <p><strong>Symptom:</strong> Focus is not recovered during mouse use, or selection recovers more aggressively without a detector.</p>
 <p><strong>Likely cause:</strong> This is the manager's current input-mode policy.</p>
-<p><strong>Fix/check:</strong> Assign and configure <code>SmartInputModeDetector</code> when Mouse mode should pause recovery. Verify pointer, click, navigation, submit, and cancel references use the active UI action map.</p>
+<p><strong>Fix/check:</strong> Assign and configure the Input Mode Detector (<code>SmartInputModeDetector</code>) component when Mouse mode should pause recovery. Verify <strong>Point Action</strong>, <strong>Click Action</strong>, <strong>Navigation Action</strong>, <strong>Submit Action</strong>, and <strong>Cancel Action</strong> use the active UI action map.</p>
 
 
 

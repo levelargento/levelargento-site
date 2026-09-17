@@ -694,7 +694,7 @@
 
 
 <h1 id="input-modes">Input modes<a class="headerlink" href="#input-modes" title="Permanent link">&para;</a></h1>
-<p><code>SmartInputModeDetector</code> reports which device category most recently produced relevant UI activity.</p>
+<p>The Input Mode Detector (<code>SmartInputModeDetector</code>) component reports which device category most recently produced relevant UI activity.</p>
 <h2 id="modes">Modes<a class="headerlink" href="#modes" title="Permanent link">&para;</a></h2>
 <p><code>SmartInputMode</code> contains:</p>
 <ul>
@@ -729,16 +729,16 @@
 </code></pre></div>
 <p>The event is raised only when the mode changes.</p>
 <figure class="levelargento-media levelargento-media-compact">
-  <img src="../assets/images/smart-input-mode-detector-inspector.png" alt="SmartInputModeDetector Inspector with UI action references" loading="lazy">
+  <img src="../assets/images/smart-input-mode-detector-inspector.png" alt="Input Mode Detector Inspector with UI action references" loading="lazy">
   <figcaption>The detector observes the same navigation, submit, cancel, point, and click actions used by the UI module.</figcaption>
 </figure>
 
 <h2 id="action-configuration">Action configuration<a class="headerlink" href="#action-configuration" title="Permanent link">&para;</a></h2>
-<p>Assign the detector's navigation, submit, cancel, pointer-position, and click references from the UI action map used by <code>InputSystemUIInputModule</code>. Those actions must be enabled by the input module or project code. The detector does not manage action lifetime.</p>
+<p>Assign <strong>Navigation Action</strong>, <strong>Submit Action</strong>, <strong>Cancel Action</strong>, <strong>Point Action</strong>, and <strong>Click Action</strong> from the UI action map used by <code>InputSystemUIInputModule</code>. Those actions must be enabled by the input module or project code. The detector does not manage action lifetime.</p>
 <p>Keyboard navigation, submit, or cancel activity selects Keyboard mode. Gamepad navigation, submit, or cancel activity selects Gamepad mode. Mouse movement meeting or exceeding the configured pixel threshold, or a mouse click, selects Mouse mode.</p>
 <p>For gamepad navigation, the detector reads the action's processed <code>Vector2</code>. Keep the same navigation action and processors used by the UI module. A stick value removed by the action's deadzone remains zero and does not count as intentional navigation.</p>
 <h2 id="focus-policy">Focus policy<a class="headerlink" href="#focus-policy" title="Permanent link">&para;</a></h2>
-<p>When assigned to <code>SmartFocusManager</code>, Mouse mode prevents automatic recovery from unnecessarily forcing selection back onto a <code>Selectable</code> during pointer interaction. Relevant keyboard or gamepad activity can restore a valid focus target if the current selection is invalid.</p>
+<p>When assigned to the Focus Manager (<code>SmartFocusManager</code>) component, Mouse mode prevents automatic recovery from unnecessarily forcing selection back onto a <code>Selectable</code> during pointer interaction. Relevant keyboard or gamepad activity can restore a valid focus target if the current selection is invalid.</p>
 <p>This is a focused policy for uGUI selection recovery. It does not define every possible hover, cursor, or mixed-input presentation rule for an application.</p>
 
 

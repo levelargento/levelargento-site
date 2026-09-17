@@ -335,18 +335,18 @@
 </li>
 
         <li class="md-nav__item">
-  <a href="#smartfocusmanager" class="md-nav__link">
+  <a href="#focus-manager" class="md-nav__link">
     <span class="md-ellipsis">
-      SmartFocusManager
+      Focus Manager
     </span>
   </a>
 
 </li>
 
         <li class="md-nav__item">
-  <a href="#smartfocusscope" class="md-nav__link">
+  <a href="#focus-scope" class="md-nav__link">
     <span class="md-ellipsis">
-      SmartFocusScope
+      Focus Scope
     </span>
   </a>
 
@@ -669,18 +669,18 @@
 </li>
 
         <li class="md-nav__item">
-  <a href="#smartfocusmanager" class="md-nav__link">
+  <a href="#focus-manager" class="md-nav__link">
     <span class="md-ellipsis">
-      SmartFocusManager
+      Focus Manager
     </span>
   </a>
 
 </li>
 
         <li class="md-nav__item">
-  <a href="#smartfocusscope" class="md-nav__link">
+  <a href="#focus-scope" class="md-nav__link">
     <span class="md-ellipsis">
-      SmartFocusScope
+      Focus Scope
     </span>
   </a>
 
@@ -712,7 +712,7 @@
 
 
 <h1 id="focus-management">Focus management<a class="headerlink" href="#focus-management" title="Permanent link">&para;</a></h1>
-<p><code>SmartFocusManager</code> coordinates the active menu scope. <code>SmartFocusScope</code> defines which descendant <code>Selectable</code> controls belong to that menu and optionally remembers the last valid selection.</p>
+<p>The Focus Manager (<code>SmartFocusManager</code>) component coordinates the active menu scope. The Focus Scope (<code>SmartFocusScope</code>) component defines which descendant <code>Selectable</code> controls belong to that menu and optionally remembers the last valid selection.</p>
 <h2 id="focus-target-precedence">Focus target precedence<a class="headerlink" href="#focus-target-precedence" title="Permanent link">&para;</a></h2>
 <p>When a scope needs focus, its target is resolved in this order:</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>remembered selection
@@ -722,7 +722,7 @@
 <a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a>first valid descendant Selectable
 </code></pre></div>
 <p>A valid target must belong to the active scope and be active, enabled, and interactable. An invalid remembered or default selection is skipped.</p>
-<h2 id="smartfocusmanager">SmartFocusManager<a class="headerlink" href="#smartfocusmanager" title="Permanent link">&para;</a></h2>
+<h2 id="focus-manager">Focus Manager<a class="headerlink" href="#focus-manager" title="Permanent link">&para;</a></h2>
 <p>Configure these Inspector fields:</p>
 <ul>
 <li><strong>Event System</strong>: the managed EventSystem. If empty, the manager resolves <code>EventSystem.current</code>.</li>
@@ -731,7 +731,7 @@
 <li><strong>Recover Invalid Selection</strong>: restores a valid focus target when the current selection becomes invalid.</li>
 </ul>
 <figure class="levelargento-media levelargento-media-compact">
-  <img src="../assets/images/smart-focus-manager-inspector.png" alt="SmartFocusManager Inspector configuration" loading="lazy">
+  <img src="../assets/images/smart-focus-manager-inspector.png" alt="Focus Manager Inspector configuration" loading="lazy">
   <figcaption>A manager can reference the EventSystem, initial scope, and optional input-mode detector explicitly.</figcaption>
 </figure>
 
@@ -743,10 +743,10 @@
 <li><code>PushModal(scope)</code> and <code>PopModal()</code> manage modal focus restoration.</li>
 </ul>
 <p><code>SetScope(null)</code> stops scope monitoring without changing the current EventSystem selection. Every <code>SetScope</code> call also clears pending modal restoration history; use <code>PushModal</code> and <code>PopModal</code> for modal flows.</p>
-<h2 id="smartfocusscope">SmartFocusScope<a class="headerlink" href="#smartfocusscope" title="Permanent link">&para;</a></h2>
+<h2 id="focus-scope">Focus Scope<a class="headerlink" href="#focus-scope" title="Permanent link">&para;</a></h2>
 <p>Set <strong>Default Selection</strong> to the control that should receive focus when the scope has no valid memory. <strong>Remember Last Selection</strong> is enabled by default. Disable it when every entry should start from the default or first valid descendant.</p>
 <figure class="levelargento-media levelargento-media-compact">
-  <img src="../assets/images/smart-focus-scope-inspector.png" alt="SmartFocusScope Inspector with Default Selection and Remember Last Selection" loading="lazy">
+  <img src="../assets/images/smart-focus-scope-inspector.png" alt="Focus Scope Inspector with Default Selection and Remember Last Selection" loading="lazy">
   <figcaption>Each scope defines its own default and selection-memory policy.</figcaption>
 </figure>
 
@@ -764,7 +764,7 @@
 <li>on a disabled <code>Selectable</code>; or</li>
 <li>non-interactable.</li>
 </ul>
-<p>When an active <code>SmartInputModeDetector</code> is assigned, automatic recovery pauses in Mouse mode. Keyboard or gamepad UI activity can restore valid focus when needed. Without an active detector, recovery remains enabled regardless of pointer activity.</p>
+<p>When an active Input Mode Detector (<code>SmartInputModeDetector</code>) is assigned, automatic recovery pauses in Mouse mode. Keyboard or gamepad UI activity can restore valid focus when needed. Without an active detector, recovery remains enabled regardless of pointer activity.</p>
 <figure class="levelargento-media levelargento-media-video">
   <video autoplay muted loop playsinline preload="metadata" aria-label="Focus recovery demonstration">
     <source src="../assets/video/focus-recovery.mp4" type="video/mp4">
