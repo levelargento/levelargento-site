@@ -297,6 +297,21 @@
     </span>
   </a>
 
+    <nav class="md-nav" aria-label="Import">
+      <ul class="md-nav__list">
+
+          <li class="md-nav__item">
+  <a href="#package-structure" class="md-nav__link">
+    <span class="md-ellipsis">
+      Package Structure
+    </span>
+  </a>
+
+</li>
+
+      </ul>
+    </nav>
+
 </li>
 
         <li class="md-nav__item">
@@ -675,6 +690,21 @@
     </span>
   </a>
 
+    <nav class="md-nav" aria-label="Import">
+      <ul class="md-nav__list">
+
+          <li class="md-nav__item">
+  <a href="#package-structure" class="md-nav__link">
+    <span class="md-ellipsis">
+      Package Structure
+    </span>
+  </a>
+
+</li>
+
+      </ul>
+    </nav>
+
 </li>
 
         <li class="md-nav__item">
@@ -718,6 +748,16 @@
 <h2 id="import">Import<a class="headerlink" href="#import" title="Permanent link">&para;</a></h2>
 <p>Import the asset into the Unity project through the Asset Store package workflow. Keep the <code>Runtime</code>, <code>Editor</code>, <code>Samples</code>, and <code>Documentation</code> folders together so assembly definitions and sample references remain intact.</p>
 <p>If the required Unity packages are not already installed, add Unity UI and Input System through <strong>Window &gt; Package Management &gt; Package Manager</strong>.</p>
+<h3 id="package-structure">Package Structure<a class="headerlink" href="#package-structure" title="Permanent link">&para;</a></h3>
+<p>After import, Smart UI Focus &amp; Navigation is organized into the following folders:</p>
+<ul>
+<li><strong>Runtime</strong> — Components and APIs used by your game at runtime, including focus management, input-mode detection, smart navigation, layout constraints, and navigation overrides.</li>
+<li><strong>Editor</strong> — Unity Editor-only tooling and custom inspectors. These scripts improve the Inspector experience and are not included in player builds.</li>
+<li><strong>Samples</strong> — Included example scenes demonstrating focus management, dynamic navigation, modal restoration, input modes, and the Navigation Showcase.</li>
+<li><strong>Documentation</strong> — Offline product documentation and package information.</li>
+<li><strong>Branding</strong> — LevelArgento/product branding assets used by the included documentation and package presentation.</li>
+</ul>
+<p>Keep these folders together when importing or moving the package so assembly definitions and sample references remain intact.</p>
 <h2 id="eventsystem-setup">EventSystem setup<a class="headerlink" href="#eventsystem-setup" title="Permanent link">&para;</a></h2>
 <p>Each UI scene needs one active <code>EventSystem</code> configured for the New Input System:</p>
 <ol>
