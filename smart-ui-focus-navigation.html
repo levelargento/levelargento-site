@@ -3,14 +3,19 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Smart UI Focus &amp; Navigation &mdash; LevelArgento</title>
-  <meta name="description" content="Reliable controller and keyboard focus for Unity uGUI, with focus recovery, selection memory, modal restoration, and smarter directional navigation.">
+  <title>Smart UI Focus &amp; Navigation for Unity uGUI &mdash; LevelArgento</title>
+  <meta name="description" content="Reliable focus recovery, modal restoration, directional navigation, and keyboard, gamepad, mouse, and touch workflows for Unity uGUI.">
   <link rel="canonical" href="https://levelargento.com/smart-ui-focus-navigation.html">
-  <meta property="og:title" content="Smart UI Focus &amp; Navigation &mdash; LevelArgento">
-  <meta property="og:description" content="Reliable controller and keyboard focus for Unity uGUI.">
-  <meta property="og:image" content="https://levelargento.com/assets/og-levelargento.jpg">
+  <meta property="og:title" content="Smart UI Focus &amp; Navigation for Unity uGUI">
+  <meta property="og:description" content="Reliable Focus. Smarter Navigation. Keep your existing uGUI menus and add robust keyboard, controller, mouse, and touch focus behavior.">
+  <meta property="og:image" content="https://levelargento.com/assets/smart-ui-focus-navigation/focus-management-sample-overview.png">
+  <meta property="og:image:alt" content="Smart UI Focus &amp; Navigation Focus Management sample">
   <meta property="og:url" content="https://levelargento.com/smart-ui-focus-navigation.html">
   <meta property="og:type" content="website">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Smart UI Focus &amp; Navigation for Unity uGUI">
+  <meta name="twitter:description" content="Reliable focus recovery, modal restoration, smart directional navigation, and multi-input workflows for Unity uGUI.">
+  <meta name="twitter:image" content="https://levelargento.com/assets/smart-ui-focus-navigation/focus-management-sample-overview.png">
   <link rel="icon" type="image/png" href="assets/favicon.png">
   <link rel="stylesheet" href="assets/styles.css">
 </head>
@@ -35,9 +40,10 @@
   <section class="product-hero product-hero-real">
     <div class="container product-hero-grid">
       <div>
-        <div class="eyebrow">Unity uGUI developer tool</div>
+        <div class="eyebrow">Unity uGUI focus &amp; navigation</div>
         <h1>Smart UI Focus<br><span class="accent">&amp; Navigation</span></h1>
-        <p class="lead">Reliable controller and keyboard focus for Unity uGUI, designed to work with the UI structure you already have.</p>
+        <p class="product-tagline">Reliable Focus. Smarter Navigation.</p>
+        <p class="lead">Keep your existing Unity uGUI menus and add reliable controller, keyboard, mouse, and touch focus behavior.</p>
         <div class="hero-actions">
           <a class="button button-primary" href="#focus-reliability">See it in action</a>
           <a class="button button-secondary" href="https://levelargento.com/docs/smart-ui-focus-navigation/">Documentation</a>
@@ -45,7 +51,8 @@
         <div class="product-meta" aria-label="Product compatibility">
           <span>Unity 2022.3 LTS + Unity 6</span>
           <span>uGUI</span>
-          <span>New Input System</span>
+          <span>Unity Input System</span>
+          <span>Keyboard · Gamepad · Mouse · Touch</span>
         </div>
       </div>
 
@@ -59,23 +66,41 @@
   <section class="section" id="value">
     <div class="container">
       <div class="section-heading">
-        <div class="eyebrow">Focus that survives real menu flows</div>
-        <h2>Keep Unity UI. Make its focus lifecycle reliable.</h2>
-        <p>Standard uGUI navigation remains in place. Smart UI Focus &amp; Navigation adds focused components for invalid selections, returning menus, modal flows, irregular layouts, and runtime content.</p>
+        <div class="eyebrow">Focused components, familiar workflow</div>
+        <h2>Keep your UI framework. Strengthen its focus lifecycle.</h2>
+        <p>Smart UI Focus &amp; Navigation works with standard uGUI Selectables, Unity's EventSystem, and the Input System. It adds focused reliability and navigation components without replacing the UI framework.</p>
       </div>
 
       <div class="feature-grid feature-grid-two">
-        <article class="card feature-card"><div class="card-icon">01</div><h3>Automatic focus recovery</h3><p>Recover when the selected control becomes inactive, disabled, or non-interactable.</p></article>
-        <article class="card feature-card"><div class="card-icon">02</div><h3>Remembered selection</h3><p>Restore the last valid selection when users leave and return to a menu or focus scope.</p></article>
-        <article class="card feature-card"><div class="card-icon">03</div><h3>Exact modal restoration</h3><p>Return focus to the exact valid control that opened a modal when it closes.</p></article>
-        <article class="card feature-card"><div class="card-icon">04</div><h3>Input-aware policy</h3><p>Observe mouse, keyboard, and gamepad UI activity through Unity's New Input System.</p></article>
+        <article class="card feature-card"><div class="card-icon">01</div><h3>Default focus and recovery</h3><p>Choose the initial control and recover automatically when the current selection becomes invalid, disabled, inactive, or non-interactable.</p></article>
+        <article class="card feature-card"><div class="card-icon">02</div><h3>Remembered selection</h3><p>Restore the last valid selection independently for each menu or focus scope.</p></article>
+        <article class="card feature-card"><div class="card-icon">03</div><h3>Exact modal restoration</h3><p>Return focus to the exact valid control that opened a modal or popup.</p></article>
+        <article class="card feature-card"><div class="card-icon">04</div><h3>Smart directional navigation</h3><p>Generate deterministic links for freeform, vertical, horizontal, complete-grid, and ragged-grid layouts.</p></article>
+        <article class="card feature-card"><div class="card-icon">05</div><h3>Per-direction overrides</h3><p>Keep the generated target with Auto, block a direction with None, or choose a specific Selectable with Explicit.</p></article>
+        <article class="card feature-card"><div class="card-icon">06</div><h3>Dynamic UI rebuilds</h3><p>Refresh links after controls are added, removed, reordered, enabled, disabled, or moved by layout changes.</p></article>
+        <article class="card feature-card"><div class="card-icon">07</div><h3>Input mode detection</h3><p>Expose current Mouse, Keyboard, or Gamepad mode and receive a callback when the active mode changes.</p></article>
+        <article class="card feature-card"><div class="card-icon">08</div><h3>Standard Unity integration</h3><p>Keep uGUI transitions, Input Actions, EventSystem navigation, and existing UI structure.</p></article>
       </div>
+    </div>
+  </section>
+
+  <section class="section product-demo product-promo" id="product-overview">
+    <div class="container">
+      <div class="section-heading product-promo-heading">
+        <div class="eyebrow">Product overview</div>
+        <h2>See Smart UI Focus &amp; Navigation in action.</h2>
+        <p>Watch the complete workflow, from reliable focus handling to directional navigation and dynamic UI updates.</p>
+      </div>
+      <figure class="product-demo-media product-promo-media">
+        <video controls playsinline preload="metadata" poster="assets/smart-ui-focus-navigation/smart-ui-focus-navigation-promo-poster.jpg" aria-label="Smart UI Focus &amp; Navigation product overview"><source src="assets/smart-ui-focus-navigation/smart-ui-focus-navigation-promo.mp4" type="video/mp4"><a href="assets/smart-ui-focus-navigation/smart-ui-focus-navigation-promo.mp4">Open the product overview video.</a></video>
+        <figcaption>Smart UI Focus &amp; Navigation product overview</figcaption>
+      </figure>
     </div>
   </section>
 
   <section class="section product-demo" id="focus-reliability">
     <div class="container product-demo-grid">
-      <div class="product-demo-copy"><div class="eyebrow">Focus reliability</div><h2>Recover a usable selection.</h2><p>Each focus scope can define a default, remember its last valid control, and recover when the current EventSystem selection can no longer be used.</p></div>
+      <div class="product-demo-copy"><div class="eyebrow">Focus recovery</div><h2>Recover a usable selection automatically.</h2><p>Each focus scope can define a default and remember its last valid control. If the current EventSystem selection becomes invalid, disabled, inactive, or non-interactable, focus can recover to a usable target.</p></div>
       <figure class="product-demo-media">
         <video autoplay muted loop playsinline preload="metadata" poster="assets/smart-ui-focus-navigation/focus-recovery-poster.png" aria-label="Focus recovery demonstration"><source src="assets/smart-ui-focus-navigation/focus-recovery.mp4" type="video/mp4"><a href="assets/smart-ui-focus-navigation/focus-recovery.mp4">Open the focus recovery video.</a></video>
         <figcaption>Selection returns when keyboard-driven interaction resumes.</figcaption>
@@ -95,7 +120,7 @@
 
   <section class="section product-demo" id="smart-navigation">
     <div class="container product-demo-grid">
-      <div class="product-demo-copy"><div class="eyebrow">Smart navigation</div><h2>Make irregular layouts predictable.</h2><p>Generate deterministic directional links from screen-space bounds, preserve structured and ragged grid topology, and override individual directions with Auto, None, or Explicit.</p></div>
+      <div class="product-demo-copy"><div class="eyebrow">Smart directional navigation</div><h2>Make irregular layouts predictable.</h2><p>Generate deterministic links from screen-space bounds for freeform layouts. Structured constraints add vertical lists, horizontal lists, and topology-aware grids, including incomplete final rows.</p></div>
       <figure class="product-demo-media">
         <video autoplay muted loop playsinline preload="metadata" poster="assets/smart-ui-focus-navigation/smart-navigation-irregular-layout-poster.png" aria-label="Irregular directional navigation demonstration"><source src="assets/smart-ui-focus-navigation/smart-navigation-irregular-layout.mp4" type="video/mp4"><a href="assets/smart-ui-focus-navigation/smart-navigation-irregular-layout.mp4">Open the smart navigation video.</a></video>
         <figcaption>Bounds-aware navigation across an intentionally staggered layout.</figcaption>
@@ -113,24 +138,94 @@
     </div>
   </section>
 
-  <section class="section-tight">
-    <div class="container proof-panel compatibility-panel">
-      <div><div class="eyebrow">Compatibility</div><h2>Built for established Unity UI workflows.</h2><p>Compatible with Unity 2022.3 LTS and Unity 6. Validated with Built-in, URP, and HDRP.</p></div>
-      <div class="compatibility-tags" aria-label="Required Unity systems"><span>uGUI</span><span>Input System</span><span>EventSystem</span><span>InputSystemUIInputModule</span></div>
+  <section class="section product-demo" id="navigation-overrides">
+    <div class="container product-demo-grid">
+      <div class="product-demo-copy">
+        <div class="eyebrow">Navigation overrides</div>
+        <h2>Keep, block, or replace any generated direction.</h2>
+        <p>Add a lightweight override to an individual Selectable. Auto preserves the generated target, None forces no target, and Explicit uses a validated Selectable chosen in the Inspector.</p>
+      </div>
+      <figure class="product-demo-media product-inspector-media">
+        <img src="assets/smart-ui-focus-navigation/smart-navigation-override-inspector.png" alt="SmartNavigationOverride Inspector showing Auto, None, and Explicit direction modes" loading="lazy">
+        <figcaption>Per-direction control without changing the group's spatial scoring.</figcaption>
+      </figure>
+    </div>
+  </section>
+
+  <section class="section product-demo product-demo-alt" id="multi-input">
+    <div class="container">
+      <div class="section-heading">
+        <div class="eyebrow">Input System integration</div>
+        <h2>Keyboard · Gamepad · Mouse · Touch</h2>
+        <p>Use an active EventSystem with InputSystemUIInputModule. Input mode detection exposes Mouse, Keyboard, and Gamepad activity, while standard pointer actions support mouse and touch workflows.</p>
+      </div>
+      <div class="setup-media-grid">
+        <figure class="product-demo-media product-inspector-media">
+          <img src="assets/smart-ui-focus-navigation/input-system-ui-module-inspector.png" alt="InputSystemUIInputModule configured with Point, Click, Navigate, Submit, and Cancel actions" loading="lazy">
+          <figcaption>Standard InputSystemUIInputModule action references.</figcaption>
+        </figure>
+        <figure class="product-demo-media product-inspector-media">
+          <img src="assets/smart-ui-focus-navigation/smart-input-mode-detector-inspector.png" alt="SmartInputModeDetector Inspector with UI action references" loading="lazy">
+          <figcaption>Small public input-mode API with mode-change callbacks.</figcaption>
+        </figure>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="compatibility">
+    <div class="container">
+      <div class="section-heading">
+        <div class="eyebrow">Compatibility and platforms</div>
+        <h2>Designed for established Unity UI workflows.</h2>
+        <p>Compatible with Unity 2022.3 LTS and Unity 6. Validated with Built-in, URP, and HDRP.</p>
+      </div>
+      <div class="product-facts-grid">
+        <article class="card product-fact">
+          <h3>Unity and rendering</h3>
+          <p>Compatible with Unity 2022.3 LTS and Unity 6.</p>
+          <p class="fact-note">Validated with:</p>
+          <ul class="check-list">
+            <li>Built-in Render Pipeline</li>
+            <li>Universal Render Pipeline (URP)</li>
+            <li>High Definition Render Pipeline (HDRP)</li>
+          </ul>
+        </article>
+        <article class="card product-fact">
+          <h3>Requires</h3>
+          <ul class="check-list">
+            <li>Unity UI / uGUI</li>
+            <li>Unity Input System</li>
+            <li>Active EventSystem using InputSystemUIInputModule</li>
+          </ul>
+          <p class="fact-note">UI Toolkit is not currently supported.</p>
+        </article>
+        <article class="card product-fact">
+          <h3>Supported Platforms</h3>
+          <p>Windows · macOS · Linux · iOS · Android · WebGL</p>
+          <h3 class="fact-subheading">Input</h3>
+          <p>Keyboard · Gamepad / controller · Mouse · Touch</p>
+        </article>
+        <article class="card product-fact">
+          <h3>Validated Builds</h3>
+          <ul class="check-list">
+            <li>Windows x64 Player build</li>
+            <li>Android IL2CPP ARM64 build</li>
+            <li>Android real-device runtime</li>
+            <li>Android touch input on a physical device</li>
+          </ul>
+          <p class="fact-note">Validated on Windows x64 and Android IL2CPP ARM64, including real-device Android touch input.</p>
+        </article>
+      </div>
     </div>
   </section>
 
   <section class="section" id="documentation">
-    <div class="container callout">
-      <div><h2>Documentation included.</h2><p>The Asset Store package includes a complete offline PDF covering installation, focus management, input modes, navigation, dynamic UI, API usage, and troubleshooting.</p></div>
-      <a class="button button-secondary" href="https://levelargento.com/docs/smart-ui-focus-navigation/">Read online documentation</a>
-    </div>
-  </section>
-
-  <section class="section-tight">
-    <div class="container callout">
-      <div><h2>Need help with Smart UI Focus &amp; Navigation?</h2><p>Contact LevelArgento directly at support@levelargento.com.</p></div>
-      <a class="button button-primary" href="mailto:support@levelargento.com?subject=Smart%20UI%20Focus%20%26%20Navigation">Contact support</a>
+    <div class="container callout callout-actions">
+      <div><h2>Documentation and support.</h2><p>Read the complete installation, workflow, API, and troubleshooting guides online, or contact LevelArgento directly at support@levelargento.com.</p></div>
+      <div class="cta-actions">
+        <a class="button button-primary" href="https://levelargento.com/docs/smart-ui-focus-navigation/">Read documentation</a>
+        <a class="button button-secondary" href="mailto:support@levelargento.com?subject=Smart%20UI%20Focus%20%26%20Navigation">Contact support</a>
+      </div>
     </div>
   </section>
 </main>
