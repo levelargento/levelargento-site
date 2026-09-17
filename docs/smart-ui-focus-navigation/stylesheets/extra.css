@@ -64,6 +64,16 @@ body {
   color: var(--levelargento-text);
 }
 
+[data-md-toggle="search"]:checked ~ .md-header .md-search__input,
+[data-md-toggle="search"]:checked ~ .md-header .md-search__input:focus {
+  color: #1f2328;
+}
+
+[data-md-toggle="search"]:checked ~ .md-header .md-search__input::placeholder {
+  color: #6b7280;
+  opacity: 1;
+}
+
 .md-main__inner {
   margin-top: 1.2rem;
 }
