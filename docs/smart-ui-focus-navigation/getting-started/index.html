@@ -304,9 +304,18 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
 
         <li class="md-nav__item">
-  <a href="#configure-the-scene" class="md-nav__link">
+  <a href="#fastest-way-to-get-started" class="md-nav__link">
     <span class="md-ellipsis">
-      Configure the scene
+      Fastest way to get started
+    </span>
+  </a>
+
+</li>
+
+        <li class="md-nav__item">
+  <a href="#set-up-an-existing-menu" class="md-nav__link">
+    <span class="md-ellipsis">
+      Set up an existing menu
     </span>
   </a>
 
@@ -660,9 +669,18 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
 
         <li class="md-nav__item">
-  <a href="#configure-the-scene" class="md-nav__link">
+  <a href="#fastest-way-to-get-started" class="md-nav__link">
     <span class="md-ellipsis">
-      Configure the scene
+      Fastest way to get started
+    </span>
+  </a>
+
+</li>
+
+        <li class="md-nav__item">
+  <a href="#set-up-an-existing-menu" class="md-nav__link">
+    <span class="md-ellipsis">
+      Set up an existing menu
     </span>
   </a>
 
@@ -712,8 +730,18 @@
 
 
 <h1 id="getting-started">Getting started<a class="headerlink" href="#getting-started" title="Permanent link">&para;</a></h1>
+<h2 id="fastest-way-to-get-started">Fastest way to get started<a class="headerlink" href="#fastest-way-to-get-started" title="Permanent link">&para;</a></h2>
+<ol>
+<li>Open <code>Assets/LevelArgento/SmartUINavigation/Samples/QuickStart/QuickStart.unity</code>.</li>
+<li>Enter Play Mode.</li>
+<li>Navigate with the keyboard or a gamepad. <strong>PLAY</strong> receives focus automatically.</li>
+<li>Inspect the <code>UI Manager</code> GameObject and its Focus Manager and Input Mode Detector components.</li>
+<li>Inspect the <code>Main Menu</code> GameObject and its Focus Scope component.</li>
+<li>Use the same component structure in your own uGUI menu.</li>
+</ol>
+<p>The Quick Start sample intentionally uses Unity Automatic navigation for its three-button vertical menu. The other included samples demonstrate smart directional navigation, dynamic content, modal restoration, and more advanced focus flows.</p>
+<h2 id="set-up-an-existing-menu">Set up an existing menu<a class="headerlink" href="#set-up-an-existing-menu" title="Permanent link">&para;</a></h2>
 <p>This setup adds default focus, selection memory, and invalid-selection recovery to an existing uGUI menu.</p>
-<h2 id="configure-the-scene">Configure the scene<a class="headerlink" href="#configure-the-scene" title="Permanent link">&para;</a></h2>
 <ol>
 <li>Ensure the scene contains one active <code>EventSystem</code> with <code>InputSystemUIInputModule</code>.</li>
 <li>Add the Focus Manager (<code>SmartFocusManager</code>) component to a scene object and assign its <strong>Event System</strong> field.</li>
