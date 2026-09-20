@@ -730,8 +730,18 @@
 <p>The event is raised only when the mode changes.</p>
 <h2 id="action-configuration">Action configuration<a class="headerlink" href="#action-configuration" title="Permanent link">&para;</a></h2>
 <p><strong>Auto (EventSystem)</strong> is the default and recommended <strong>Input Source</strong>. The detector observes the Navigation, Submit, Cancel, Point, and Click actions assigned to the managed EventSystem's <code>InputSystemUIInputModule</code>. Its Inspector shows the resolved actions as read-only information. Change UI actions on the EventSystem, not on the detector. Auto follows module action changes during Play Mode and does not depend on action or map names. No manual action assignments are needed. If a compatible module or one of its actions is unavailable, previously serialized detector action references can serve as fallbacks.</p>
+<figure class="levelargento-media">
+  <img src="../assets/images/input-mode-detector-auto.png" alt="Input Mode Detector Inspector in Auto (EventSystem) mode with resolved UI actions" loading="lazy">
+  <figcaption>Auto displays the actions resolved from InputSystemUIInputModule; change them on the EventSystem.</figcaption>
+</figure>
+
 <p>For advanced setups, choose <strong>Manual</strong>. Select an <strong>Input Actions Asset</strong>, then an <strong>Action Map</strong> and its <strong>Navigation</strong>, <strong>Submit</strong>, <strong>Cancel</strong>, <strong>Point</strong>, and <strong>Click</strong> actions. An <code>InputActionAsset</code> contains maps; a map contains actions; each action has bindings to device controls. The asset and map selectors organize which actions the detector observes. The actions must already be enabled by the UI module or application code; the detector does not enable or disable them.</p>
 <p>Manual changes input-mode detection only. It does not replace the actions or bindings used by <code>InputSystemUIInputModule</code> for actual UI navigation and pointer interaction. If the EventSystem and detector use different actions, check both configurations when troubleshooting.</p>
+<figure class="levelargento-media">
+  <img src="../assets/images/input-mode-detector-manual.png" alt="Input Mode Detector Inspector in Manual mode with action asset, map, and action selectors" loading="lazy">
+  <figcaption>Manual selects actions for device detection only; it does not change the EventSystem's UI controls.</figcaption>
+</figure>
+
 <p>Keyboard navigation, submit, or cancel activity selects Keyboard mode. Gamepad navigation, submit, or cancel activity selects Gamepad mode. Mouse movement meeting or exceeding the configured pixel threshold, or a mouse click, selects Mouse mode.</p>
 <p>For gamepad navigation, the detector reads the observed action's processed <code>Vector2</code>. A stick value removed by that action's deadzone remains zero and does not count as intentional navigation.</p>
 <h2 id="focus-policy">Focus policy<a class="headerlink" href="#focus-policy" title="Permanent link">&para;</a></h2>
