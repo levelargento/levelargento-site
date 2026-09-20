@@ -830,8 +830,8 @@
 <p><strong>Fix/check:</strong> Add one active EventSystem to the scene and assign it to the manager.</p>
 <h2 id="input-system-actions-not-enabled">Input System actions not enabled<a class="headerlink" href="#input-system-actions-not-enabled" title="Permanent link">&para;</a></h2>
 <p><strong>Symptom:</strong> <code>CurrentMode</code> never changes from its initial value.</p>
-<p><strong>Likely cause:</strong> The detector observes disabled actions, or its references do not match the active UI action map.</p>
-<p><strong>Fix/check:</strong> Assign the same actions used by <code>InputSystemUIInputModule</code> and ensure that action map is enabled. The detector does not enable actions itself.</p>
+<p><strong>Likely cause:</strong> The detector observes disabled actions, Auto cannot resolve the intended EventSystem or UI module, or Manual is observing different actions than expected.</p>
+<p><strong>Fix/check:</strong> Confirm the EventSystem uses <code>InputSystemUIInputModule</code> and its relevant UI actions are assigned and enabled. In Auto, inspect the detector's read-only resolved actions and the Focus Manager's <strong>Event System</strong> assignment. In Manual, check the selected asset, map, actions, and whether those actions are enabled. The detector observes actions but does not enable them.</p>
 <h2 id="gamepad-does-not-navigate">Gamepad does not navigate<a class="headerlink" href="#gamepad-does-not-navigate" title="Permanent link">&para;</a></h2>
 <p><strong>Symptom:</strong> Gamepad activity may be detected, but Unity UI selection does not move.</p>
 <p><strong>Likely cause:</strong> The <code>InputSystemUIInputModule</code> Navigate action lacks the needed bindings, or no valid selection exists.</p>
@@ -859,7 +859,7 @@
 <h2 id="mouse-and-gamepad-behavior-differs-from-expectation">Mouse and gamepad behavior differs from expectation<a class="headerlink" href="#mouse-and-gamepad-behavior-differs-from-expectation" title="Permanent link">&para;</a></h2>
 <p><strong>Symptom:</strong> Focus is not recovered during mouse use, or selection recovers more aggressively without a detector.</p>
 <p><strong>Likely cause:</strong> This is the manager's current input-mode policy.</p>
-<p><strong>Fix/check:</strong> Assign and configure the Input Mode Detector (<code>SmartInputModeDetector</code>) component when Mouse mode should pause recovery. Verify <strong>Point Action</strong>, <strong>Click Action</strong>, <strong>Navigation Action</strong>, <strong>Submit Action</strong>, and <strong>Cancel Action</strong> use the active UI action map.</p>
+<p><strong>Fix/check:</strong> Assign an active Input Mode Detector (<code>SmartInputModeDetector</code>) component when Mouse mode should pause recovery. In Auto, verify its resolved actions come from the intended EventSystem's UI module. In Manual, verify the selected actions are enabled. Manual observation does not change the EventSystem's controls.</p>
 
 
 

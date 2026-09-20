@@ -728,15 +728,12 @@
 <a id="__codelineno-0-23" name="__codelineno-0-23" href="#__codelineno-0-23"></a><span class="p">}</span>
 </code></pre></div>
 <p>The event is raised only when the mode changes.</p>
-<figure class="levelargento-media levelargento-media-compact">
-  <img src="../assets/images/smart-input-mode-detector-inspector.png" alt="Input Mode Detector Inspector with UI action references" loading="lazy">
-  <figcaption>The detector observes the same navigation, submit, cancel, point, and click actions used by the UI module.</figcaption>
-</figure>
-
 <h2 id="action-configuration">Action configuration<a class="headerlink" href="#action-configuration" title="Permanent link">&para;</a></h2>
-<p>Assign <strong>Navigation Action</strong>, <strong>Submit Action</strong>, <strong>Cancel Action</strong>, <strong>Point Action</strong>, and <strong>Click Action</strong> from the UI action map used by <code>InputSystemUIInputModule</code>. Those actions must be enabled by the input module or project code. The detector does not manage action lifetime.</p>
+<p><strong>Auto (EventSystem)</strong> is the default and recommended <strong>Input Source</strong>. The detector observes the Navigation, Submit, Cancel, Point, and Click actions assigned to the managed EventSystem's <code>InputSystemUIInputModule</code>. Its Inspector shows the resolved actions as read-only information. Change UI actions on the EventSystem, not on the detector. Auto follows module action changes during Play Mode and does not depend on action or map names. No manual action assignments are needed. If a compatible module or one of its actions is unavailable, previously serialized detector action references can serve as fallbacks.</p>
+<p>For advanced setups, choose <strong>Manual</strong>. Select an <strong>Input Actions Asset</strong>, then an <strong>Action Map</strong> and its <strong>Navigation</strong>, <strong>Submit</strong>, <strong>Cancel</strong>, <strong>Point</strong>, and <strong>Click</strong> actions. An <code>InputActionAsset</code> contains maps; a map contains actions; each action has bindings to device controls. The asset and map selectors organize which actions the detector observes. The actions must already be enabled by the UI module or application code; the detector does not enable or disable them.</p>
+<p>Manual changes input-mode detection only. It does not replace the actions or bindings used by <code>InputSystemUIInputModule</code> for actual UI navigation and pointer interaction. If the EventSystem and detector use different actions, check both configurations when troubleshooting.</p>
 <p>Keyboard navigation, submit, or cancel activity selects Keyboard mode. Gamepad navigation, submit, or cancel activity selects Gamepad mode. Mouse movement meeting or exceeding the configured pixel threshold, or a mouse click, selects Mouse mode.</p>
-<p>For gamepad navigation, the detector reads the action's processed <code>Vector2</code>. Keep the same navigation action and processors used by the UI module. A stick value removed by the action's deadzone remains zero and does not count as intentional navigation.</p>
+<p>For gamepad navigation, the detector reads the observed action's processed <code>Vector2</code>. A stick value removed by that action's deadzone remains zero and does not count as intentional navigation.</p>
 <h2 id="focus-policy">Focus policy<a class="headerlink" href="#focus-policy" title="Permanent link">&para;</a></h2>
 <p>When assigned to the Focus Manager (<code>SmartFocusManager</code>) component, Mouse mode prevents automatic recovery from unnecessarily forcing selection back onto a <code>Selectable</code> during pointer interaction. Relevant keyboard or gamepad activity can restore a valid focus target if the current selection is invalid.</p>
 <p>This is a focused policy for uGUI selection recovery. It does not define every possible hover, cursor, or mixed-input presentation rule for an application.</p>

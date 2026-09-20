@@ -727,7 +727,7 @@
 <ul>
 <li><strong>Event System</strong>: the managed EventSystem. If empty, the manager resolves <code>EventSystem.current</code>.</li>
 <li><strong>Initial Scope</strong>: the scope focused when the manager starts.</li>
-<li><strong>Input Mode Detector</strong>: optional mode source used to pause automatic recovery during mouse-driven interaction.</li>
+<li><strong>Input Mode Detector</strong>: optional mode source used to pause automatic recovery during mouse-driven interaction. The manager supplies its assigned EventSystem to the detector.</li>
 <li><strong>Recover Invalid Selection</strong>: restores a valid focus target when the current selection becomes invalid.</li>
 </ul>
 <figure class="levelargento-media levelargento-media-compact">
@@ -764,7 +764,7 @@
 <li>on a disabled <code>Selectable</code>; or</li>
 <li>non-interactable.</li>
 </ul>
-<p>When an active Input Mode Detector (<code>SmartInputModeDetector</code>) is assigned, automatic recovery pauses in Mouse mode. Keyboard or gamepad UI activity can restore valid focus when needed. Without an active detector, recovery remains enabled regardless of pointer activity.</p>
+<p>When an active Input Mode Detector (<code>SmartInputModeDetector</code>) is assigned, automatic recovery pauses in Mouse mode. The manager supplies its EventSystem to the detector, which observes the UI module's actions in Auto mode; the manager, not the detector, performs focus recovery. Keyboard or gamepad UI activity can restore valid focus when needed. Without an active detector, recovery remains enabled regardless of pointer activity.</p>
 <figure class="levelargento-media levelargento-media-video">
   <video autoplay muted loop playsinline preload="metadata" aria-label="Focus recovery demonstration">
     <source src="../assets/video/focus-recovery.mp4" type="video/mp4">
