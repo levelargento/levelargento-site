@@ -1,0 +1,1357 @@
+﻿
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Couch Co-op Builder 1.0.0 user manual for Unity 6.3 LTS.">
+      
+      
+      
+        <link rel="canonical" href="https://levelargento.com/docs/couch-coop-builder/rocket-rumble-shared/">
+      
+      
+        <link rel="prev" href="../samples/">
+      
+      
+        <link rel="next" href="../rocket-rumble-2d/">
+      
+      
+      <link rel="icon" href="../assets/branding/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.14">
+    
+    
+      
+        <title>Rocket Rumble Shared - Couch Co-op Builder</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.342714a4.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+    
+    
+      <link rel="stylesheet" href="../stylesheets/extra.css">
+    
+    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    <body dir="ltr">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#rocket-rumble-menus-settings-and-lifecycle" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href=".." title="Couch Co-op Builder" class="md-header__button md-logo" aria-label="Couch Co-op Builder" data-md-component="logo">
+      
+  <img src="../assets/branding/favicon.png" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Couch Co-op Builder
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Rocket Rumble Shared
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href=".." title="Couch Co-op Builder" class="md-nav__button md-logo" aria-label="Couch Co-op Builder" data-md-component="logo">
+      
+  <img src="../assets/branding/favicon.png" alt="logo">
+
+    </a>
+    Couch Co-op Builder
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href=".." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Manual home
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../introduction/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Introduction
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    Getting Started
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            Getting Started
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../getting-started/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Installation and Quick Start
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../setup-wizard/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Setup Wizard
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../character-catalog/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Character Catalog
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    Lobby
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            Lobby
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../lobby-and-existing-canvas/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Lobby and Existing Canvas
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../sessions-and-identity/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Sessions and Identity
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    Gameplay
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            Gameplay
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../gameplay-integration/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Gameplay Integration
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../gameplay-input/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Gameplay Input
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../input-and-rebinding/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Input and Rebinding
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../split-screen/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Shared and Split Screen
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../persistent-sessions/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Persistent Sessions
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../session-lifecycle/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Session Lifecycle
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_6" id="__nav_6_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    Samples
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_6">
+            <span class="md-nav__icon md-icon"></span>
+            Samples
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../configure-samples/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Configure Samples
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../samples/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Sample Index
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    Rocket Rumble Shared
+    
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    Rocket Rumble Shared
+    
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#main-menu-and-lobby" class="md-nav__link">
+    <span class="md-ellipsis">
+      Main Menu and lobby
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#audio-settings" class="md-nav__link">
+    <span class="md-ellipsis">
+      Audio settings
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#controls-settings" class="md-nav__link">
+    <span class="md-ellipsis">
+      Controls settings
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#pause-and-device-lost" class="md-nav__link">
+    <span class="md-ellipsis">
+      Pause and Device Lost
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#drop-out-and-rejoin" class="md-nav__link">
+    <span class="md-ellipsis">
+      Drop Out and Rejoin
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#what-to-study-and-adapt" class="md-nav__link">
+    <span class="md-ellipsis">
+      What to study and adapt
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../rocket-rumble-2d/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Rocket Rumble 2D
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../rocket-rumble-3d/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Rocket Rumble 3D
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../split-screen-playgrounds/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Split Screen Playgrounds
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_7" >
+        
+          
+          <label class="md-nav__link" for="__nav_7" id="__nav_7_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    Smart UI
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_7_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_7">
+            <span class="md-nav__icon md-icon"></span>
+            Smart UI
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../included-smart-ui/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Included Smart UI
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_8" >
+        
+          
+          <label class="md-nav__link" for="__nav_8" id="__nav_8_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    Reference
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_8_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_8">
+            <span class="md-nav__icon md-icon"></span>
+            Reference
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../troubleshooting/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Troubleshooting
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../api-and-advanced/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    API and Advanced
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../support/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Support
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#main-menu-and-lobby" class="md-nav__link">
+    <span class="md-ellipsis">
+      Main Menu and lobby
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#audio-settings" class="md-nav__link">
+    <span class="md-ellipsis">
+      Audio settings
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#controls-settings" class="md-nav__link">
+    <span class="md-ellipsis">
+      Controls settings
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#pause-and-device-lost" class="md-nav__link">
+    <span class="md-ellipsis">
+      Pause and Device Lost
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#drop-out-and-rejoin" class="md-nav__link">
+    <span class="md-ellipsis">
+      Drop Out and Rejoin
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#what-to-study-and-adapt" class="md-nav__link">
+    <span class="md-ellipsis">
+      What to study and adapt
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+<nav class="couch-doc-links" aria-label="LevelArgento resources">
+  <a href="../../../couch-coop-builder.html">Couch product</a>
+  <a href="../../../index.html">LevelArgento home</a>
+  <a href="../../../support.html">Support</a>
+  <a href="../downloads/couch-coop-builder-manual.pdf">Offline PDF manual</a>
+</nav>
+
+                  
+
+
+
+<h1 id="rocket-rumble-menus-settings-and-lifecycle">Rocket Rumble Menus, Settings and Lifecycle<a class="headerlink" href="#rocket-rumble-menus-settings-and-lifecycle" title="Permanent link">&para;</a></h1>
+<p>This guide covers the shared behavior of <a href="../rocket-rumble-2d/">Rocket Rumble 2D</a> and <a href="../rocket-rumble-3d/">Rocket Rumble 3D</a>, optional <strong>2–4-player</strong> sample games. Keep this folder when using either sample. Begin with <a href="../getting-started/#quick-start">Quick Start</a> for framework setup; these menus and match rules are sample content.</p>
+<h2 id="main-menu-and-lobby">Main Menu and lobby<a class="headerlink" href="#main-menu-and-lobby" title="Permanent link">&para;</a></h2>
+<p>Open the chosen sample's Main Menu scene and enter Play Mode. <strong>PLAY</strong> opens its lobby; <strong>SETTINGS</strong> contains Audio and Controls; <strong>QUIT</strong> exits a standalone build and leaves Editor Play Mode running. Main Menu creates no joined players.</p>
+<p>Join with Q, P, gamepad Start or a matched joystick's Join control. Browse and confirm Cobalt, Ember, Mint or Orchid, then move focus down to <strong>START GAME</strong>. At least two joined players must be Ready with available input. Moving focus does not clear Ready. The <a href="../getting-started/#default-lobby-controls">default lobby controls</a> are independent of gameplay bindings.</p>
+<p>Menu panels support mouse, keyboard, gamepad and configured joystick navigation. Keyboard A uses WASD/F, Keyboard B arrows/Enter; gamepads use stick/D-pad/South; the supplied DragonRise profile uses stick/button2. Visible Back controls and keyboard G/Backspace/Escape or controller/profile Cancel return to the preceding panel. Smart UI Focus &amp; Navigation manages selection recovery, scopes and modals. Release held controls before the next fresh menu press.</p>
+<h2 id="audio-settings">Audio settings<a class="headerlink" href="#audio-settings" title="Permanent link">&para;</a></h2>
+<p>Master, Music, SFX and UI sliders apply immediately to the included sample mixer. Zero mutes; 100% is 0 dB. Defaults are Master 100%, Music about 25%, SFX about 56% and UI about 45%. <strong>RESET AUDIO DEFAULTS</strong> restores and saves them. Sample audio preferences use PlayerPrefs and survive scene changes/restarts; they are separate from input profiles.</p>
+<p>One persistent sample audio service carries lobby music through menu/settings/lobby. Countdown has no arena music; GO starts arena music; victory stops it; lobby return restores lobby music. Jump, death, respawn, rocket launch, countdown, winner and UI feedback use included sample audio. The service releases itself when leaving Rocket Rumble scenes. This is sample audio integration, not a required framework audio system.</p>
+<h2 id="controls-settings">Controls settings<a class="headerlink" href="#controls-settings" title="Permanent link">&para;</a></h2>
+<p>Choose Keyboard A, Keyboard B, a connected gamepad family or a configured Joystick profile. The device-less gamepad placeholder can show/reset defaults but <strong>CHANGE</strong> needs connected hardware. Gameplay rows cover Move, Jump, Fire, Shield and Pause / Winner Return. Lobby Confirm/Back/Leave are fixed, separate controls; Join is not offered for rebinding.</p>
+<p><strong>Bindings belong to Input Binding Profiles, never P1–P4 seats.</strong> KeyboardA/KeyboardB follow their logical roles; controller settings follow the resolved family/profile. Identical controllers without verified unique identity share settings, while keeping separate actions, sessions and InputUsers. Seat reuse cannot transfer another source's profile. See <a href="../input-and-rebinding/">Input Binding Profiles</a> for the storage abstraction and honest identity fallback.</p>
+<p>Select <strong>CHANGE</strong>, then provide a control from the chosen device. Its keyboard Escape, gamepad East or joystick Cancel can abort; the visible Cancel control and timeout also work. Other devices cannot choose/cancel that capture. After capture, release held controls; focus returns to the Change button. Conflicting different actions in one gameplay map and Keyboard A/B overlap are rejected without changing the save. Separate controller devices may reuse equivalent buttons; lobby/UI maps may reuse gameplay controls.</p>
+<ul>
+<li>A row's <strong>RESET</strong> resets that profile/action; a Move reset restores all its parts.</li>
+<li><strong>RESET PROFILE</strong> resets the selected source's profile after confirmation.</li>
+<li><strong>RESET ALL CONTROLS</strong> clears all saved framework profiles after separate confirmation.</li>
+</ul>
+<p>The sample uses the framework JSON store at <code>Application.persistentDataPath/CouchCoopBuilder/input-bindings.json</code>; customers can substitute <code>IInputBindingProfileStore</code>. Unreadable saves disable editing rather than silently overwriting data. Overrides conflicting with changed defaults require correction/reset; unmatched old binding addresses remain unapplied. Settings previews create no fake players or InputUsers.</p>
+<h2 id="pause-and-device-lost">Pause and Device Lost<a class="headerlink" href="#pause-and-device-lost" title="Permanent link">&para;</a></h2>
+<p>The shared Pause panel reads each player's owned Pause action: defaults <strong>T / Y / Start / DragonRise button11</strong>. Joined players with available input can navigate using their existing lobby controls; mouse also works. Pause is available during countdown and gameplay; the Winner screen owns its separate return flow.</p>
+<p>Pause sets <code>Time.timeScale</code> to zero, freezing physics, projectiles, scoring, countdown and respawn timers. Music/gameplay SFX pause; UI audio continues. Resume restores the same voices and timers. Movement, Jump, Fire and Shield require neutral controls followed by fresh input; shield cooldown is retained. Scene exit restores time.</p>
+<p>Physical Device Lost auto-pauses and retains the session, representation and score. The panel identifies unavailable seats. Device regain/reclaim clears the warning but <strong>does not resume automatically</strong>; Resume remains blocked while required input is missing. Replacement-device ambiguity follows the framework's <a href="../session-lifecycle/#reserved-controller-replacement-during-a-session">reserved-controller recovery policy</a>, with no invented cross-launch identity.</p>
+<p><strong>RETURN TO LOBBY</strong> keeps sessions, Player Index values and selected characters, including disconnected reservations. Ready and match score reset for the next round. <strong>MAIN MENU</strong> permanently ends all sessions; the next PLAY begins with zero joined players. Saved audio preferences and input profiles remain.</p>
+<h2 id="drop-out-and-rejoin">Drop Out and Rejoin<a class="headerlink" href="#drop-out-and-rejoin" title="Permanent link">&para;</a></h2>
+<p>In an active match, the owned Leave control (<strong>G / Backspace / Select / DragonRise button12</strong>) requests reversible <strong>Drop Out</strong>. The session, Player Index, character, score, InputUser and profile remain reserved. The sample releases the representation and gameplay action clone, removes that player's rockets, and displays <strong>DROPPED OUT / PRESS JOIN TO RETURN</strong>. Survivors continue; Drop Out causes no death/score or automatic win.</p>
+<p>The same role/controller's normal Join restores that session with a new selected-character representation at a safe authored spawn. Shield resets Ready; held gameplay controls need fresh input. Dropping out while dead cancels pending respawn. If everyone voluntarily drops out, <strong>ALL PLAYERS LEFT / PRESS JOIN TO RETURN</strong> pauses the arena; the first valid Join restores play. DeviceRegained alone does not reverse voluntary Drop Out.</p>
+<p>This differs from Device Lost, which keeps the representation, and explicit permanent <code>TryLeave</code>, which releases the session/seat. See <a href="../session-lifecycle/#optional-gameplay-drop-out-and-rejoin">framework lifecycle APIs</a> when integrating your own game.</p>
+<h2 id="what-to-study-and-adapt">What to study and adapt<a class="headerlink" href="#what-to-study-and-adapt" title="Permanent link">&para;</a></h2>
+<p>Shared components implement authored menu panels, audio preferences, profile editing, Pause, lobby feedback and safe-point selection. They consume public framework APIs without creating another ownership model. Both games use Gameplay Player Setup for spawning and Gameplay Player Binding for isolated owned actions. Movement, combat, score, respawn, camera follow and match policy belong to the samples.</p>
+<p>Test your copy with supported hardware: navigate settings without mouse, edit/reset a profile, return lobby/game, Drop Out/Rejoin a middle player, and test actual Device Lost separately. Surviving Player Index/session mappings should stay stable. These examples are local sample games, not networking, arbitrary-game camera controllers or performance guarantees.</p>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  Back to top
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    
+      
+      <nav class="md-footer__inner md-grid" aria-label="Footer" >
+        
+          
+          <a href="../samples/" class="md-footer__link md-footer__link--prev" aria-label="Previous: Sample Index">
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+            </div>
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Previous
+              </span>
+              <div class="md-ellipsis">
+                Sample Index
+              </div>
+            </div>
+          </a>
+        
+        
+          
+          <a href="../rocket-rumble-2d/" class="md-footer__link md-footer__link--next" aria-label="Next: Rocket Rumble 2D">
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Next
+              </span>
+              <div class="md-ellipsis">
+                Rocket Rumble 2D
+              </div>
+            </div>
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11z"/></svg>
+            </div>
+          </a>
+        
+      </nav>
+    
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      Copyright LevelArgento
+    </div>
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      <script id="__config" type="application/json">{"base": "..", "features": ["navigation.sections", "navigation.footer", "navigation.top", "search.suggest", "search.highlight", "content.code.copy"], "search": "../assets/javascripts/workers/search.d50fe291.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.13a4f30d.min.js"></script>
+      
+        <script src="../scripts/navigation.js"></script>
+      
+    
+  </body>
+</html>

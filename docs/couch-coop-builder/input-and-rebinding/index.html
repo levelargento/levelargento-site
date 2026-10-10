@@ -1,0 +1,1518 @@
+﻿
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Couch Co-op Builder 1.0.0 user manual for Unity 6.3 LTS.">
+      
+      
+      
+        <link rel="canonical" href="https://levelargento.com/docs/couch-coop-builder/input-and-rebinding/">
+      
+      
+        <link rel="prev" href="../gameplay-input/">
+      
+      
+        <link rel="next" href="../split-screen/">
+      
+      
+      <link rel="icon" href="../assets/branding/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.14">
+    
+    
+      
+        <title>Input and Rebinding - Couch Co-op Builder</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.342714a4.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+    
+    
+      <link rel="stylesheet" href="../stylesheets/extra.css">
+    
+    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    <body dir="ltr">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#input-binding-profiles-and-rebinding" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href=".." title="Couch Co-op Builder" class="md-header__button md-logo" aria-label="Couch Co-op Builder" data-md-component="logo">
+      
+  <img src="../assets/branding/favicon.png" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Couch Co-op Builder
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Input and Rebinding
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href=".." title="Couch Co-op Builder" class="md-nav__button md-logo" aria-label="Couch Co-op Builder" data-md-component="logo">
+      
+  <img src="../assets/branding/favicon.png" alt="logo">
+
+    </a>
+    Couch Co-op Builder
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href=".." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Manual home
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../introduction/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Introduction
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    Getting Started
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            Getting Started
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../getting-started/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Installation and Quick Start
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../setup-wizard/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Setup Wizard
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../character-catalog/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Character Catalog
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    Lobby
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            Lobby
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../lobby-and-existing-canvas/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Lobby and Existing Canvas
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../sessions-and-identity/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Sessions and Identity
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    Gameplay
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            Gameplay
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../gameplay-integration/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Gameplay Integration
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../gameplay-input/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Gameplay Input
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    Input and Rebinding
+    
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    Input and Rebinding
+    
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#identity-and-shared-profiles" class="md-nav__link">
+    <span class="md-ellipsis">
+      Identity and shared profiles
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#service-and-storage" class="md-nav__link">
+    <span class="md-ellipsis">
+      Service and storage
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#settings-before-joining" class="md-nav__link">
+    <span class="md-ellipsis">
+      Settings before joining
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#capture-paths-and-conflicts" class="md-nav__link">
+    <span class="md-ellipsis">
+      Capture, paths and conflicts
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#reset-and-action-schema-updates" class="md-nav__link">
+    <span class="md-ellipsis">
+      Reset and action schema updates
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#simultaneous-action-conflicts" class="md-nav__link">
+    <span class="md-ellipsis">
+      Simultaneous action conflicts
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../split-screen/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Shared and Split Screen
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../persistent-sessions/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Persistent Sessions
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../session-lifecycle/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Session Lifecycle
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6" >
+        
+          
+          <label class="md-nav__link" for="__nav_6" id="__nav_6_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    Samples
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_6">
+            <span class="md-nav__icon md-icon"></span>
+            Samples
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../configure-samples/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Configure Samples
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../samples/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Sample Index
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../rocket-rumble-shared/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Rocket Rumble Shared
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../rocket-rumble-2d/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Rocket Rumble 2D
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../rocket-rumble-3d/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Rocket Rumble 3D
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../split-screen-playgrounds/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Split Screen Playgrounds
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_7" >
+        
+          
+          <label class="md-nav__link" for="__nav_7" id="__nav_7_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    Smart UI
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_7_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_7">
+            <span class="md-nav__icon md-icon"></span>
+            Smart UI
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../included-smart-ui/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Included Smart UI
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_8" >
+        
+          
+          <label class="md-nav__link" for="__nav_8" id="__nav_8_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    Reference
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_8_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_8">
+            <span class="md-nav__icon md-icon"></span>
+            Reference
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../troubleshooting/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Troubleshooting
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../api-and-advanced/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    API and Advanced
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../support/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Support
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#identity-and-shared-profiles" class="md-nav__link">
+    <span class="md-ellipsis">
+      Identity and shared profiles
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#service-and-storage" class="md-nav__link">
+    <span class="md-ellipsis">
+      Service and storage
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#settings-before-joining" class="md-nav__link">
+    <span class="md-ellipsis">
+      Settings before joining
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#capture-paths-and-conflicts" class="md-nav__link">
+    <span class="md-ellipsis">
+      Capture, paths and conflicts
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#reset-and-action-schema-updates" class="md-nav__link">
+    <span class="md-ellipsis">
+      Reset and action schema updates
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#simultaneous-action-conflicts" class="md-nav__link">
+    <span class="md-ellipsis">
+      Simultaneous action conflicts
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+<nav class="couch-doc-links" aria-label="LevelArgento resources">
+  <a href="../../../couch-coop-builder.html">Couch product</a>
+  <a href="../../../index.html">LevelArgento home</a>
+  <a href="../../../support.html">Support</a>
+  <a href="../downloads/couch-coop-builder-manual.pdf">Offline PDF manual</a>
+</nav>
+
+                  
+
+
+
+<h1 id="input-binding-profiles-and-rebinding">Input Binding Profiles and Rebinding<a class="headerlink" href="#input-binding-profiles-and-rebinding" title="Permanent link">&para;</a></h1>
+<p>See <a href="../getting-started/#quick-start">Quick Start</a> for lobby setup and <a href="../gameplay-input/#gameplay-input-binding">Gameplay Integration</a> for owned action binding.</p>
+<p>This opt-in runtime API belongs to Couch Co-op Builder. A game such as Rocket
+Rumble can build its settings UI on top of it. The framework does not create a
+controls menu, change existing Join/Leave listeners, or rebind Smart UI Focus &amp; Navigation.
+It changes the owned gameplay action clones exposed by <code>GameplayActionInput</code>.
+Source InputActionAssets and GenericControllerProfile assets are not rewritten.</p>
+<h2 id="identity-and-shared-profiles">Identity and shared profiles<a class="headerlink" href="#identity-and-shared-profiles" title="Permanent link">&para;</a></h2>
+<p>PlayerIndex is a reusable session seat displayed as P1–P8; it remains stable until permanent Leave. InputSlot separately identifies the reserved input role/source, and SessionId is stable for that session. None is a persistent binding-profile key. Editing "P3 Controls" means editing
+<code>playerBinding.Input.BindingProfile</code>, the input source currently assigned to P3.
+After Leave, the next occupant receives its own source's profile.</p>
+<table>
+<thead>
+<tr>
+<th>Source</th>
+<th>Default persistent identity</th>
+<th>Consequence</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Keyboard A</td>
+<td><code>KeyboardA</code></td>
+<td>Follows the logical A role across seat changes.</td>
+</tr>
+<tr>
+<td>Keyboard B</td>
+<td><code>KeyboardB</code></td>
+<td>Follows the logical B role across seat changes.</td>
+</tr>
+<tr>
+<td>Standard gamepad</td>
+<td><code>Gamepad:Profile:</code> plus a metadata family fingerprint</td>
+<td>Same reported family shares saved overrides. Xbox and DualSense families do not inherit each other's overrides through seat reuse.</td>
+</tr>
+<tr>
+<td>Generic joystick</td>
+<td><code>Joystick:Profile:</code> plus the matched GenericControllerProfile identity fingerprint</td>
+<td>Uses the actual discovered profile; identical devices share that profile.</td>
+</tr>
+</tbody>
+</table>
+<p>Gamepad family metadata includes the Unity layout, interface, manufacturer,
+product and HID VID/PID when reported. Display names, runtime device names,
+InputDevice.deviceId and serial numbers are not used as unique identity. A serial
+field alone is not evidence of cross-launch stability or uniqueness. A transport
+or layout change can select a different family fallback; this is a default/shared
+profile, not a claim of physical-device identity.</p>
+<p>For generic joysticks, assign <code>PersistentBindingProfileId</code> once in the profile
+Inspector, or <code>ConfigureBindingProfileId</code> during configuration. Reuse that stable
+customer-owned ID when updating the profile asset. Existing assets with a blank
+ID use exact base-layout/interface/manufacturer/product/HID match fields. The
+fallback does not depend on asset/display names or generated binding GUIDs.
+Changing those match fields changes the fallback key. Use distinct explicit IDs
+for distinct profiles with otherwise identical match metadata.</p>
+<p><strong>Identical controllers cannot be reliably distinguished across launches by this
+fallback.</strong> They have independent actions, sessions and InputUsers, but share
+binding settings. Editing/resetting that shared profile updates every attached
+consumer of it. No fuzzy matching or invented physical identity is used.</p>
+<p>A platform/customer integration with verified stable, unique physical identity
+can implement <code>IInputBindingDeviceIdentityProvider</code> and supply it to
+<code>InputBindingProfileResolver</code>. Returning true asserts both properties. Do not
+return a transient deviceId, enumerated display name, player seat, or unverified
+serial. Verified gamepad keys survive metadata/transport changes; verified
+joystick keys remain scoped to their controller profile. The framework itself
+provides no cross-platform guarantee of unique physical identity.</p>
+<h2 id="service-and-storage">Service and storage<a class="headerlink" href="#service-and-storage" title="Permanent link">&para;</a></h2>
+<p>Keep one <code>InputBindingProfileService</code> for the game's controls settings lifetime,
+usually across scene transitions. It owns one complete versioned document in an
+<code>IInputBindingProfileStore</code>. The core model has no dependency on UI or PlayerPrefs.</p>
+<p><code>JsonFileInputBindingProfileStore</code> is the simple built-in desktop/mobile backend.
+Its default file is <code>Application.persistentDataPath/CouchCoopBuilder/input-bindings.json</code>.
+An explicit file path is also supported. It writes a sibling temporary file and
+replaces the previous document. Customers can implement the two-method store
+interface using their own save system. Save must replace the whole document
+atomically, or throw without changing the previous document. Use one writer per
+store. Platforms without suitable filesystem support, including WebGL/cloud save
+integrations, should supply their own backend.</p>
+<p>Load explicitly and handle a failure before exposing editing/resetting. A failed
+load retains the last successfully loaded document and live bindings. An empty or
+missing file means defaults. Unsupported versions, malformed data and duplicate
+records are rejected. Do not silently overwrite an unknown or unreadable save
+by continuing with defaults after a failed load.</p>
+<div class="highlight"><pre><span></span><code><span class="kt">var</span><span class="w"> </span><span class="n">profiles</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">InputBindingProfileService</span><span class="p">(</span><span class="k">new</span><span class="w"> </span><span class="n">JsonFileInputBindingProfileStore</span><span class="p">());</span>
+<span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="o">!</span><span class="n">profiles</span><span class="p">.</span><span class="n">TryLoad</span><span class="p">(</span><span class="k">out</span><span class="w"> </span><span class="kt">string</span><span class="w"> </span><span class="n">loadFailure</span><span class="p">))</span>
+<span class="p">{</span>
+<span class="w">    </span><span class="c1">// Show/report loadFailure and stop editing until the save is resolved.</span>
+<span class="w">    </span><span class="n">profiles</span><span class="p">.</span><span class="n">Dispose</span><span class="p">();</span>
+<span class="w">    </span><span class="k">return</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="c1">// After an existing GameplayPlayerBinding has bound its input:</span>
+<span class="kt">var</span><span class="w"> </span><span class="n">playerProfile</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">profiles</span><span class="p">.</span><span class="n">Attach</span><span class="p">(</span><span class="n">playerBinding</span><span class="p">.</span><span class="n">Input</span><span class="p">);</span>
+<span class="kt">bool</span><span class="w"> </span><span class="n">saved</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">playerProfile</span><span class="p">.</span><span class="n">TryRebind</span><span class="p">(</span>
+<span class="w">    </span><span class="s">"PrimaryAction"</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="s">"&lt;Gamepad&gt;/buttonNorth"</span><span class="p">,</span><span class="w"> </span><span class="k">out</span><span class="w"> </span><span class="kt">string</span><span class="w"> </span><span class="n">failure</span><span class="p">);</span>
+</code></pre></div>
+<p>Attach after gameplay input is available, for example from the existing
+<code>GameplayPlayerBinding.InputBound</code> callback. Reattach to the new input when the
+scene representation is recreated. The service automatically detaches when that
+input is disposed and retains saved overrides. It never creates another InputUser
+or replaces <code>InputUser.actions</code>. Custom integrations can attach to their own
+<code>GameplayActionInput.Create</code> result and remain responsible for disposing it.</p>
+<p>An input can have one binding profile session. A stable optional <code>domain</code>
+(default <code>Gameplay</code>) separates different customer action schemas in the same
+profile. Keep the domain stable across scenes using the same schema. Only the
+owned gameplay map is enabled/modified, not every map in the source asset.</p>
+<h2 id="settings-before-joining">Settings before joining<a class="headerlink" href="#settings-before-joining" title="Permanent link">&para;</a></h2>
+<p><code>profiles.OpenProfile(kind, gameplaySettings, device, joystickProfile)</code> opens a
+settings preview using the same identity, storage, validation and reset operations.
+The returned <code>InputBindingProfileSession.ActionMap</code> is an owned, disabled clone for
+display and editing. It creates no PlayerSession, InputUser or synthetic device.
+Dispose the preview when changing profile or leaving settings. Later
+<code>Attach(playerBinding.Input)</code> consumes the saved overrides for that input source.</p>
+<p>Both keyboard roles are validated in the preview even when nobody has joined.
+With no device, a preview can display defaults/saved data and reset, but cannot
+capture/rebind (<code>CanRebind</code> is false). A device-less gamepad preview represents the
+generic default Gamepad family; it is not a saved Xbox/DualSense physical identity.
+When a controller is connected, open its actual resolved family profile. Joystick
+previews require a configured GenericControllerProfile and use its identity, even
+when its device is absent. Connected joysticks must match that profile.
+<code>SharedJoystickInput.ResolveProfile</code> exposes the same strict discovery scoring
+and ambiguity result without enabling join listeners.</p>
+<h2 id="capture-paths-and-conflicts">Capture, paths and conflicts<a class="headerlink" href="#capture-paths-and-conflicts" title="Permanent link">&para;</a></h2>
+<div class="highlight"><pre><span></span><code><span class="kt">var</span><span class="w"> </span><span class="n">capture</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">playerProfile</span><span class="p">.</span><span class="n">BeginInteractiveRebind</span><span class="p">(</span><span class="s">"PrimaryAction"</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">);</span>
+<span class="n">capture</span><span class="p">.</span><span class="n">Finished</span><span class="w"> </span><span class="o">+=</span><span class="w"> </span><span class="n">result</span><span class="w"> </span><span class="o">=&gt;</span>
+<span class="p">{</span>
+<span class="w">    </span><span class="c1">// Inspect Status: Succeeded, Rejected or Canceled, and Failure on rejection.</span>
+<span class="w">    </span><span class="c1">// Refresh UI here. Dispose/unsubscribe UI handlers when the menu closes.</span>
+<span class="p">};</span>
+<span class="c1">// The UI's Cancel button or teardown calls capture.Cancel()/Dispose().</span>
+</code></pre></div>
+<p>Only one capture can run per service. The target map is disabled during capture;
+other players' maps keep working. Capture accepts and suppresses only events from
+the target's paired devices. Runtime device paths restrict capture but are never
+saved. Other controllers and another player's Escape key cannot choose/cancel a
+binding. Cancel is explicit, or occurs at the default ten-second timeout, device
+loss/disable/unpair, input disposal, session disposal or service disposal. The
+operation releases native resources and restores the target map when its input
+is still available. The timeout is configurable. A caller can optionally supply <code>cancelControl</code> to
+<code>BeginInteractiveRebind</code>; it must belong to the selected source and uses Unity's
+existing native cancellation path. It is reserved for cancel during that capture,
+not saved as an override. Without it, cancellation remains explicit or by timeout.</p>
+<p>Programmatic overrides must be a concrete layout-relative path such as
+<code>&lt;Keyboard&gt;/h</code>, <code>&lt;Gamepad&gt;/buttonNorth</code> or <code>&lt;Joystick&gt;/button11</code>. An empty string
+unbinds. Runtime instance paths and wildcard/usage paths are rejected. The path
+must resolve on the source's paired device and fit the action's expected control
+type. Rebind individual composite parts by binding index, not a composite header.
+Keyboard sources accept individual keys.</p>
+<p>Keyboard A/B share one physical keyboard. The service validates both logical
+role maps, including the defaults/saved role that has not joined, and rejects
+cross-role overlap before saving or mutating live actions. Conflicting capture is
+reported as Rejected with a reason. Reuse by different actions in the same gameplay map is also rejected; multiple bindings of the same action are valid. Identical logical button paths on separate gamepads/joysticks are valid;
+they are not cross-device conflicts.</p>
+<p>The consumer should close or otherwise gate its lobby controls while editing if
+captured keys also have existing Join/Leave/UI meaning. This foundation does not
+replace those listeners or implement a modal controls menu.</p>
+<h2 id="reset-and-action-schema-updates">Reset and action schema updates<a class="headerlink" href="#reset-and-action-schema-updates" title="Permanent link">&para;</a></h2>
+<ul>
+<li><code>playerProfile.ResetAction(actionName, out failure)</code> resets that profile/action
+  in the current domain.</li>
+<li><code>playerProfile.ResetProfile(out failure)</code> implements Reset Player: reset the
+  current source's persistent profile, across its domains and attached consumers.</li>
+<li><code>profiles.ResetAll(out failure)</code> clears all persisted framework profile
+  overrides, including profiles with no currently attached player.</li>
+<li>The service also exposes profile-based ResetAction/ResetProfile for settings
+  screens that do not have a live player.</li>
+</ul>
+<p>Reset restores the authored defaults captured at attachment, including any
+customer-authored template overrides, processors and interactions. It does not
+rewrite source assets. Changes validate using scratch maps and save before live
+maps change. A failed store save leaves live actions and the document unchanged.
+Finish/cancel capture before another mutation or reset. <code>ProfilesChanged</code> signals
+successful changes; <code>PersistedProfileKeys</code> lists profiles with saved overrides.
+All service operations are intended for Unity's main thread.</p>
+<p>Binding addresses use action name and original structural binding information,
+not Unity-generated GUIDs (joystick actions are reconstructed with fresh GUIDs).
+If an action/binding schema changes, unmatched stored addresses are retained and
+listed in <code>playerProfile.UnappliedBindings</code>; they are not applied to a different
+binding. Plan an explicit customer save migration or reset for schema changes.</p>
+<p>Dispose the service at application teardown. Dispose/cancel captures when their
+UI closes. Detaching a live session restores its owned map's defaults; disposing
+the underlying GameplayActionInput detaches without touching destroyed assets.</p>
+<h2 id="simultaneous-action-conflicts">Simultaneous action conflicts<a class="headerlink" href="#simultaneous-action-conflicts" title="Permanent link">&para;</a></h2>
+<p>Profile validation rejects one physical control assigned to different actions in
+the selected gameplay map/domain, including composite parts and parent controls.
+Two bindings of the same action are valid. Both keyboard role maps are compared
+because they share a Keyboard. Separate controller devices are not compared.
+Lobby/UI maps and other binding domains are independent and may reuse controls.
+<code>InputBindingProfileService.LastConflict</code> exposes control display/path, both
+semantic action names and profile keys after a rejected transaction. Rejection
+leaves live bindings and storage unchanged. Authored defaults must also be valid
+for their simultaneously active map; resets are validated before saving.</p>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  Back to top
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    
+      
+      <nav class="md-footer__inner md-grid" aria-label="Footer" >
+        
+          
+          <a href="../gameplay-input/" class="md-footer__link md-footer__link--prev" aria-label="Previous: Gameplay Input">
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+            </div>
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Previous
+              </span>
+              <div class="md-ellipsis">
+                Gameplay Input
+              </div>
+            </div>
+          </a>
+        
+        
+          
+          <a href="../split-screen/" class="md-footer__link md-footer__link--next" aria-label="Next: Shared and Split Screen">
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Next
+              </span>
+              <div class="md-ellipsis">
+                Shared and Split Screen
+              </div>
+            </div>
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11z"/></svg>
+            </div>
+          </a>
+        
+      </nav>
+    
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      Copyright LevelArgento
+    </div>
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      <script id="__config" type="application/json">{"base": "..", "features": ["navigation.sections", "navigation.footer", "navigation.top", "search.suggest", "search.highlight", "content.code.copy"], "search": "../assets/javascripts/workers/search.d50fe291.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.13a4f30d.min.js"></script>
+      
+        <script src="../scripts/navigation.js"></script>
+      
+    
+  </body>
+</html>

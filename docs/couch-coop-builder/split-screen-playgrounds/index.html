@@ -1,0 +1,1325 @@
+﻿
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Couch Co-op Builder 1.0.0 user manual for Unity 6.3 LTS.">
+      
+      
+      
+        <link rel="canonical" href="https://levelargento.com/docs/couch-coop-builder/split-screen-playgrounds/">
+      
+      
+        <link rel="prev" href="../rocket-rumble-3d/">
+      
+      
+        <link rel="next" href="../included-smart-ui/">
+      
+      
+      <link rel="icon" href="../assets/branding/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.14">
+    
+    
+      
+        <title>Split Screen Playgrounds - Couch Co-op Builder</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.342714a4.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+    
+    
+      <link rel="stylesheet" href="../stylesheets/extra.css">
+    
+    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    <body dir="ltr">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#split-screen-playgrounds" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href=".." title="Couch Co-op Builder" class="md-header__button md-logo" aria-label="Couch Co-op Builder" data-md-component="logo">
+      
+  <img src="../assets/branding/favicon.png" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Couch Co-op Builder
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Split Screen Playgrounds
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href=".." title="Couch Co-op Builder" class="md-nav__button md-logo" aria-label="Couch Co-op Builder" data-md-component="logo">
+      
+  <img src="../assets/branding/favicon.png" alt="logo">
+
+    </a>
+    Couch Co-op Builder
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href=".." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Manual home
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../introduction/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Introduction
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    Getting Started
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            Getting Started
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../getting-started/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Installation and Quick Start
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../setup-wizard/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Setup Wizard
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../character-catalog/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Character Catalog
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    Lobby
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            Lobby
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../lobby-and-existing-canvas/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Lobby and Existing Canvas
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../sessions-and-identity/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Sessions and Identity
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    Gameplay
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            Gameplay
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../gameplay-integration/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Gameplay Integration
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../gameplay-input/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Gameplay Input
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../input-and-rebinding/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Input and Rebinding
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../split-screen/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Shared and Split Screen
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../persistent-sessions/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Persistent Sessions
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../session-lifecycle/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Session Lifecycle
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_6" id="__nav_6_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    Samples
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_6">
+            <span class="md-nav__icon md-icon"></span>
+            Samples
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../configure-samples/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Configure Samples
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../samples/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Sample Index
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../rocket-rumble-shared/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Rocket Rumble Shared
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../rocket-rumble-2d/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Rocket Rumble 2D
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../rocket-rumble-3d/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Rocket Rumble 3D
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    Split Screen Playgrounds
+    
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    Split Screen Playgrounds
+    
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#try-it" class="md-nav__link">
+    <span class="md-ellipsis">
+      Try it
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#integration-to-read" class="md-nav__link">
+    <span class="md-ellipsis">
+      Integration to read
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#presentation-and-limits" class="md-nav__link">
+    <span class="md-ellipsis">
+      Presentation and limits
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#try-your-integration" class="md-nav__link">
+    <span class="md-ellipsis">
+      Try your integration
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_7" >
+        
+          
+          <label class="md-nav__link" for="__nav_7" id="__nav_7_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    Smart UI
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_7_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_7">
+            <span class="md-nav__icon md-icon"></span>
+            Smart UI
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../included-smart-ui/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Included Smart UI
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_8" >
+        
+          
+          <label class="md-nav__link" for="__nav_8" id="__nav_8_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    Reference
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_8_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_8">
+            <span class="md-nav__icon md-icon"></span>
+            Reference
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../troubleshooting/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Troubleshooting
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../api-and-advanced/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    API and Advanced
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../support/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Support
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#try-it" class="md-nav__link">
+    <span class="md-ellipsis">
+      Try it
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#integration-to-read" class="md-nav__link">
+    <span class="md-ellipsis">
+      Integration to read
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#presentation-and-limits" class="md-nav__link">
+    <span class="md-ellipsis">
+      Presentation and limits
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#try-your-integration" class="md-nav__link">
+    <span class="md-ellipsis">
+      Try your integration
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+<nav class="couch-doc-links" aria-label="LevelArgento resources">
+  <a href="../../../couch-coop-builder.html">Couch product</a>
+  <a href="../../../index.html">LevelArgento home</a>
+  <a href="../../../support.html">Support</a>
+  <a href="../downloads/couch-coop-builder-manual.pdf">Offline PDF manual</a>
+</nav>
+
+                  
+
+
+
+<h1 id="split-screen-playgrounds">Split Screen Playgrounds<a class="headerlink" href="#split-screen-playgrounds" title="Permanent link">&para;</a></h1>
+<p>These <strong>1–8-player</strong> camera examples complement <a href="../getting-started/#quick-start">Quick Start</a>. Open SplitScreenPlayground3D (<code>Assets/LevelArgento/CouchCoopBuilder/Samples/SplitScreenPlaygrounds/Scenes/SplitScreenPlayground3D.unity</code>) or SplitScreenPlayground2D (<code>Assets/LevelArgento/CouchCoopBuilder/Samples/SplitScreenPlaygrounds/Scenes/SplitScreenPlayground2D.unity</code>) and enter Play Mode. These independent scenes use URP and the installed Input System/Smart UI Focus &amp; Navigation integration. Their lightweight join screen needs no separate lobby scene, Rocket Rumble content or Cinemachine. They are not automatically registered in the project's scene configuration; add the chosen scene to the scene list used by your active Build Profile when building a sample.</p>
+<h2 id="try-it">Try it<a class="headerlink" href="#try-it" title="Permanent link">&para;</a></h2>
+<ol>
+<li>Join with <strong>Q</strong> (Keyboard A), <strong>P</strong> (Keyboard B), or a controller's <strong>Start</strong>. The authored 4x2 grid shows eight equally sized P1-P8 cards with waiting/joined state and input source. Up to eight real input sources may join; the two keyboard roles share one physical keyboard. There is no Ready requirement.</li>
+<li>Select <strong>ENTER PLAYGROUND</strong> with <strong>F</strong> (Keyboard A), <strong>Enter</strong> (Keyboard B), a controller profile's Confirm (<strong>south face button</strong> on standard gamepads), or a mouse click. One through eight joined players may enter. Existing representations, contexts and InputUsers are retained; gameplay movement/settings yield to the join screen until entry.</li>
+<li>Move with <strong>WASD</strong>, <strong>arrow keys</strong>, or the controller stick. Jump with <strong>Space</strong>, <strong>numpad 0</strong>, or the gamepad's <strong>west face button</strong> (X on Xbox / Square on PlayStation). These scenes use the framework's default gameplay bindings.</li>
+<li>Open <strong>Camera Settings</strong> with <strong>Tab</strong>, its mouse button, or a joined player's Pause binding (<strong>T / Y / Start</strong>). The Split Screen control receives focus. Player movement yields while the panel is open; world physics continues.</li>
+<li>Use up/down to select and left/right to change. Keyboard A uses <strong>W/S, A/D, F</strong>; Keyboard B uses <strong>arrows, Enter</strong>; gamepads use <strong>stick/D-pad, south face button</strong>. Mouse arrows and Back also work. Close with <strong>Escape</strong>, gamepad <strong>east</strong>, or <strong>Back</strong>. Layout rows are hidden while Split Screen is OFF.</li>
+<li>Toggle Shared -&gt; Split -&gt; Shared -&gt; Split. Change both two-player layouts and all four three-player layouts. Camera settings are scene-local and begin with Split Screen OFF (shared view), two-player Vertical, and Top 2 / Bottom 1.</li>
+<li>Drop out with <strong>G / Backspace / controller Select</strong>. Rejoin with the same source's <strong>Q / P / Start</strong>. Drop Out reserves the original session and PlayerIndex; it destroys that sample representation and recreates it at its spawn on rejoin. It is distinct from temporary DeviceLost, which retains the representation and view.</li>
+</ol>
+<p>Configured generic joysticks use their <code>GenericControllerProfile</code> controls. The scene bootstrap includes the existing DragonRise profile; add other recognized profiles to its Shared Joystick Input list. Matching/pairing and gameplay binding resolution remain framework responsibilities.</p>
+<h2 id="integration-to-read">Integration to read<a class="headerlink" href="#integration-to-read" title="Permanent link">&para;</a></h2>
+<ul>
+<li><strong>PlaygroundSessionProvider</strong> implements public <code>IGameplayPlayerProvider</code> and supplies a simple authored prefab per context to <code>GameplayPlayerSetup</code>. It owns representation creation/destruction, eight spawn transforms, participant collision exclusions and palette. Sessions, InputUsers and input actions are provided by the framework.</li>
+<li><strong>PlaygroundJoinPanel</strong> reads existing contexts for eight authored cards and invokes the authored Enter button from each player's owned Confirm action. It creates no sessions/devices/InputUsers. The join panel is the only navigation owner while visible; settings yield until entry. Spawns use two clear 3D plaza rows and eight non-overlapping 2D floor positions.</li>
+<li><strong>PlaygroundCameraSettings</strong> calls public <code>GameplayCameraManager.SetSplitScreenEnabled</code>, <code>SetTwoPlayerLayout</code> and <code>SetThreePlayerLayout</code>. One settings router reads the existing owned menu actions. Smart UI Focus &amp; Navigation manages focus recovery; the UI module handles pointers only, with no second move/submit/cancel router. All visible controls and HUD are saved in the scenes.</li>
+<li>The manager owns assignment, camera lifetime, active viewport packing and the single AudioListener policy. Both scenes use its camera-prefab source and the same default layout provider. Active <code>PlayerIndex</code> values pack in ascending order even when there are gaps.</li>
+<li><strong>PlaygroundFollowCamera3D</strong> reads its public <code>GameplayCameraAssignment.Representation</code>, follows smoothly with a fixed 45-degree heading, and uses a little more distance for narrow viewports. Its perspective prefab is independent of player facing. Shared 3D uses a fixed authored high-angle overview that covers the usable playground.</li>
+<li><strong>PlaygroundCamera2D</strong> supplies orthographic behavior. Individual cameras follow the assigned representation; the shared camera frames the active group using the public setup lookup. Follow size, maximum shared size and simple level bounds are inspector settings. Extreme separation zooms the shared view out rather than tethering players.</li>
+<li><strong>PlaygroundPlayer3D / PlaygroundPlayer2D</strong> read only their own <code>GameplayPlayerBinding.Input</code>. They demonstrate move, grounded jump and facing. Falling below the sample floor returns the same representation to its spawn; there is no combat, score, health or full game loop.</li>
+</ul>
+<p><strong>The follow scripts are sample implementations. GameplayCameraManager does not require these behaviors.</strong> Replace them with your project's camera behavior while keeping the public assignment.</p>
+<h2 id="presentation-and-limits">Presentation and limits<a class="headerlink" href="#presentation-and-limits" title="Permanent link">&para;</a></h2>
+<p>The 3D deck has four color districts, a central plaza, stepped terraces, ramps, a bridge and modest obstacles. The 2D stage has four districts, increasing platform heights and small floor gaps. Player colors and compact P1-P8 markers match the framework conventions.</p>
+<p>See the authoritative <a href="../split-screen/#6-built-in-layouts-1-8">1–8 layout table</a> for selectable 2P/3P and automatic 4–8 arrangements. Viewport badges use one-based P1–P8 labels for the actual zero-based PlayerIndex, not the packed viewport number. The header and Camera Settings stay global above the cameras.</p>
+<p>Eight cameras render the scene eight times. Small viewports reduce detail/readability and increase rendering cost. This sample has one unshadowed directional light in 3D, unlit materials in 2D, no post-processing and no particles. Profile your own content and target hardware. Shared overview players can be small; the 3D follow example has no occlusion avoidance or camera collision rig, so geometry can briefly obscure a player. The 2D bounds limit empty edges in individual views; an extremely wide shared view necessarily shows space outside the vertical level.</p>
+<h2 id="try-your-integration">Try your integration<a class="headerlink" href="#try-your-integration" title="Permanent link">&para;</a></h2>
+<p>Join the player count your game supports, enter, and toggle Shared/Split Screen. Confirm each view follows its owning representation and only one assigned-camera AudioListener is active. Test two-/three-player choices and automatic four-/five-/six-/seven-/eight-player layouts. Drop Out a middle player: views pack by ascending PlayerIndex without renumbering the surviving sessions. Rejoin the same source, test actual Device Lost separately, then exit Play Mode and check for teardown errors.</p>
+<p>Customize your own copies of the saved scenes and prefabs directly. These examples demonstrate camera integration, not a complete game or a promise of camera framing/performance for every level.</p>
+<p><img alt="Eight authored Playground join cards. This independent scene does not require character Ready." src="../images/playground-eight-join.png" /></p>
+<p><em>Figure 6. Eight authored Playground join cards. This independent scene does not require character Ready.</em></p>
+<p><img alt="The Playground demonstrates eight independent camera assignments. Profile performance for your own content." src="../images/playground-eight-views.png" /></p>
+<p><em>Figure 7. The Playground demonstrates eight independent camera assignments. Profile performance for your own content.</em></p>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  Back to top
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    
+      
+      <nav class="md-footer__inner md-grid" aria-label="Footer" >
+        
+          
+          <a href="../rocket-rumble-3d/" class="md-footer__link md-footer__link--prev" aria-label="Previous: Rocket Rumble 3D">
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+            </div>
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Previous
+              </span>
+              <div class="md-ellipsis">
+                Rocket Rumble 3D
+              </div>
+            </div>
+          </a>
+        
+        
+          
+          <a href="../included-smart-ui/" class="md-footer__link md-footer__link--next" aria-label="Next: Included Smart UI">
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Next
+              </span>
+              <div class="md-ellipsis">
+                Included Smart UI
+              </div>
+            </div>
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11z"/></svg>
+            </div>
+          </a>
+        
+      </nav>
+    
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      Copyright LevelArgento
+    </div>
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      <script id="__config" type="application/json">{"base": "..", "features": ["navigation.sections", "navigation.footer", "navigation.top", "search.suggest", "search.highlight", "content.code.copy"], "search": "../assets/javascripts/workers/search.d50fe291.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.13a4f30d.min.js"></script>
+      
+        <script src="../scripts/navigation.js"></script>
+      
+    
+  </body>
+</html>

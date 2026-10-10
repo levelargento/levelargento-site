@@ -1,0 +1,1828 @@
+﻿
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Couch Co-op Builder 1.0.0 user manual for Unity 6.3 LTS.">
+      
+      
+      
+        <link rel="canonical" href="https://levelargento.com/docs/couch-coop-builder/split-screen/">
+      
+      
+        <link rel="prev" href="../input-and-rebinding/">
+      
+      
+        <link rel="next" href="../persistent-sessions/">
+      
+      
+      <link rel="icon" href="../assets/branding/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.14">
+    
+    
+      
+        <title>Shared and Split Screen - Couch Co-op Builder</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.342714a4.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+    
+    
+      <link rel="stylesheet" href="../stylesheets/extra.css">
+    
+    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    <body dir="ltr">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#shared-and-split-screen-cameras" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href=".." title="Couch Co-op Builder" class="md-header__button md-logo" aria-label="Couch Co-op Builder" data-md-component="logo">
+      
+  <img src="../assets/branding/favicon.png" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Couch Co-op Builder
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Shared and Split Screen
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href=".." title="Couch Co-op Builder" class="md-nav__button md-logo" aria-label="Couch Co-op Builder" data-md-component="logo">
+      
+  <img src="../assets/branding/favicon.png" alt="logo">
+
+    </a>
+    Couch Co-op Builder
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href=".." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Manual home
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../introduction/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Introduction
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    Getting Started
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            Getting Started
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../getting-started/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Installation and Quick Start
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../setup-wizard/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Setup Wizard
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../character-catalog/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Character Catalog
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    Lobby
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            Lobby
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../lobby-and-existing-canvas/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Lobby and Existing Canvas
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../sessions-and-identity/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Sessions and Identity
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    Gameplay
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            Gameplay
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../gameplay-integration/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Gameplay Integration
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../gameplay-input/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Gameplay Input
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../input-and-rebinding/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Input and Rebinding
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    Shared and Split Screen
+    
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    Shared and Split Screen
+    
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#1-overview" class="md-nav__link">
+    <span class="md-ellipsis">
+      1. Overview
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2-shared-vs-split-screen" class="md-nav__link">
+    <span class="md-ellipsis">
+      2. Shared vs Split Screen
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3-setup-wizard-quick-start" class="md-nav__link">
+    <span class="md-ellipsis">
+      3. Setup Wizard quick start
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4-manual-setup" class="md-nav__link">
+    <span class="md-ellipsis">
+      4. Manual setup
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#5-runtime-toggle-and-layouts" class="md-nav__link">
+    <span class="md-ellipsis">
+      5. Runtime toggle and layouts
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#6-built-in-layouts-1-8" class="md-nav__link">
+    <span class="md-ellipsis">
+      6. Built-in layouts 1-8
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#7-player-camera-sources" class="md-nav__link">
+    <span class="md-ellipsis">
+      7. Player camera sources
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="7. Player camera sources">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#camera-prefab" class="md-nav__link">
+    <span class="md-ellipsis">
+      Camera Prefab
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#camera-on-gameplay-representation" class="md-nav__link">
+    <span class="md-ellipsis">
+      Camera On Gameplay Representation
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#custom-provider" class="md-nav__link">
+    <span class="md-ellipsis">
+      Custom Provider
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#8-camera-ownership" class="md-nav__link">
+    <span class="md-ellipsis">
+      8. Camera ownership
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#9-drop-out-rejoin-and-permanent-leave" class="md-nav__link">
+    <span class="md-ellipsis">
+      9. Drop Out / Rejoin and permanent Leave
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#10-devicelost" class="md-nav__link">
+    <span class="md-ellipsis">
+      10. DeviceLost
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#11-audiolistener" class="md-nav__link">
+    <span class="md-ellipsis">
+      11. AudioListener
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#12-ui-hud" class="md-nav__link">
+    <span class="md-ellipsis">
+      12. UI / HUD
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#13-urp-and-cinemachine" class="md-nav__link">
+    <span class="md-ellipsis">
+      13. URP and Cinemachine
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#14-custom-layout-provider" class="md-nav__link">
+    <span class="md-ellipsis">
+      14. Custom layout provider
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#15-performance" class="md-nav__link">
+    <span class="md-ellipsis">
+      15. Performance
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#16-samples" class="md-nav__link">
+    <span class="md-ellipsis">
+      16. Samples
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#17-troubleshooting" class="md-nav__link">
+    <span class="md-ellipsis">
+      17. Troubleshooting
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../persistent-sessions/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Persistent Sessions
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../session-lifecycle/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Session Lifecycle
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6" >
+        
+          
+          <label class="md-nav__link" for="__nav_6" id="__nav_6_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    Samples
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_6">
+            <span class="md-nav__icon md-icon"></span>
+            Samples
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../configure-samples/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Configure Samples
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../samples/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Sample Index
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../rocket-rumble-shared/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Rocket Rumble Shared
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../rocket-rumble-2d/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Rocket Rumble 2D
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../rocket-rumble-3d/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Rocket Rumble 3D
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../split-screen-playgrounds/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Split Screen Playgrounds
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_7" >
+        
+          
+          <label class="md-nav__link" for="__nav_7" id="__nav_7_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    Smart UI
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_7_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_7">
+            <span class="md-nav__icon md-icon"></span>
+            Smart UI
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../included-smart-ui/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Included Smart UI
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_8" >
+        
+          
+          <label class="md-nav__link" for="__nav_8" id="__nav_8_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    Reference
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_8_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_8">
+            <span class="md-nav__icon md-icon"></span>
+            Reference
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../troubleshooting/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Troubleshooting
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../api-and-advanced/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    API and Advanced
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../support/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Support
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#1-overview" class="md-nav__link">
+    <span class="md-ellipsis">
+      1. Overview
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2-shared-vs-split-screen" class="md-nav__link">
+    <span class="md-ellipsis">
+      2. Shared vs Split Screen
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3-setup-wizard-quick-start" class="md-nav__link">
+    <span class="md-ellipsis">
+      3. Setup Wizard quick start
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4-manual-setup" class="md-nav__link">
+    <span class="md-ellipsis">
+      4. Manual setup
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#5-runtime-toggle-and-layouts" class="md-nav__link">
+    <span class="md-ellipsis">
+      5. Runtime toggle and layouts
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#6-built-in-layouts-1-8" class="md-nav__link">
+    <span class="md-ellipsis">
+      6. Built-in layouts 1-8
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#7-player-camera-sources" class="md-nav__link">
+    <span class="md-ellipsis">
+      7. Player camera sources
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="7. Player camera sources">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#camera-prefab" class="md-nav__link">
+    <span class="md-ellipsis">
+      Camera Prefab
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#camera-on-gameplay-representation" class="md-nav__link">
+    <span class="md-ellipsis">
+      Camera On Gameplay Representation
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#custom-provider" class="md-nav__link">
+    <span class="md-ellipsis">
+      Custom Provider
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#8-camera-ownership" class="md-nav__link">
+    <span class="md-ellipsis">
+      8. Camera ownership
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#9-drop-out-rejoin-and-permanent-leave" class="md-nav__link">
+    <span class="md-ellipsis">
+      9. Drop Out / Rejoin and permanent Leave
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#10-devicelost" class="md-nav__link">
+    <span class="md-ellipsis">
+      10. DeviceLost
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#11-audiolistener" class="md-nav__link">
+    <span class="md-ellipsis">
+      11. AudioListener
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#12-ui-hud" class="md-nav__link">
+    <span class="md-ellipsis">
+      12. UI / HUD
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#13-urp-and-cinemachine" class="md-nav__link">
+    <span class="md-ellipsis">
+      13. URP and Cinemachine
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#14-custom-layout-provider" class="md-nav__link">
+    <span class="md-ellipsis">
+      14. Custom layout provider
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#15-performance" class="md-nav__link">
+    <span class="md-ellipsis">
+      15. Performance
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#16-samples" class="md-nav__link">
+    <span class="md-ellipsis">
+      16. Samples
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#17-troubleshooting" class="md-nav__link">
+    <span class="md-ellipsis">
+      17. Troubleshooting
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+<nav class="couch-doc-links" aria-label="LevelArgento resources">
+  <a href="../../../couch-coop-builder.html">Couch product</a>
+  <a href="../../../index.html">LevelArgento home</a>
+  <a href="../../../support.html">Support</a>
+  <a href="../downloads/couch-coop-builder-manual.pdf">Offline PDF manual</a>
+</nav>
+
+                  
+
+
+
+<h1 id="shared-and-split-screen-cameras">Shared and Split Screen Cameras<a class="headerlink" href="#shared-and-split-screen-cameras" title="Permanent link">&para;</a></h1>
+<p><a href="../getting-started/#quick-start">Quick Start</a> covers setup; <a href="../introduction/#player-scope">Player scope</a> explains capacity. This guide describes optional camera integration.</p>
+<h2 id="1-overview">1. Overview<a class="headerlink" href="#1-overview" title="Permanent link">&para;</a></h2>
+<p><code>GameplayCameraManager</code> is an optional, scene-local module for shared and individual player cameras, with built-in Split Screen layouts for <strong>1-8 local players</strong>. It manages camera assignment, rendering state and <code>Camera.rect</code>.</p>
+<p><strong>You own camera behavior.</strong> The framework does not prescribe follow, orbit, aim, chase, zoom, collision or multiple-target framing. Your camera prefab or provider can contain your own behavior. The Playground and Rocket Rumble cameras are sample implementations, not universal camera controllers.</p>
+<p>Configure gameplay players normally first; see <a href="../gameplay-integration/">Chapter 7 — Gameplay Representation and Spawning</a>. The manager requires a <code>GameplayPlayerSetup</code> that resolves representations. If your game creates its own objects, use that setup's existing Custom Provider mode with an <code>IGameplayPlayerProvider</code> returning those objects. <code>HandleItMyself</code> does not resolve representations for camera management.</p>
+<p>No camera module is required for input, sessions, selection or gameplay integration. Cinemachine is not required.</p>
+<h2 id="2-shared-vs-split-screen">2. Shared vs Split Screen<a class="headerlink" href="#2-shared-vs-split-screen" title="Permanent link">&para;</a></h2>
+<ul>
+<li><strong>Split Screen OFF:</strong> your Shared Camera renders the full screen; assigned individual cameras stop rendering.</li>
+<li><strong>Split Screen ON:</strong> individual cameras render for active resolved participants; the Shared Camera stops rendering. If no individual camera can be resolved, Shared remains a fallback when available.</li>
+</ul>
+<p>Changing mode preserves PlayerSession identity, PlayerIndex, InputUser, selected character and gameplay representation. It does not reload scenes or recreate gameplay players. Switching back to Shared requires a Shared Camera reference.</p>
+<h2 id="3-setup-wizard-quick-start">3. Setup Wizard quick start<a class="headerlink" href="#3-setup-wizard-quick-start" title="Permanent link">&para;</a></h2>
+<ol>
+<li>Configure your gameplay scene's <code>GameplayPlayerSetup</code> and representation source, then save the scene.</li>
+<li>Open <strong>Tools &gt; LevelArgento &gt; Couch Co-op Builder &gt; Setup Wizard</strong>. Choose the lobby workflow, catalog, capacity and gameplay scene normally.</li>
+<li>On the <strong>Cameras</strong> step, check <strong>Enable Shared / Split Screen Camera Management</strong>. It is unchecked by default. Unchecked means no manager is added, no camera fields are required, and existing camera setup is left untouched.</li>
+<li>Use <strong>Open Gameplay Scene Additively</strong> to load the chosen gameplay scene alongside the lobby. Assign its <strong>Gameplay Player Setup</strong>; the Wizard suggests it only when exactly one candidate exists. Assign your existing <strong>Shared Camera</strong> from that scene.</li>
+<li>Choose <strong>Camera Prefab</strong>, <strong>Camera On Gameplay Representation</strong>, or <strong>Custom Provider</strong>, with the source described below. Prefab/provider configuration is required even when the initial mode is Shared, so runtime Split switching has a usable source.</li>
+<li>Choose <strong>Default Camera Mode: Shared / Split</strong>, the two-player layout and the three-player layout. Four through eight use automatic built-in layouts. Advanced options allow an existing custom layout provider and an AudioListener policy.</li>
+<li>Complete the authored lobby/Canvas bindings. On <strong>Review</strong>, inspect validation and the plan, then <strong>Apply Setup</strong>. The Wizard adds one <code>GameplayCameraManager</code> on the assigned setup object if none exists, or reuses the single existing manager in the gameplay scene. It assigns references and defaults, without creating camera objects or providers.</li>
+<li><strong>Save the gameplay scene after Apply</strong>, and save the lobby for Existing Canvas. The gameplay scene is marked dirty, not automatically saved. Enter Play Mode, join players and call <code>SetSplitScreenEnabled(true)</code> from your Settings UI.</li>
+</ol>
+<p>Existing Canvas lobby and camera edits form one scene Undo operation. New Lobby output assets cannot be deleted by scene Undo; camera wiring still supports Undo. Project scene-list additions are a separate project-configuration effect. New Lobby refuses to overwrite existing output assets and removes partial outputs if creation fails.</p>
+<p>Rerunning reads the single existing manager's configuration when you assign the setup object or open its scene through the Wizard. Review those suggested references before Apply. Reapplying reconciles one manager, without duplicate cameras or providers. Multiple managers produce an actionable validation error rather than a guess about which one to replace. Turning the checkbox off leaves any previously configured manager intact.</p>
+<h2 id="4-manual-setup">4. Manual setup<a class="headerlink" href="#4-manual-setup" title="Permanent link">&para;</a></h2>
+<ol>
+<li>Add <code>GameplayCameraManager</code> to the gameplay scene, normally on the <code>GameplayPlayerSetup</code> object.</li>
+<li>Assign <strong>Player Setup</strong>, your <strong>Shared Camera</strong>, and <strong>Player Camera Source</strong> with its prefab/provider where applicable.</li>
+<li>Set <strong>Split Screen Enabled</strong>, <strong>Two Player Layout</strong>, <strong>Three Player Layout</strong>, and optionally the layout provider/audio policy in the Inspector.</li>
+<li>Author camera behavior and test both modes with real joined gameplay participants.</li>
+</ol>
+<p>For code-driven setup, use <code>Configure(GameplayPlayerSetup setup, Camera shared, GameplayCameraSource source, GameObject prefab = null, IGameplayCameraProvider provider = null)</code>. It releases the previous camera assignment cycle. Settings toggles should use <code>SetSplitScreenEnabled</code> instead of repeatedly calling <code>Configure</code>.</p>
+<h2 id="5-runtime-toggle-and-layouts">5. Runtime toggle and layouts<a class="headerlink" href="#5-runtime-toggle-and-layouts" title="Permanent link">&para;</a></h2>
+<p>These are independent Settings actions; <code>cameraManager</code> is your assigned <code>GameplayCameraManager</code> reference. Include <code>using LevelArgento.CouchCoopBuilder;</code> in scripts using these types:</p>
+<div class="highlight"><pre><span></span><code><span class="n">cameraManager</span><span class="p">.</span><span class="n">SetSplitScreenEnabled</span><span class="p">(</span><span class="k">true</span><span class="p">);</span><span class="w">  </span><span class="c1">// Split</span>
+<span class="n">cameraManager</span><span class="p">.</span><span class="n">SetSplitScreenEnabled</span><span class="p">(</span><span class="k">false</span><span class="p">);</span><span class="w"> </span><span class="c1">// Shared</span>
+</code></pre></div>
+<div class="highlight"><pre><span></span><code><span class="n">cameraManager</span><span class="p">.</span><span class="n">SetTwoPlayerLayout</span><span class="p">(</span><span class="n">TwoPlayerViewportLayout</span><span class="p">.</span><span class="n">Vertical</span><span class="p">);</span>
+<span class="n">cameraManager</span><span class="p">.</span><span class="n">SetThreePlayerLayout</span><span class="p">(</span><span class="n">ThreePlayerViewportLayout</span><span class="p">.</span><span class="n">TopTwoBottomOne</span><span class="p">);</span>
+</code></pre></div>
+<p>Read state through <code>SplitScreenEnabled</code>, <code>TwoPlayerLayout</code> and <code>ThreePlayerLayout</code>. The Wizard default is serialized scene configuration; your Settings UI can change it at runtime. The module does not persist preferences or generate a mandatory Settings screen.</p>
+<table>
+<thead>
+<tr>
+<th>Public event</th>
+<th>Use</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>SplitScreenModeChanged</code> (<code>Action&lt;bool&gt;</code>)</td>
+<td>Reflect Shared/Split changes in your Settings UI.</td>
+</tr>
+<tr>
+<td><code>ViewportLayoutChanged</code> (<code>Action</code>)</td>
+<td>React after rect/rendering-state changes, including layout and participant updates.</td>
+</tr>
+<tr>
+<td><code>PlayerCameraAssigned</code> (<code>Action&lt;GameplayPlayerContext, Camera, GameObject&gt;</code>)</td>
+<td>Connect camera behavior or HUD to its current context and representation.</td>
+</tr>
+</tbody>
+</table>
+<p>Subscribe/unsubscribe with your component's normal lifecycle. <code>TryGetPlayerCamera(int playerIndex, out Camera camera)</code> finds an assigned active camera. Call <code>Refresh()</code> after an unavailable custom camera becomes ready to retry assignment.</p>
+<h2 id="6-built-in-layouts-1-8">6. Built-in layouts 1-8<a class="headerlink" href="#6-built-in-layouts-1-8" title="Permanent link">&para;</a></h2>
+<p>Active views pack in ascending existing PlayerIndex order. Packing never renumbers sessions: <strong>P1 / P4 / P7 remain P1 / P4 / P7</strong>, occupying three visual slots. Unity rect coordinates start at the bottom-left; row names below describe the visual top row first.</p>
+<table>
+<thead>
+<tr>
+<th>Players</th>
+<th>Layout</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>Full screen</td>
+</tr>
+<tr>
+<td>2</td>
+<td>Horizontal (top/bottom) or Vertical (left/right)</td>
+</tr>
+<tr>
+<td>3</td>
+<td>Top 2 / Bottom 1; Bottom 2 / Top 1; Left 1 / Right 2; Right 1 / Left 2</td>
+</tr>
+<tr>
+<td>4</td>
+<td>2 + 2</td>
+</tr>
+<tr>
+<td>5</td>
+<td>3 + 2</td>
+</tr>
+<tr>
+<td>6</td>
+<td>3 + 3</td>
+</tr>
+<tr>
+<td>7</td>
+<td>4 + 3</td>
+</tr>
+<tr>
+<td>8</td>
+<td>4 + 4</td>
+</tr>
+</tbody>
+</table>
+<p>Two- and three-player layouts are selectable; four through eight use automatic arrangements. In the automatic 4–8 arrangements, rows share screen height equally and columns fill each row. Rects cover the full screen without decorative gaps. Three-player enum values are <code>TopTwoBottomOne</code>, <code>BottomTwoTopOne</code>, <code>LeftOneRightStack</code>, and <code>RightOneLeftStack</code>. Two-player values are <code>Horizontal</code> and <code>Vertical</code>.</p>
+<h2 id="7-player-camera-sources">7. Player camera sources<a class="headerlink" href="#7-player-camera-sources" title="Permanent link">&para;</a></h2>
+<h3 id="camera-prefab">Camera Prefab<a class="headerlink" href="#camera-prefab" title="Permanent link">&para;</a></h3>
+<p>Assign a prefab containing <strong>exactly one Camera</strong>, on the root or a child. The manager clones the full prefab once per resolved session when Split first needs it. Follow/zoom scripts on the rig are retained. No particular genre, follow script or Cinemachine package is required.</p>
+<p><code>GameplayCameraAssignment</code> is added to the clone root. Its <code>Context</code> and <code>Representation</code> identify the player and target; <code>AssignmentChanged</code> fires when bindings change, including rejoin. Author prefab AudioListeners disabled under the default framework policy to avoid transient duplicate listeners during cloning.</p>
+<h3 id="camera-on-gameplay-representation">Camera On Gameplay Representation<a class="headerlink" href="#camera-on-gameplay-representation" title="Permanent link">&para;</a></h3>
+<p>Each resolved representation provides a Camera in its hierarchy. Ownership stays with its owner. The Wizard checks known authored existing objects and selected-character gameplay prefabs for missing Cameras. Dynamic/custom providers are not rejected merely because future cameras cannot be inspected: verify their resolved representations in Play Mode. A representation Camera cannot also be the Shared Camera.</p>
+<h3 id="custom-provider">Custom Provider<a class="headerlink" href="#custom-provider" title="Permanent link">&para;</a></h3>
+<p>Assign your gameplay-scene <code>MonoBehaviour</code> implementing <code>IGameplayCameraProvider</code>. Its existing method is:</p>
+<div class="highlight"><pre><span></span><code><span class="kt">bool</span><span class="w"> </span><span class="nf">TryResolveCamera</span><span class="p">(</span><span class="n">GameplayPlayerContext</span><span class="w"> </span><span class="n">context</span><span class="p">,</span><span class="w"> </span><span class="n">GameObject</span><span class="w"> </span><span class="n">representation</span><span class="p">,</span>
+<span class="w">    </span><span class="k">out</span><span class="w"> </span><span class="n">Camera</span><span class="w"> </span><span class="n">camera</span><span class="p">,</span><span class="w"> </span><span class="k">out</span><span class="w"> </span><span class="kt">string</span><span class="w"> </span><span class="n">failureMessage</span><span class="p">);</span>
+</code></pre></div>
+<p>Return a live scene Camera for that participant, not a prefab asset or a Camera assigned to another participant. The provider owns camera lifetime, behavior and pooling. The Wizard assigns your component; it does not invent an implementation. Multi-camera rigs/advanced stacks need your own setup through this source.</p>
+<h2 id="8-camera-ownership">8. Camera ownership<a class="headerlink" href="#8-camera-ownership" title="Permanent link">&para;</a></h2>
+<p>The manager never deletes or reparents your Shared Camera, replaces follow scripts, or edits camera FOV, projection, clipping planes, renderer settings or behavior. At runtime it controls assigned cameras' enabled state and rects; the default audio policy also manages assigned-hierarchy listeners. Prior customer enabled/rect/listener states are restored on release.</p>
+<p>Framework-created prefab clones belong to the manager. Customer representation/provider cameras stay customer-owned and are never destroyed by the manager. Disabling/destroying the manager releases its clones and restores customer state. A pooled provider should recycle cameras through its own representation lifecycle; the manager does not own that pool.</p>
+<h2 id="9-drop-out-rejoin-and-permanent-leave">9. Drop Out / Rejoin and permanent Leave<a class="headerlink" href="#9-drop-out-rejoin-and-permanent-leave" title="Permanent link">&para;</a></h2>
+<p>Intentional gameplay <strong>Drop Out</strong> releases that participant's representation and removes its active viewport; remaining views repack without renumbering PlayerIndex. <strong>Rejoin</strong> restores the participant. Framework-owned camera clones remain disabled/reserved for the session and are reused with the new representation binding.</p>
+<p>Representation cameras follow their representation's lifetime. Custom providers manage their returned cameras. <strong>Permanent Leave</strong> performs normal session cleanup and destroys framework-owned clones for that session; it is distinct from reversible Drop Out.</p>
+<h2 id="10-devicelost">10. DeviceLost<a class="headerlink" href="#10-devicelost" title="Permanent link">&para;</a></h2>
+<p>Temporary device loss leaves the participant represented and its camera normally assigned. The manager follows representation lifecycle, not raw device events or inactivity. Your game may pause or show reconnection UI according to its existing session policy. DeviceLost does not silently become Leave or Drop Out.</p>
+<h2 id="11-audiolistener">11. AudioListener<a class="headerlink" href="#11-audiolistener" title="Permanent link">&para;</a></h2>
+<p>Default <code>ManageAssignedCameraListeners</code> enables one listener among assigned player rigs: the first active rig with a listener, or Shared as fallback. Shared mode uses the shared listener. Prior listener states are restored on release.</p>
+<p>Only listeners in assigned player rigs/representation hierarchies and the shared-camera hierarchy are managed. Other scene listeners remain yours. The Wizard creates no extra listeners and changes no prefab assets. Select <strong>Developer Managed</strong> (<code>DeveloperManaged</code>) if your game owns listener switching; <code>SetAudioPolicy(GameplayCameraAudioPolicy policy)</code> also changes policy at runtime. Neither policy prevents duplicate listeners you independently enable elsewhere.</p>
+<h2 id="12-ui-hud">12. UI / HUD<a class="headerlink" href="#12-ui-hud" title="Permanent link">&para;</a></h2>
+<ul>
+<li><strong>Screen Space Overlay:</strong> global full-screen UI, appropriate for Pause, Settings and Winner. It is not cropped into player viewports.</li>
+<li><strong>Screen Space Camera:</strong> an individual HUD can target its assigned Camera through <code>Canvas.worldCamera</code>.</li>
+<li><strong>World Space:</strong> normal Unity behavior through relevant cameras.</li>
+</ul>
+<p>Subscribe to <code>PlayerCameraAssigned</code> to connect your authored HUD to the camera using the provided context and representation. Rebind when assignments change. <strong>The manager does not automatically clone customer HUDs.</strong> Packed visual positions are not new player identities.</p>
+<h2 id="13-urp-and-cinemachine">13. URP and Cinemachine<a class="headerlink" href="#13-urp-and-cinemachine" title="Permanent link">&para;</a></h2>
+<p>Normal URP Base Cameras support <code>Camera.rect</code>. Overlay stacks, renderers, post-processing and renderer features remain customer-controlled. Prefab source expects exactly one Camera; use a custom provider for multi-camera stacks and verify them on your target Unity/URP version.</p>
+<p>Cinemachine is <strong>not required</strong>. There is no Cinemachine package dependency or built-in integration package. Developers may use Cinemachine in their own prefabs/providers; its target binding and advanced URP/stack configuration remain theirs.</p>
+<h2 id="14-custom-layout-provider">14. Custom layout provider<a class="headerlink" href="#14-custom-layout-provider" title="Permanent link">&para;</a></h2>
+<p>In Advanced Camera Options or the Inspector, assign an existing scene component implementing <code>ICameraViewportLayoutProvider</code>. Empty uses built-in layouts. At runtime use <code>SetViewportLayoutProvider(ICameraViewportLayoutProvider provider)</code>; <code>null</code> returns to the built-in provider.</p>
+<p>The interface fills normalized rects in ascending active PlayerIndex order:</p>
+<div class="highlight"><pre><span></span><code><span class="kt">bool</span><span class="w"> </span><span class="nf">TryGetViewports</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">viewCount</span><span class="p">,</span><span class="w"> </span><span class="n">TwoPlayerViewportLayout</span><span class="w"> </span><span class="n">twoPlayer</span><span class="p">,</span>
+<span class="w">    </span><span class="n">ThreePlayerViewportLayout</span><span class="w"> </span><span class="n">threePlayer</span><span class="p">,</span><span class="w"> </span><span class="n">Rect</span><span class="p">[]</span><span class="w"> </span><span class="n">viewports</span><span class="p">);</span>
+</code></pre></div>
+<p>The manager validates finite, positive, in-bounds, non-overlapping full-screen tiling and falls back to built-in layouts if custom output is invalid. The supported range is 1-8. The Wizard checks the component/interface reference; it does not execute customer layout code during setup.</p>
+<h2 id="15-performance">15. Performance<a class="headerlink" href="#15-performance" title="Permanent link">&para;</a></h2>
+<p>One through eight layouts are supported. More cameras increase rendering cost; performance depends on resolution, scene complexity, shadows, post-processing, renderer features and hardware. Eight cameras do not guarantee high-setting performance on every device. Profile your own content/build and tune effects and resolution. No universal game performance is promised.</p>
+<h2 id="16-samples">16. Samples<a class="headerlink" href="#16-samples" title="Permanent link">&para;</a></h2>
+<p>See the <a href="../setup-wizard/">Samples index</a> for entry points.</p>
+<table>
+<thead>
+<tr>
+<th>Demonstration</th>
+<th>Purpose</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="../rocket-rumble-3d/">Rocket Rumble 3D</a></td>
+<td>Real game integration, fixed Shared Camera, individual 3D follow cameras, runtime Camera Settings and Drop Out/Rejoin; up to four players.</td>
+</tr>
+<tr>
+<td><a href="../split-screen-playgrounds/">Split Screen Playground 3D</a></td>
+<td>Independent 1-8 join/entry flow, perspective follow cameras and 5/6/7/8 layouts.</td>
+</tr>
+<tr>
+<td><a href="../split-screen-playgrounds/">Split Screen Playground 2D</a></td>
+<td>Independent 1-8 join/entry flow, orthographic cameras, simple platformer movement and Shared/Split switching.</td>
+</tr>
+</tbody>
+</table>
+<p>The Playground guide links both entry scenes and explains the independent 1–8-player join flow. Sample follow/framing belongs to the game; the core has no dependency on those scripts.</p>
+<h2 id="17-troubleshooting">17. Troubleshooting<a class="headerlink" href="#17-troubleshooting" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th>Problem</th>
+<th>Check</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Camera fields missing in Wizard</td>
+<td>Enable Shared / Split Screen Camera Management on the Cameras step.</td>
+</tr>
+<tr>
+<td>Cannot assign gameplay references</td>
+<td>Open the selected saved gameplay scene additively and assign its Gameplay Player Setup. Lobby objects and prefab assets are not gameplay-scene references.</td>
+</tr>
+<tr>
+<td>Shared mode has no view</td>
+<td>Assign Shared Camera; switching to Shared needs it even if initial mode was Split.</td>
+</tr>
+<tr>
+<td>Split has no individual cameras</td>
+<td>Resolve representations first and configure a camera source. HandleItMyself does not resolve objects.</td>
+</tr>
+<tr>
+<td>Camera Prefab rejected</td>
+<td>Assign an asset with exactly one Camera, including inactive children. Missing/multiple Cameras or scene objects are unusable for this source.</td>
+</tr>
+<tr>
+<td>Representation lacks a Camera</td>
+<td>Add it, choose prefab source, or use a custom provider. Test dynamically created representations after resolution.</td>
+</tr>
+<tr>
+<td>Custom provider missing/invalid</td>
+<td>Assign a live gameplay-scene component implementing IGameplayCameraProvider or ICameraViewportLayoutProvider, as applicable.</td>
+</tr>
+<tr>
+<td>Multiple managers on rerun</td>
+<td>Reconcile them explicitly; the Wizard does not delete one or guess which to configure.</td>
+</tr>
+<tr>
+<td>Duplicate AudioListener warning</td>
+<td>Disable unrelated scene listeners, author prefab listeners disabled, and verify the selected policy.</td>
+</tr>
+<tr>
+<td>HUD fills screen</td>
+<td>Overlay is global; bind an individual Screen Space Camera Canvas to its assigned camera.</td>
+</tr>
+<tr>
+<td>P numbers seem out of order after Drop Out</td>
+<td>Views repack; PlayerIndex stays stable. P1/P4/P7 still identify those sessions.</td>
+</tr>
+<tr>
+<td>Camera does not follow</td>
+<td>Supply your behavior and bind targets through GameplayCameraAssignment or PlayerCameraAssigned.</td>
+</tr>
+</tbody>
+</table>
+<p><code>ValidateConfiguration(out string failure)</code> reports the first basic runtime configuration problem. Detailed resolution diagnostics are reported once per problem; <code>Refresh()</code> can retry a provider after its camera becomes available. Fix legitimate diagnostics rather than repeatedly clearing them. No proximity split/merge, animated/diagonal splits, HUD cloning, minimap or spectator system is provided.</p>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  Back to top
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    
+      
+      <nav class="md-footer__inner md-grid" aria-label="Footer" >
+        
+          
+          <a href="../input-and-rebinding/" class="md-footer__link md-footer__link--prev" aria-label="Previous: Input and Rebinding">
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+            </div>
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Previous
+              </span>
+              <div class="md-ellipsis">
+                Input and Rebinding
+              </div>
+            </div>
+          </a>
+        
+        
+          
+          <a href="../persistent-sessions/" class="md-footer__link md-footer__link--next" aria-label="Next: Persistent Sessions">
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Next
+              </span>
+              <div class="md-ellipsis">
+                Persistent Sessions
+              </div>
+            </div>
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11z"/></svg>
+            </div>
+          </a>
+        
+      </nav>
+    
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      Copyright LevelArgento
+    </div>
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      <script id="__config" type="application/json">{"base": "..", "features": ["navigation.sections", "navigation.footer", "navigation.top", "search.suggest", "search.highlight", "content.code.copy"], "search": "../assets/javascripts/workers/search.d50fe291.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.13a4f30d.min.js"></script>
+      
+        <script src="../scripts/navigation.js"></script>
+      
+    
+  </body>
+</html>

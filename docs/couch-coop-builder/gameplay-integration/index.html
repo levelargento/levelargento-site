@@ -1,0 +1,1423 @@
+﻿
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Couch Co-op Builder 1.0.0 user manual for Unity 6.3 LTS.">
+      
+      
+      
+        <link rel="canonical" href="https://levelargento.com/docs/couch-coop-builder/gameplay-integration/">
+      
+      
+        <link rel="prev" href="../sessions-and-identity/">
+      
+      
+        <link rel="next" href="../gameplay-input/">
+      
+      
+      <link rel="icon" href="../assets/branding/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.14">
+    
+    
+      
+        <title>Gameplay Integration - Couch Co-op Builder</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.342714a4.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+    
+    
+      <link rel="stylesheet" href="../stylesheets/extra.css">
+    
+    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    <body dir="ltr">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#gameplay-representation-and-spawning" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href=".." title="Couch Co-op Builder" class="md-header__button md-logo" aria-label="Couch Co-op Builder" data-md-component="logo">
+      
+  <img src="../assets/branding/favicon.png" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Couch Co-op Builder
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Gameplay Integration
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href=".." title="Couch Co-op Builder" class="md-nav__button md-logo" aria-label="Couch Co-op Builder" data-md-component="logo">
+      
+  <img src="../assets/branding/favicon.png" alt="logo">
+
+    </a>
+    Couch Co-op Builder
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href=".." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Manual home
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../introduction/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Introduction
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    Getting Started
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            Getting Started
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../getting-started/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Installation and Quick Start
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../setup-wizard/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Setup Wizard
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../character-catalog/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Character Catalog
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    Lobby
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            Lobby
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../lobby-and-existing-canvas/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Lobby and Existing Canvas
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../sessions-and-identity/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Sessions and Identity
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    Gameplay
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            Gameplay
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    Gameplay Integration
+    
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    Gameplay Integration
+    
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#scene-setup" class="md-nav__link">
+    <span class="md-ellipsis">
+      Scene setup
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#notifications-and-lifetime" class="md-nav__link">
+    <span class="md-ellipsis">
+      Notifications and lifetime
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#spawn-selected-character" class="md-nav__link">
+    <span class="md-ellipsis">
+      Spawn Selected Character
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Spawn Selected Character">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#ownership-and-live-sessions" class="md-nav__link">
+    <span class="md-ellipsis">
+      Ownership and live sessions
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#customer-initialization-timing" class="md-nav__link">
+    <span class="md-ellipsis">
+      Customer initialization timing
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../gameplay-input/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Gameplay Input
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../input-and-rebinding/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Input and Rebinding
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../split-screen/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Shared and Split Screen
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../persistent-sessions/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Persistent Sessions
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../session-lifecycle/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Session Lifecycle
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6" >
+        
+          
+          <label class="md-nav__link" for="__nav_6" id="__nav_6_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    Samples
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_6">
+            <span class="md-nav__icon md-icon"></span>
+            Samples
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../configure-samples/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Configure Samples
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../samples/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Sample Index
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../rocket-rumble-shared/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Rocket Rumble Shared
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../rocket-rumble-2d/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Rocket Rumble 2D
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../rocket-rumble-3d/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Rocket Rumble 3D
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../split-screen-playgrounds/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Split Screen Playgrounds
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_7" >
+        
+          
+          <label class="md-nav__link" for="__nav_7" id="__nav_7_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    Smart UI
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_7_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_7">
+            <span class="md-nav__icon md-icon"></span>
+            Smart UI
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../included-smart-ui/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Included Smart UI
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_8" >
+        
+          
+          <label class="md-nav__link" for="__nav_8" id="__nav_8_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    Reference
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_8_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_8">
+            <span class="md-nav__icon md-icon"></span>
+            Reference
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../troubleshooting/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Troubleshooting
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../api-and-advanced/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    API and Advanced
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../support/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Support
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#scene-setup" class="md-nav__link">
+    <span class="md-ellipsis">
+      Scene setup
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#notifications-and-lifetime" class="md-nav__link">
+    <span class="md-ellipsis">
+      Notifications and lifetime
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#spawn-selected-character" class="md-nav__link">
+    <span class="md-ellipsis">
+      Spawn Selected Character
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Spawn Selected Character">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#ownership-and-live-sessions" class="md-nav__link">
+    <span class="md-ellipsis">
+      Ownership and live sessions
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#customer-initialization-timing" class="md-nav__link">
+    <span class="md-ellipsis">
+      Customer initialization timing
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+<nav class="couch-doc-links" aria-label="LevelArgento resources">
+  <a href="../../../couch-coop-builder.html">Couch product</a>
+  <a href="../../../index.html">LevelArgento home</a>
+  <a href="../../../support.html">Support</a>
+  <a href="../downloads/couch-coop-builder-manual.pdf">Offline PDF manual</a>
+</nav>
+
+                  
+
+
+
+<h1 id="gameplay-representation-and-spawning">Gameplay Representation and Spawning<a class="headerlink" href="#gameplay-representation-and-spawning" title="Permanent link">&para;</a></h1>
+<p><a href="../getting-started/#quick-start">Quick Start</a> covers the initial lobby workflow. This guide explains gameplay context, object ownership, input and session lifecycle for <strong>1–8 players</strong>. Joining/selection do not prescribe how your game represents a player; spawn points and PlayerInput are optional.</p>
+<table>
+<thead>
+<tr>
+<th>Representation mode</th>
+<th>Choose it when</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Spawn Selected Character</td>
+<td>The confirmed Character Definition supplies a Gameplay Prefab that Couch should instantiate and clean up.</td>
+</tr>
+<tr>
+<td>Bind Existing Objects</td>
+<td>Characters, vehicles or other representations already exist in the scene; bind each authored object by Player Index.</td>
+</tr>
+<tr>
+<td>Custom Provider</td>
+<td>Your pool, team/grid or creation system chooses and owns a live object for each context.</td>
+</tr>
+<tr>
+<td>Handle It Myself / API Only</td>
+<td>Your architecture consumes the public contexts and manages its own representations. No object setup is required.</td>
+</tr>
+</tbody>
+</table>
+<p>Resolution chooses the object; input configuration separately chooses how it consumes owned controls. Your game supplies movement, physics, scoring and match rules. <a href="../split-screen/">Shared Camera and Split Screen</a> is an optional module for assignment/viewports; your game supplies camera follow/framing. No Couch base class or prefab inheritance is required.</p>
+<h2 id="scene-setup">Scene setup<a class="headerlink" href="#scene-setup" title="Permanent link">&para;</a></h2>
+<p>Add <strong>Couch Co-op Builder &gt; Gameplay Player Setup</strong> to a scene object. Set Mode in the Inspector. Bootstrap may be explicitly assigned; otherwise the component uses <code>CouchCoopBootstrap.Active</code>. Initialize the bootstrap before enabling the setup (automatic execution order accommodates a normally initialized persistent bootstrap).</p>
+<p>For <strong>Handle It Myself</strong>, the component creates and binds no gameplay objects and requires no object array/provider. The component itself is optional when your game only uses the public context API.</p>
+<p>For <strong>Bind Existing Objects</strong>, assign an object at each required zero-based array index. Index 0 belongs to P1, index 7 to P8, independent of object names or hierarchy. Objects must belong to the setup's scene. The framework adds/reuses <code>GameplayPlayerBinding</code> and assigns its <code>Context</code>; it preserves transforms, parents and active state. Unused authored objects remain unassigned with their authored active state, including objects authored inactive. It does not activate/deactivate, instantiate or destroy them. Your game controls visibility and gameplay lifetime.</p>
+<p>For <strong>Custom Provider</strong>, assign a MonoBehaviour implementing <code>IGameplayPlayerProvider</code>. Runtime code can alternatively call <code>Configure(mode, authoredObjects, provider, bootstrap)</code> with a plain interface implementation. This is a small example; replace the indexed decision with your own pool, vehicle or team logic:</p>
+<div class="highlight"><pre><span></span><code><span class="k">using</span><span class="w"> </span><span class="nn">LevelArgento.CouchCoopBuilder</span><span class="p">;</span>
+<span class="k">using</span><span class="w"> </span><span class="nn">UnityEngine</span><span class="p">;</span>
+
+<span class="k">public</span><span class="w"> </span><span class="k">sealed</span><span class="w"> </span><span class="k">class</span><span class="w"> </span><span class="nc">MyGameplayProvider</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="n">MonoBehaviour</span><span class="p">,</span><span class="w"> </span><span class="n">IGameplayPlayerProvider</span>
+<span class="p">{</span>
+<span class="w">    </span><span class="na">[SerializeField]</span><span class="w"> </span><span class="k">private</span><span class="w"> </span><span class="n">GameObject</span><span class="p">[]</span><span class="w"> </span><span class="n">authoredVehicles</span><span class="p">;</span>
+
+<span class="w">    </span><span class="k">public</span><span class="w"> </span><span class="kt">bool</span><span class="w"> </span><span class="nf">TryResolve</span><span class="p">(</span><span class="n">GameplayPlayerContext</span><span class="w"> </span><span class="n">context</span><span class="p">,</span>
+<span class="w">        </span><span class="k">out</span><span class="w"> </span><span class="n">GameObject</span><span class="w"> </span><span class="n">playerObject</span><span class="p">,</span><span class="w"> </span><span class="k">out</span><span class="w"> </span><span class="kt">string</span><span class="w"> </span><span class="n">failureMessage</span><span class="p">)</span>
+<span class="w">    </span><span class="p">{</span>
+<span class="w">        </span><span class="n">playerObject</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">context</span><span class="p">.</span><span class="n">PlayerIndex</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">authoredVehicles</span><span class="p">.</span><span class="n">Length</span>
+<span class="w">            </span><span class="o">?</span><span class="w"> </span><span class="n">authoredVehicles</span><span class="p">[</span><span class="n">context</span><span class="p">.</span><span class="n">PlayerIndex</span><span class="p">]</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="k">null</span><span class="p">;</span>
+<span class="w">        </span><span class="n">failureMessage</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">playerObject</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="k">null</span><span class="w"> </span><span class="o">?</span><span class="w"> </span><span class="k">null</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s">"No vehicle assigned to this player index."</span><span class="p">;</span>
+<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="n">playerObject</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="k">null</span><span class="p">;</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
+<p>The provider receives the persistent context including character metadata and input ownership. It returns one live scene GameObject (never a prefab asset), or returns false with an explanation. Resolution attempts occur when sessions enter the enabled setup; repeated <code>Initialize()</code> does not retry failures or repeat successful calls. Rejoin after reversible Drop Out requests a fresh association for the same session. Disable/re-enable or call <code>Configure</code> to begin a new resolution cycle. Explicit lifecycle owners can call <code>Release()</code> and then <code>Initialize()</code>. Never assume the framework will retry or instantiate a fallback. Two active contexts cannot bind the same object. The provider owns creation and reclamation; subscribe to <code>PlayerReleased</code> if it needs to return objects to a pool.</p>
+<p>Read <code>GameplayPlayerBinding.Context</code> on a resolved object, or use <code>setup.TryGetPlayerObject(playerIndex, out object)</code> from a scene system. Consumers may subscribe to <code>ContextChanged</code>, where null means released. Composition is optional for API-only integrations and requires no base-class inheritance or PlayerInput. Character changes update the live context and do not automatically replace the resolved gameplay object.</p>
+<h2 id="notifications-and-lifetime">Notifications and lifetime<a class="headerlink" href="#notifications-and-lifetime" title="Permanent link">&para;</a></h2>
+<ul>
+<li><code>GameplayPlayers.PlayerAdded</code> / <code>PlayerRemoved</code>: joined/left context. Subscribe, then replay <code>Players</code> for existing sessions.</li>
+<li><code>GameplayPlayers.SelectionChanged</code>: selection/catalog notification. Built-in spawning uses the first selection of a waiting live join; existing representations are not replaced.</li>
+<li><code>GameplayPlayerSetup.PlayerResolved</code> / <code>PlayerReleased</code>: scene object association/release. Subscribe before <code>Initialize</code> if you need initial replay notifications.</li>
+<li><code>GameplayPlayerSetup.ResolutionFailed</code>: failure for that context; also logged with player index and session ID.</li>
+</ul>
+<p>Unsubscribe scene-owned consumers in OnDisable. The setup unsubscribes before teardown and clears its scene references on disable/destroy; bindings clear their Context without reconstructing UI. Destroying a bound object releases the association immediately and reports a useful error on the next surviving setup frame. Deferring that diagnostic avoids false errors during ordinary scene unloading. The bootstrap stores no resolved objects, so scene reload gets fresh bindings and one provider call per joined session per visit.</p>
+<p>Existing live Join creates a context and resolves it if a scene setup is enabled. Leave removes its context and releases its binding. Built-in owned instances are destroyed; customer-owned Existing/Custom objects are preserved. An explicit rejoin creates a new session and resolves the available index. Physical input loss keeps existing reservation semantics and does not rerun a provider. These are association semantics only: gameplay scoring, match participation, respawn and pool reclamation remain customer responsibilities. The optional <a href="../session-lifecycle/#optional-gameplay-drop-out-and-rejoin">reversible Drop Out policy</a> preserves the session while releasing scene bindings. See <a href="../gameplay-input/">Gameplay Input Integration</a> for optional input adapters.</p>
+<p>Missing indexed bindings, missing/destroyed providers, false/null provider results, provider exceptions and conflicting object ownership report isolated failures. Other players continue resolving; there is no fallback strategy. Use character-resolution status/message for optional metadata failures. No scene-wide searches or per-frame hierarchy scans are used. Destruction detection checks at most eight cached object/binding references per setup frame, covering never-active objects whose Unity OnDestroy callback may be skipped; diagnostics process a bounded pending queue.</p>
+<h2 id="spawn-selected-character">Spawn Selected Character<a class="headerlink" href="#spawn-selected-character" title="Permanent link">&para;</a></h2>
+<p>Spawn Points and PlayerInput are optional. This gameplay representation mode requires GameplayPrefab; Existing Objects, Custom Provider and API Only do not. The separate built-in lobby selection rule above still requires valid prefabs.</p>
+<p>Choose Spawn Selected Character on GameplayPlayerSetup, then one placement strategy. Runtime owners can call <code>ConfigureSpawning(placement, points, origin, offset, placementProvider, bootstrap)</code>.</p>
+<ol>
+<li><strong>Explicit Spawn Points:</strong> assign zero-based indexed Transforms. PlayerIndex 5 uses element 5 even when other sessions have left. World position/rotation come from that Transform; its scale does not affect the prefab. Missing/destroyed required points fail only that index; there is no reuse or world-zero fallback.</li>
+<li><strong>Origin + Offset (Single Origin And Offset):</strong> assign one Origin Transform and Per Player Offset. Position is <code>origin.position + origin.rotation * (offset * PlayerIndex)</code>; rotation is <code>origin.rotation</code>. Offset is expressed along the origin's local axes in world units; origin scale is ignored. With an unrotated origin at (10,1,5) and offset (2,0,0), P1 is (10,1,5), P2 is (12,1,5), P3 is (14,1,5). Rotating the origin rotates the formation. XY offsets support 2D, XZ offsets support 3D. An origin is required; there is no implicit world-zero placement.</li>
+<li><strong>Custom Placement Provider:</strong> assign a MonoBehaviour implementing <code>IGameplaySpawnPlacementProvider</code>. Runtime configuration also accepts a plain interface implementation. The provider receives the real context and returns a world Pose; it never needs to create the character or implement IGameplayPlayerProvider. Each attempted spawn calls it once. A false result/exception/invalid pose affects only that player.</li>
+</ol>
+<div class="highlight"><pre><span></span><code><span class="k">using</span><span class="w"> </span><span class="nn">LevelArgento.CouchCoopBuilder</span><span class="p">;</span>
+<span class="k">using</span><span class="w"> </span><span class="nn">UnityEngine</span><span class="p">;</span>
+
+<span class="k">public</span><span class="w"> </span><span class="k">sealed</span><span class="w"> </span><span class="k">class</span><span class="w"> </span><span class="nc">MyPlacement</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="n">MonoBehaviour</span><span class="p">,</span><span class="w"> </span><span class="n">IGameplaySpawnPlacementProvider</span>
+<span class="p">{</span>
+<span class="w">    </span><span class="na">[SerializeField]</span><span class="w"> </span><span class="k">private</span><span class="w"> </span><span class="n">Transform</span><span class="w"> </span><span class="n">gridOrigin</span><span class="p">;</span>
+<span class="w">    </span><span class="k">public</span><span class="w"> </span><span class="kt">bool</span><span class="w"> </span><span class="nf">TryGetSpawnPose</span><span class="p">(</span><span class="n">GameplayPlayerContext</span><span class="w"> </span><span class="n">context</span><span class="p">,</span>
+<span class="w">        </span><span class="k">out</span><span class="w"> </span><span class="n">Pose</span><span class="w"> </span><span class="n">pose</span><span class="p">,</span><span class="w"> </span><span class="k">out</span><span class="w"> </span><span class="kt">string</span><span class="w"> </span><span class="n">failureMessage</span><span class="p">)</span>
+<span class="w">    </span><span class="p">{</span>
+<span class="w">        </span><span class="n">pose</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">default</span><span class="p">;</span>
+<span class="w">        </span><span class="n">failureMessage</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">null</span><span class="p">;</span>
+<span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">gridOrigin</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="k">null</span><span class="p">)</span>
+<span class="w">        </span><span class="p">{</span>
+<span class="w">            </span><span class="n">failureMessage</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">"Assign the grid origin."</span><span class="p">;</span>
+<span class="w">            </span><span class="k">return</span><span class="w"> </span><span class="k">false</span><span class="p">;</span>
+<span class="w">        </span><span class="p">}</span>
+<span class="w">        </span><span class="n">Vector3</span><span class="w"> </span><span class="n">offset</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">Vector3</span><span class="p">(</span><span class="n">context</span><span class="p">.</span><span class="n">PlayerIndex</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="mi">3</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">);</span>
+<span class="w">        </span><span class="n">pose</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">Pose</span><span class="p">(</span><span class="n">gridOrigin</span><span class="p">.</span><span class="n">position</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">gridOrigin</span><span class="p">.</span><span class="n">rotation</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">offset</span><span class="p">,</span>
+<span class="w">            </span><span class="n">gridOrigin</span><span class="p">.</span><span class="n">rotation</span><span class="p">);</span>
+<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="k">true</span><span class="p">;</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
+<p>The selected ID resolves through GameplayPlayerContext against the current catalog. Only the definition's GameplayPrefab is instantiated. Missing/ambiguous character IDs or a missing prefab fail with the existing ResolutionFailed event and diagnostic. SelectionPreviewPrefab and portrait are never gameplay fallbacks. The source prefab is never changed. Root scale and active state remain prefab-authored; placement supplies world position/rotation. A compatible GameplayPlayerBinding is reused, otherwise added to the runtime clone only. Clones are moved into the setup's scene even when another additive scene is active.</p>
+<h3 id="ownership-and-live-sessions">Ownership and live sessions<a class="headerlink" href="#ownership-and-live-sessions" title="Permanent link">&para;</a></h3>
+<p>Built-in clones are framework-owned. Release, component deactivation, Leave and scene teardown unbind and destroy only those clones. PlayerReleased fires after unbinding and before destruction is scheduled; normal Play Mode Destroy completes at frame end. A disabled setup removes its built-in representations; re-enabling starts a fresh cycle. Existing and Custom Provider objects remain customer-owned and are never destroyed by this cleanup.</p>
+<p>No additional InputUser is created, no pairing is performed and no action maps are switched. Physical Device Lost keeps the reserved session and its existing object; the live context reports input unavailability. Reconnection does not duplicate or respawn it. An intentional middle-player Leave destroys only that player's built-in instance and leaves survivors' indexes and transforms unchanged.</p>
+<p>A live Join normally has no character selection: the built-in mode waits quietly for its first selection notification. That selection attempts one spawn. Existing joined sessions replayed at scene entry require a selection and report missing metadata as configuration failure. Failed attempts are not automatically retried; selection/catalog notifications do not repeat placement calls for an attempted context. To retry after correcting configuration, disable/re-enable, call ConfigureSpawning, or Release then Initialize. A character change after successful spawning updates the context but does not replace its representation; your game must implement respawn or mid-match character switching explicitly. Unexpected runtime destruction is released and diagnosed, with no automatic respawn.</p>
+<p>The persistent bootstrap never stores clones. Resolution is driven by scene initialization, Join and the first selection of a waiting Join. Update checks only up to eight cached associations for destruction; it performs no catalog resolution, instantiation or global scene search.</p>
+<h3 id="customer-initialization-timing">Customer initialization timing<a class="headerlink" href="#customer-initialization-timing" title="Permanent link">&para;</a></h3>
+<p>Unity Instantiate can invoke prefab <strong>Awake and OnEnable before Context assignment</strong>. Do not assume context is available in either callback. Use the existing GameplayPlayerBinding.ContextChanged notification on a prefab that already contains that component, or GameplayPlayerSetup.PlayerResolved. ContextChanged guarantees the binding's Context; PlayerResolved additionally means the setup lookup has been registered. Subscribe before enabling/initializing setup if you need all initial resolutions. A late consumer can replay contexts and TryGetPlayerObject instead.</p>
+<p>For a prefab with an existing binding, Awake may subscribe to ContextChanged; unsubscribe in OnDestroy using Unity's <code>binding != null</code> check. A prefab without a binding should use a scene-level PlayerResolved consumer because the binding is added after Instantiate. Use these notifications rather than relying on prefab initialization order. Use the optional gameplay input strategies below for action ownership; movement remains customer-owned.</p>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  Back to top
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    
+      
+      <nav class="md-footer__inner md-grid" aria-label="Footer" >
+        
+          
+          <a href="../sessions-and-identity/" class="md-footer__link md-footer__link--prev" aria-label="Previous: Sessions and Identity">
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+            </div>
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Previous
+              </span>
+              <div class="md-ellipsis">
+                Sessions and Identity
+              </div>
+            </div>
+          </a>
+        
+        
+          
+          <a href="../gameplay-input/" class="md-footer__link md-footer__link--next" aria-label="Next: Gameplay Input">
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Next
+              </span>
+              <div class="md-ellipsis">
+                Gameplay Input
+              </div>
+            </div>
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11z"/></svg>
+            </div>
+          </a>
+        
+      </nav>
+    
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      Copyright LevelArgento
+    </div>
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      <script id="__config" type="application/json">{"base": "..", "features": ["navigation.sections", "navigation.footer", "navigation.top", "search.suggest", "search.highlight", "content.code.copy"], "search": "../assets/javascripts/workers/search.d50fe291.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.13a4f30d.min.js"></script>
+      
+        <script src="../scripts/navigation.js"></script>
+      
+    
+  </body>
+</html>
