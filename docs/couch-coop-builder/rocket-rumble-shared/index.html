@@ -6,7 +6,7 @@
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width,initial-scale=1">
       
-        <meta name="description" content="Couch Co-op Builder 1.0.0 user manual for Unity 6.3 LTS.">
+        <meta name="description" content="Couch Co-op Builder 1.0.1 user manual for Unity 6.3 LTS.">
       
       
       
@@ -948,7 +948,7 @@
   
   
   <span class="md-ellipsis">
-    Smart UI
+    UI Focus and Navigation
     
   </span>
   
@@ -959,7 +959,7 @@
         <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_7_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_7">
             <span class="md-nav__icon md-icon"></span>
-            Smart UI
+            UI Focus and Navigation
           </label>
           <ul class="md-nav__list" data-md-scrollfix>
             
@@ -970,12 +970,12 @@
   
   
     <li class="md-nav__item">
-      <a href="../included-smart-ui/" class="md-nav__link">
+      <a href="../focus-and-navigation/" class="md-nav__link">
         
   
   
   <span class="md-ellipsis">
-    Included Smart UI
+    Built-in Focus and Navigation
     
   </span>
   
@@ -1220,14 +1220,15 @@
 <h2 id="main-menu-and-lobby">Main Menu and lobby<a class="headerlink" href="#main-menu-and-lobby" title="Permanent link">&para;</a></h2>
 <p>Open the chosen sample's Main Menu scene and enter Play Mode. <strong>PLAY</strong> opens its lobby; <strong>SETTINGS</strong> contains Audio and Controls; <strong>QUIT</strong> exits a standalone build and leaves Editor Play Mode running. Main Menu creates no joined players.</p>
 <p>Join with Q, P, gamepad Start or a matched joystick's Join control. Browse and confirm Cobalt, Ember, Mint or Orchid, then move focus down to <strong>START GAME</strong>. At least two joined players must be Ready with available input. Moving focus does not clear Ready. The <a href="../getting-started/#default-lobby-controls">default lobby controls</a> are independent of gameplay bindings.</p>
-<p>Menu panels support mouse, keyboard, gamepad and configured joystick navigation. Keyboard A uses WASD/F, Keyboard B arrows/Enter; gamepads use stick/D-pad/South; the supplied DragonRise profile uses stick/button2. Visible Back controls and keyboard G/Backspace/Escape or controller/profile Cancel return to the preceding panel. Smart UI Focus &amp; Navigation manages selection recovery, scopes and modals. Release held controls before the next fresh menu press.</p>
+<p>Menu panels support mouse, keyboard, gamepad and configured joystick navigation. Keyboard A uses WASD/F, Keyboard B arrows/Enter; gamepads use stick/D-pad/South; the supplied DragonRise profile uses stick/button2. Visible Back controls and keyboard G/Backspace/Escape or controller/profile Cancel return to the preceding panel. Couch focus and navigation manages selection recovery, scopes and modals. Release held controls before the next fresh menu press.</p>
 <h2 id="audio-settings">Audio settings<a class="headerlink" href="#audio-settings" title="Permanent link">&para;</a></h2>
 <p>Master, Music, SFX and UI sliders apply immediately to the included sample mixer. Zero mutes; 100% is 0 dB. Defaults are Master 100%, Music about 25%, SFX about 56% and UI about 45%. <strong>RESET AUDIO DEFAULTS</strong> restores and saves them. Sample audio preferences use PlayerPrefs and survive scene changes/restarts; they are separate from input profiles.</p>
 <p>One persistent sample audio service carries lobby music through menu/settings/lobby. Countdown has no arena music; GO starts arena music; victory stops it; lobby return restores lobby music. Jump, death, respawn, rocket launch, countdown, winner and UI feedback use included sample audio. The service releases itself when leaving Rocket Rumble scenes. This is sample audio integration, not a required framework audio system.</p>
 <h2 id="controls-settings">Controls settings<a class="headerlink" href="#controls-settings" title="Permanent link">&para;</a></h2>
 <p>Choose Keyboard A, Keyboard B, a connected gamepad family or a configured Joystick profile. The device-less gamepad placeholder can show/reset defaults but <strong>CHANGE</strong> needs connected hardware. Gameplay rows cover Move, Jump, Fire, Shield and Pause / Winner Return. Lobby Confirm/Back/Leave are fixed, separate controls; Join is not offered for rebinding.</p>
 <p><strong>Bindings belong to Input Binding Profiles, never P1–P4 seats.</strong> KeyboardA/KeyboardB follow their logical roles; controller settings follow the resolved family/profile. Identical controllers without verified unique identity share settings, while keeping separate actions, sessions and InputUsers. Seat reuse cannot transfer another source's profile. See <a href="../input-and-rebinding/">Input Binding Profiles</a> for the storage abstraction and honest identity fallback.</p>
-<p>Select <strong>CHANGE</strong>, then provide a control from the chosen device. Its keyboard Escape, gamepad East or joystick Cancel can abort; the visible Cancel control and timeout also work. Other devices cannot choose/cancel that capture. After capture, release held controls; focus returns to the Change button. Conflicting different actions in one gameplay map and Keyboard A/B overlap are rejected without changing the save. Separate controller devices may reuse equivalent buttons; lobby/UI maps may reuse gameplay controls.</p>
+<p>Select <strong>CHANGE</strong>, then provide a control from the chosen device. Keyboard captures reserve Escape for cancellation. Gamepad and joystick captures do not reserve their normal UI Cancel button: East/Circle/B and the joystick profile Cancel control remain gameplay binding candidates, subject to normal conflicts. Click the visible <strong>CANCEL</strong> button to abort, or wait for the ten-second timeout; waiting also provides cancellation without mouse or keyboard. UI navigation/Submit/Back are suspended while capturing. Other devices cannot choose/cancel that capture through their input controls. After capture, release held controls; focus returns to the Change button. Conflicting different actions in one gameplay map and Keyboard A/B overlap are rejected without changing the save. Separate controller devices may reuse equivalent buttons; lobby/UI maps may reuse gameplay controls.</p>
+<p>The stock samples keep Share/View as a fixed <strong>Leave</strong> control during gameplay. Avoid assigning it to Fire or another gameplay action: the current gameplay conflict validator does not include that separate Leave map, so an accepted override also causes Drop Out. This collision is a known follow-up; ordinary controller Back/Cancel candidates are not reserved by the capture operation.</p>
 <ul>
 <li>A row's <strong>RESET</strong> resets that profile/action; a Move reset restores all its parts.</li>
 <li><strong>RESET PROFILE</strong> resets the selected source's profile after confirmation.</li>

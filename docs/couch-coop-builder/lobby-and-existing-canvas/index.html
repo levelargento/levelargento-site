@@ -6,7 +6,7 @@
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width,initial-scale=1">
       
-        <meta name="description" content="Couch Co-op Builder 1.0.0 user manual for Unity 6.3 LTS.">
+        <meta name="description" content="Couch Co-op Builder 1.0.1 user manual for Unity 6.3 LTS.">
       
       
       
@@ -939,7 +939,7 @@
   
   
   <span class="md-ellipsis">
-    Smart UI
+    UI Focus and Navigation
     
   </span>
   
@@ -950,7 +950,7 @@
         <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_7_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_7">
             <span class="md-nav__icon md-icon"></span>
-            Smart UI
+            UI Focus and Navigation
           </label>
           <ul class="md-nav__list" data-md-scrollfix>
             
@@ -961,12 +961,12 @@
   
   
     <li class="md-nav__item">
-      <a href="../included-smart-ui/" class="md-nav__link">
+      <a href="../focus-and-navigation/" class="md-nav__link">
         
   
   
   <span class="md-ellipsis">
-    Included Smart UI
+    Built-in Focus and Navigation
     
   </span>
   
@@ -1198,7 +1198,7 @@
 
 
 <h1 id="lobby-templates-and-existing-canvas">Lobby Templates and Existing Canvas<a class="headerlink" href="#lobby-templates-and-existing-canvas" title="Permanent link">&para;</a></h1>
-<p>Use <strong>Tools &gt; LevelArgento &gt; Couch Co-op Builder &gt; Setup Wizard</strong> to copy a supplied presentation or connect your own Canvas. Begin with <a href="../getting-started/#quick-start">Quick Start</a>; <a href="../setup-wizard/">Chapter 3 — Setup Wizard</a> explains the current steps, outputs and saving. Smart UI Focus &amp; Navigation is included.</p>
+<p>Use <strong>Tools &gt; LevelArgento &gt; Couch Co-op Builder &gt; Setup Wizard</strong> to copy a supplied presentation or connect your own Canvas. Begin with <a href="../getting-started/#quick-start">Quick Start</a>; <a href="../setup-wizard/">Chapter 3 — Setup Wizard</a> explains the current steps, outputs and saving. Couch-owned focus and navigation are built in.</p>
 <h2 id="supplied-lobby-presentations">Supplied lobby presentations<a class="headerlink" href="#supplied-lobby-presentations" title="Permanent link">&para;</a></h2>
 <p><strong>Create New Lobby</strong> offers Individual Panels, Shared Stage and Character Carousel. Each has four authored visual slots; the Wizard disables unused slots for a smaller capacity. They use the same character-selection and shared Start services. Framework capacity is described in <a href="../introduction/#player-scope">Player scope</a>; Existing Canvas supports your own additional roots.</p>
 <p>The copied scene/prefab belongs to your game. In Prefab Mode, edit anchors, positions, fonts, sprites, backgrounds and decorative behavior. Keep the functional binding references or assign your replacements. Use Prefab Variants where helpful. Keep your copy outside supplied paths so updates cannot replace your design.</p>
@@ -1247,7 +1247,7 @@
 <p>Under <strong>Optional authored presentation</strong>, you may assign portrait/accent Images, focused/confirmed/previous/next character labels, identity/device/Ready labels, and Ready / Not Ready state roots. Optional previous/next labels are for custom presentations; the supplied carousel does not need them. Leave unused targets empty. Use one text implementation per role; TMP labels need an authored font.</p>
 <p><strong>Suggest unique components in this root</strong> only proposes references with exactly one candidate. It does not choose among multiple Buttons or RawImages. Review every suggestion and all required roots before applying.</p>
 <h2 id="input-and-navigation-wiring">Input and navigation wiring<a class="headerlink" href="#input-and-navigation-wiring" title="Permanent link">&para;</a></h2>
-<p>The Wizard adds/reuses nonvisual services and one independent input/focus/preview context per configured player. Each has its own MultiplayerEventSystem, InputSystemUIInputModule, SmartFocusManager, SmartInputModeDetector and SmartFocusScope. The authored player root defines the player's UI boundary; the shared Start router is intentionally shared.</p>
+<p>The Wizard adds/reuses nonvisual services and one independent input/focus/preview context per configured player. Each has its own MultiplayerEventSystem, InputSystemUIInputModule, PlayerFocusManager, PlayerUiInputModeDetector and PlayerFocusScope. The authored player root defines the player's UI boundary; the shared Start router is intentionally shared.</p>
 <p>Advanced fields allow existing per-player EventSystems and preview hosts. Leave them empty to create missing components. Do not share the same EventSystem or input module between players. Keep each EventSystem with its input module in the saved lobby scene; its playerRoot must match that player's root. The Wizard reuses already-bound contexts on rerun.</p>
 <p><a href="../getting-started/#default-lobby-controls">Default lobby controls</a> remain separate from gameplay input. Each player browses/confirms independently. Focused character previews and the committed selected Character ID are separate: browsing or moving UI focus does not itself commit a selection or clear Ready. Confirm commits the selected ID and sets Ready. Scene-local Ready resets when the lobby is reconstructed; intentional Leave clears the session's selection.</p>
 <p>There is one shared Start Game action. Every joined session must be Ready and have available input; a reserved disconnected session blocks Start. Empty seats do not count. Start occurs only after an eligible player's submit, not automatically when the last player becomes Ready.</p>

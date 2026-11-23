@@ -6,11 +6,11 @@
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width,initial-scale=1">
       
-        <meta name="description" content="Couch Co-op Builder 1.0.0 user manual for Unity 6.3 LTS.">
+        <meta name="description" content="Couch Co-op Builder 1.0.1 user manual for Unity 6.3 LTS.">
       
       
       
-        <link rel="canonical" href="https://levelargento.com/docs/couch-coop-builder/included-smart-ui/">
+        <link rel="canonical" href="https://levelargento.com/docs/couch-coop-builder/focus-and-navigation/">
       
       
         <link rel="prev" href="../split-screen-playgrounds/">
@@ -24,7 +24,7 @@
     
     
       
-        <title>Included Smart UI - Couch Co-op Builder</title>
+        <title>Built-in Focus and Navigation - Couch Co-op Builder</title>
       
     
     
@@ -62,7 +62,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#included-smart-ui-focus-navigation" class="md-skip">
+        <a href="#built-in-focus-and-navigation" class="md-skip">
           Skip to content
         </a>
       
@@ -97,7 +97,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Included Smart UI
+              Built-in Focus and Navigation
             
           </span>
         </div>
@@ -852,7 +852,7 @@
   
   
   <span class="md-ellipsis">
-    Smart UI
+    UI Focus and Navigation
     
   </span>
   
@@ -863,7 +863,7 @@
         <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_7_label" aria-expanded="true">
           <label class="md-nav__title" for="__nav_7">
             <span class="md-nav__icon md-icon"></span>
-            Smart UI
+            UI Focus and Navigation
           </label>
           <ul class="md-nav__list" data-md-scrollfix>
             
@@ -888,7 +888,7 @@
   
   
   <span class="md-ellipsis">
-    Included Smart UI
+    Built-in Focus and Navigation
     
   </span>
   
@@ -901,7 +901,7 @@
   
   
   <span class="md-ellipsis">
-    Included Smart UI
+    Built-in Focus and Navigation
     
   </span>
   
@@ -924,9 +924,27 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#manual-and-components" class="md-nav__link">
+  <a href="#player-owned-focus" class="md-nav__link">
     <span class="md-ellipsis">
-      Manual and components
+      Player-owned focus
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#modals-and-input-modes" class="md-nav__link">
+    <span class="md-ellipsis">
+      Modals and input modes
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#navigation-groups-and-overrides" class="md-nav__link">
+    <span class="md-ellipsis">
+      Navigation groups and overrides
     </span>
   </a>
   
@@ -942,9 +960,9 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#owning-both-products-and-updates" class="md-nav__link">
+  <a href="#installation-and-updates" class="md-nav__link">
     <span class="md-ellipsis">
-      Owning both products and updates
+      Installation and updates
     </span>
   </a>
   
@@ -1112,9 +1130,27 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#manual-and-components" class="md-nav__link">
+  <a href="#player-owned-focus" class="md-nav__link">
     <span class="md-ellipsis">
-      Manual and components
+      Player-owned focus
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#modals-and-input-modes" class="md-nav__link">
+    <span class="md-ellipsis">
+      Modals and input modes
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#navigation-groups-and-overrides" class="md-nav__link">
+    <span class="md-ellipsis">
+      Navigation groups and overrides
     </span>
   </a>
   
@@ -1130,9 +1166,9 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#owning-both-products-and-updates" class="md-nav__link">
+  <a href="#installation-and-updates" class="md-nav__link">
     <span class="md-ellipsis">
-      Owning both products and updates
+      Installation and updates
     </span>
   </a>
   
@@ -1161,40 +1197,20 @@
 
 
 
-<h1 id="included-smart-ui-focus-navigation">Included Smart UI Focus &amp; Navigation<a class="headerlink" href="#included-smart-ui-focus-navigation" title="Permanent link">&para;</a></h1>
-<p>Smart UI Focus &amp; Navigation is <strong>included</strong> with Couch Co-op Builder: runtime, inspectors, customer documentation and examples. No separate purchase or installation is required. It is also sold independently by LevelArgento. Begin with <a href="../getting-started/#quick-start">Quick Start</a> for multiplayer setup; Smart UI provides focus/navigation rather than Couch player/session ownership.</p>
-<p>It supplies independent focus, focus recovery, directional navigation and focus scopes/modals for authored UI. Couch integrates independent local-multiplayer UI contexts on top of this module.</p>
-<h2 id="manual-and-components">Manual and components<a class="headerlink" href="#manual-and-components" title="Permanent link">&para;</a></h2>
-<p>Use the offline PDF manual (<code>Assets/LevelArgento/SmartUINavigation/Documentation/Smart UI Focus &amp; Navigation - Documentation.pdf</code>) or documentation entry (<code>Assets/LevelArgento/SmartUINavigation/Documentation/README.txt</code>) for SmartFocusManager, SmartFocusScope, SmartInputModeDetector, modal focus, navigation and layout constraints. Unity UI and Input System are required Unity packages. The manual's import instructions also apply when this module arrives as part of Couch Co-op Builder.</p>
-<p>Couch's <a href="../lobby-and-existing-canvas/#existing-canvas">Existing Canvas workflow</a> creates/reuses independent player focus contexts and uses one shared Start router. Keep player EventSystems and input modules separate; use the manual for advanced focus behavior.</p>
+<h1 id="built-in-focus-and-navigation">Built-in Focus and Navigation<a class="headerlink" href="#built-in-focus-and-navigation" title="Permanent link">&para;</a></h1>
+<p>Couch Co-op Builder contains its own focus and navigation implementation for the Setup Wizard, supplied lobbies, Rocket Rumble menus and Split Screen Playgrounds. It works without another LevelArgento product. The separate Smart UI Focus &amp; Navigation product is <strong>not included</strong> and is not required.</p>
+<h2 id="player-owned-focus">Player-owned focus<a class="headerlink" href="#player-owned-focus" title="Permanent link">&para;</a></h2>
+<p><code>PlayerFocusManager</code> controls one assigned EventSystem. In a multiplayer panel it uses that player's MultiplayerEventSystem and input module; it never substitutes another player's global EventSystem. The Wizard creates and connects these components automatically in the <a href="../lobby-and-existing-canvas/#existing-canvas">Existing Canvas workflow</a>.</p>
+<p><code>PlayerFocusScope</code> defines the selectable region. On scope assignment the manager selects a valid remembered control, the default selection, or a valid descendant, in that order. Disabled, inactive, non-interactable and out-of-scope controls cannot receive focus. Clear remembered selection when opening a panel that should always start on its default control.</p>
+<h2 id="modals-and-input-modes">Modals and input modes<a class="headerlink" href="#modals-and-input-modes" title="Permanent link">&para;</a></h2>
+<p>The sample menus push a modal scope for binding capture and reset confirmation. Closing a modal returns to the prior scope/control when still valid, or recovers a valid selection. Destroyed objects and unavailable EventSystems are tolerated during teardown.</p>
+<p><code>PlayerUiInputModeDetector</code> observes only the actions assigned to its owned InputSystemUIInputModule. Keyboard/controller interaction permits automatic focus recovery. Pointer mode avoids immediately reclaiming a mouse-cleared selection. It does not create input users, pair devices, enable other players' actions or change Join/Leave behavior.</p>
+<h2 id="navigation-groups-and-overrides">Navigation groups and overrides<a class="headerlink" href="#navigation-groups-and-overrides" title="Permanent link">&para;</a></h2>
+<p><code>UiNavigationGroup</code> generates explicit directional links for the small authored Playground panels. It excludes inactive/non-interactable controls and controls belonging to a nested group. <code>UiNavigationOverride</code> can direct an edge to a particular valid control or intentionally leave it unlinked. Existing explicit links elsewhere, including the per-player lobby and Rocket Rumble menu routing, remain authored by those workflows.</p>
 <h2 id="samples">Samples<a class="headerlink" href="#samples" title="Permanent link">&para;</a></h2>
-<p>Open a scene and enter Play Mode. These examples demonstrate Smart UI itself; they do not create Couch player sessions or a multiplayer lobby.</p>
-<table>
-<thead>
-<tr>
-<th>Open</th>
-<th>Purpose</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>QuickStart (<code>Assets/LevelArgento/SmartUINavigation/Samples/QuickStart/QuickStart.unity</code>)</td>
-<td>Basic automatic focus, navigation and pointer switching</td>
-</tr>
-<tr>
-<td>FocusManagementSample (<code>Assets/LevelArgento/SmartUINavigation/Samples/FocusManagement/FocusManagementSample.unity</code>)</td>
-<td>Focus scopes, restoration and modal behavior</td>
-</tr>
-<tr>
-<td>NavigationShowcase (<code>Assets/LevelArgento/SmartUINavigation/Samples/NavigationShowcase/NavigationShowcase.unity</code>)</td>
-<td>Navigation choices and authored UI layouts</td>
-</tr>
-</tbody>
-</table>
-<h2 id="owning-both-products-and-updates">Owning both products and updates<a class="headerlink" href="#owning-both-products-and-updates" title="Permanent link">&para;</a></h2>
-<p>Keep one canonical module at <code>Assets/LevelArgento/SmartUINavigation/</code>; do not duplicate it in another folder. Both products use this shared location. Back up local edits before updating either product, because importing another revision can replace files while preserving serialized references. The included module does not grant a separate Asset Store download entitlement.</p>
-<p>Couch can warn about an older, missing, mixed or unvalidated Smart UI revision. Use <strong>Tools &gt; LevelArgento &gt; Couch Co-op Builder &gt; Validate Smart UI Compatibility</strong> to check manually. A supported installation is silent; the check never repairs files. If warned, restore a complete revision supported by your Couch release by re-importing/updating Couch or using a publisher-validated Smart UI revision. A version label alone is not proof of compatibility.</p>
-<p><a href="../../smart-ui-focus-navigation/">Read the Smart UI online documentation</a>.</p>
+<p>Study <a href="../lobby-and-existing-canvas/">lobby templates and Existing Canvas</a>, <a href="../rocket-rumble-shared/">Rocket Rumble menus</a>, and <a href="../split-screen-playgrounds/">Split Screen Playgrounds</a>. The built-in module is product-specific; it does not include the standalone product's inspectors, layout constraints, showcases, documentation or branding.</p>
+<h2 id="installation-and-updates">Installation and updates<a class="headerlink" href="#installation-and-updates" title="Permanent link">&para;</a></h2>
+<p>The module lives under <code>Assets/LevelArgento/CouchCoopBuilder/Runtime/UI/FocusNavigation/</code> and uses the Couch-owned <code>LevelArgento.CouchCoopBuilder.UI</code> assembly. Keep it with Couch. No standalone-product installation or compatibility fingerprint is needed. Back up customer-authored scenes and scripts before updating Couch.</p>
 
 
 

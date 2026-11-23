@@ -6,7 +6,7 @@
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width,initial-scale=1">
       
-        <meta name="description" content="Couch Co-op Builder 1.0.0 user manual for Unity 6.3 LTS.">
+        <meta name="description" content="Couch Co-op Builder 1.0.1 user manual for Unity 6.3 LTS.">
       
       
       
@@ -16,7 +16,7 @@
         <link rel="prev" href="../rocket-rumble-3d/">
       
       
-        <link rel="next" href="../included-smart-ui/">
+        <link rel="next" href="../focus-and-navigation/">
       
       
       <link rel="icon" href="../assets/branding/favicon.png">
@@ -930,7 +930,7 @@
   
   
   <span class="md-ellipsis">
-    Smart UI
+    UI Focus and Navigation
     
   </span>
   
@@ -941,7 +941,7 @@
         <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_7_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_7">
             <span class="md-nav__icon md-icon"></span>
-            Smart UI
+            UI Focus and Navigation
           </label>
           <ul class="md-nav__list" data-md-scrollfix>
             
@@ -952,12 +952,12 @@
   
   
     <li class="md-nav__item">
-      <a href="../included-smart-ui/" class="md-nav__link">
+      <a href="../focus-and-navigation/" class="md-nav__link">
         
   
   
   <span class="md-ellipsis">
-    Included Smart UI
+    Built-in Focus and Navigation
     
   </span>
   
@@ -1180,7 +1180,7 @@
 
 
 <h1 id="split-screen-playgrounds">Split Screen Playgrounds<a class="headerlink" href="#split-screen-playgrounds" title="Permanent link">&para;</a></h1>
-<p>These <strong>1–8-player</strong> camera examples complement <a href="../getting-started/#quick-start">Quick Start</a>. Open SplitScreenPlayground3D (<code>Assets/LevelArgento/CouchCoopBuilder/Samples/SplitScreenPlaygrounds/Scenes/SplitScreenPlayground3D.unity</code>) or SplitScreenPlayground2D (<code>Assets/LevelArgento/CouchCoopBuilder/Samples/SplitScreenPlaygrounds/Scenes/SplitScreenPlayground2D.unity</code>) and enter Play Mode. These independent scenes use URP and the installed Input System/Smart UI Focus &amp; Navigation integration. Their lightweight join screen needs no separate lobby scene, Rocket Rumble content or Cinemachine. They are not automatically registered in the project's scene configuration; add the chosen scene to the scene list used by your active Build Profile when building a sample.</p>
+<p>These <strong>1–8-player</strong> camera examples complement <a href="../getting-started/#quick-start">Quick Start</a>. Open SplitScreenPlayground3D (<code>Assets/LevelArgento/CouchCoopBuilder/Samples/SplitScreenPlaygrounds/Scenes/SplitScreenPlayground3D.unity</code>) or SplitScreenPlayground2D (<code>Assets/LevelArgento/CouchCoopBuilder/Samples/SplitScreenPlaygrounds/Scenes/SplitScreenPlayground2D.unity</code>) and enter Play Mode. These independent scenes use URP and the installed Input System and built-in Couch UI navigation. Their lightweight join screen needs no separate lobby scene, Rocket Rumble content or Cinemachine. They are not automatically registered in the project's scene configuration; add the chosen scene to the scene list used by your active Build Profile when building a sample.</p>
 <h2 id="try-it">Try it<a class="headerlink" href="#try-it" title="Permanent link">&para;</a></h2>
 <ol>
 <li>Join with <strong>Q</strong> (Keyboard A), <strong>P</strong> (Keyboard B), or a controller's <strong>Start</strong>. The authored 4x2 grid shows eight equally sized P1-P8 cards with waiting/joined state and input source. Up to eight real input sources may join; the two keyboard roles share one physical keyboard. There is no Ready requirement.</li>
@@ -1196,7 +1196,7 @@
 <ul>
 <li><strong>PlaygroundSessionProvider</strong> implements public <code>IGameplayPlayerProvider</code> and supplies a simple authored prefab per context to <code>GameplayPlayerSetup</code>. It owns representation creation/destruction, eight spawn transforms, participant collision exclusions and palette. Sessions, InputUsers and input actions are provided by the framework.</li>
 <li><strong>PlaygroundJoinPanel</strong> reads existing contexts for eight authored cards and invokes the authored Enter button from each player's owned Confirm action. It creates no sessions/devices/InputUsers. The join panel is the only navigation owner while visible; settings yield until entry. Spawns use two clear 3D plaza rows and eight non-overlapping 2D floor positions.</li>
-<li><strong>PlaygroundCameraSettings</strong> calls public <code>GameplayCameraManager.SetSplitScreenEnabled</code>, <code>SetTwoPlayerLayout</code> and <code>SetThreePlayerLayout</code>. One settings router reads the existing owned menu actions. Smart UI Focus &amp; Navigation manages focus recovery; the UI module handles pointers only, with no second move/submit/cancel router. All visible controls and HUD are saved in the scenes.</li>
+<li><strong>PlaygroundCameraSettings</strong> calls public <code>GameplayCameraManager.SetSplitScreenEnabled</code>, <code>SetTwoPlayerLayout</code> and <code>SetThreePlayerLayout</code>. One settings router reads the existing owned menu actions. Couch focus and navigation manages focus recovery; the UI module handles pointers only, with no second move/submit/cancel router. All visible controls and HUD are saved in the scenes.</li>
 <li>The manager owns assignment, camera lifetime, active viewport packing and the single AudioListener policy. Both scenes use its camera-prefab source and the same default layout provider. Active <code>PlayerIndex</code> values pack in ascending order even when there are gaps.</li>
 <li><strong>PlaygroundFollowCamera3D</strong> reads its public <code>GameplayCameraAssignment.Representation</code>, follows smoothly with a fixed 45-degree heading, and uses a little more distance for narrow viewports. Its perspective prefab is independent of player facing. Shared 3D uses a fixed authored high-angle overview that covers the usable playground.</li>
 <li><strong>PlaygroundCamera2D</strong> supplies orthographic behavior. Individual cameras follow the assigned representation; the shared camera frames the active group using the public setup lookup. Follow size, maximum shared size and simple level bounds are inspector settings. Extreme separation zooms the shared view out rather than tethering players.</li>
@@ -1267,13 +1267,13 @@
         
         
           
-          <a href="../included-smart-ui/" class="md-footer__link md-footer__link--next" aria-label="Next: Included Smart UI">
+          <a href="../focus-and-navigation/" class="md-footer__link md-footer__link--next" aria-label="Next: Built-in Focus and Navigation">
             <div class="md-footer__title">
               <span class="md-footer__direction">
                 Next
               </span>
               <div class="md-ellipsis">
-                Included Smart UI
+                Built-in Focus and Navigation
               </div>
             </div>
             <div class="md-footer__button md-icon">

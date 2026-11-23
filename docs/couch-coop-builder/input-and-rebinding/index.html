@@ -6,7 +6,7 @@
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width,initial-scale=1">
       
-        <meta name="description" content="Couch Co-op Builder 1.0.0 user manual for Unity 6.3 LTS.">
+        <meta name="description" content="Couch Co-op Builder 1.0.1 user manual for Unity 6.3 LTS.">
       
       
       
@@ -948,7 +948,7 @@
   
   
   <span class="md-ellipsis">
-    Smart UI
+    UI Focus and Navigation
     
   </span>
   
@@ -959,7 +959,7 @@
         <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_7_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_7">
             <span class="md-nav__icon md-icon"></span>
-            Smart UI
+            UI Focus and Navigation
           </label>
           <ul class="md-nav__list" data-md-scrollfix>
             
@@ -970,12 +970,12 @@
   
   
     <li class="md-nav__item">
-      <a href="../included-smart-ui/" class="md-nav__link">
+      <a href="../focus-and-navigation/" class="md-nav__link">
         
   
   
   <span class="md-ellipsis">
-    Included Smart UI
+    Built-in Focus and Navigation
     
   </span>
   
@@ -1219,7 +1219,7 @@
 <p>See <a href="../getting-started/#quick-start">Quick Start</a> for lobby setup and <a href="../gameplay-input/#gameplay-input-binding">Gameplay Integration</a> for owned action binding.</p>
 <p>This opt-in runtime API belongs to Couch Co-op Builder. A game such as Rocket
 Rumble can build its settings UI on top of it. The framework does not create a
-controls menu, change existing Join/Leave listeners, or rebind Smart UI Focus &amp; Navigation.
+controls menu, change existing Join/Leave listeners, or rebind the fixed UI navigation actions.
 It changes the owned gameplay action clones exposed by <code>GameplayActionInput</code>.
 Source InputActionAssets and GenericControllerProfile assets are not rewritten.</p>
 <h2 id="identity-and-shared-profiles">Identity and shared profiles<a class="headerlink" href="#identity-and-shared-profiles" title="Permanent link">&para;</a></h2>
@@ -1338,6 +1338,7 @@ when its device is absent. Connected joysticks must match that profile.
 <code>SharedJoystickInput.ResolveProfile</code> exposes the same strict discovery scoring
 and ambiguity result without enabling join listeners.</p>
 <h2 id="capture-paths-and-conflicts">Capture, paths and conflicts<a class="headerlink" href="#capture-paths-and-conflicts" title="Permanent link">&para;</a></h2>
+<p>The Rocket Rumble sample settings menu reserves Escape for keyboard capture only. Controller captures use the visible Cancel button or the ten-second timeout, leaving their ordinary UI Back/Cancel controls available as gameplay candidates. A controller-only user can wait for the timeout to abort without choosing a binding. This sample policy does not change the framework's optional cancelControl contract below.</p>
 <div class="highlight"><pre><span></span><code><span class="kt">var</span><span class="w"> </span><span class="n">capture</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">playerProfile</span><span class="p">.</span><span class="n">BeginInteractiveRebind</span><span class="p">(</span><span class="s">"PrimaryAction"</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">);</span>
 <span class="n">capture</span><span class="p">.</span><span class="n">Finished</span><span class="w"> </span><span class="o">+=</span><span class="w"> </span><span class="n">result</span><span class="w"> </span><span class="o">=&gt;</span>
 <span class="p">{</span>
